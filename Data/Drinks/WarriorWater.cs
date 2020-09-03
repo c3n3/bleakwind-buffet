@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-/*
- * Author: Caden Churchman
- * Class name: WarriorWater.cs
- * Purpose: Represents water.
- */
 namespace BleakwindBuffet.Data.Drinks
 {
+    /*
+     * Author: Caden Churchman
+     * Class name: WarriorWater.cs
+     * Purpose: Represents water.
+     */
     public class WarriorWater
     {
         private bool ice = true;

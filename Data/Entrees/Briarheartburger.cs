@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-/*
- * Author: Caden Churchman
- * Class name: BriarheartBurger.cs
- * Purpose: Represents the burger.
- */
 namespace BleakwindBuffet.Data.Entrees
 {
+    /*
+     * Author: Caden Churchman
+     * Class name: BriarheartBurger.cs
+     * Purpose: Represents the burger.
+     */
     public class Briarheartburger
     {
         /// <summary>
@@ -39,7 +39,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Gets instructions.
         /// </summary>
-        public List<string> SpecialInstrucitons {
+        public List<string> SpecialInstructions {
             get
             {
                 var l = new List<string> { };

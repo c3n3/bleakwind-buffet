@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-/*
- * Author: Caden Churchman
- * Class name: PhillyPoacher.cs
- * Purpose: Represents the philly.
- */
 namespace BleakwindBuffet.Data.Entrees
 {
+    /*
+     * Author: Caden Churchman
+     * Class name: PhillyPoacher.cs
+     * Purpose: Represents the philly.
+     */
     public class PhillyPoacher
     {
         /// <summary>
@@ -29,7 +29,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Gets instructions.
         /// </summary>
-        public List<string> SpecialInstrucitons
+        public List<string> SpecialInstructions
         {
             get
             {

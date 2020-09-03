@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-/*
- * Author: Caden Churchman
- * Class name: GardenOmelette.cs
- * Purpose: Represents the omelette.
- */
 namespace BleakwindBuffet.Data.Entrees
 {
+    /*
+     * Author: Caden Churchman
+     * Class name: GardenOmelette.cs
+     * Purpose: Represents the omelette.
+     */
     public class GardenOrcOmelette
     {
         /// <summary>
@@ -34,7 +34,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Gets instructions.
         /// </summary>
-        public List<string> SpecialInstrucitons
+        public List<string> SpecialInstructions
         {
             get
             {

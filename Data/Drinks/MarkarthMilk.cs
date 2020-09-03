@@ -3,16 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-/*
- * Author: Caden Churchman
- * Class name: MarkarthMilk.cs
- * Purpose: Represents the milk.
- */
 namespace BleakwindBuffet.Data.Drinks
 {
+    /*
+     * Author: Caden Churchman
+     * Class name: MarkarthMilk.cs
+     * Purpose: Represents the milk.
+     */
     public class MarkarthMilk
     {
-        private bool ice = true;
+        private bool ice = false;
         private Size size = Size.Small;
 
         /// <summary>

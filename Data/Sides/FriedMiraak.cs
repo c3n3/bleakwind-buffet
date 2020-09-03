@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-/*
- * Author: Caden Churchman
- * Class name: FriedMiraak.cs
- * Purpose: Represents the miraak.
- */
-namespace Data.Sides
+namespace BleakwindBuffet.Data.Sides
 {
+    /*
+     * Author: Caden Churchman
+     * Class name: FriedMiraak.cs
+     * Purpose: Represents the miraak.
+     */
     public class FriedMiraak
     {
         /// <summary>

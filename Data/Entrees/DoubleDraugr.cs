@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-/*
- * Author: Caden Churchman
- * Class name: DoubleDraugr.cs
- * Purpose: Represents the double burger.
- */
 namespace BleakwindBuffet.Data.Entrees
 {
+    /*
+     * Author: Caden Churchman
+     * Class name: DoubleDraugr.cs
+     * Purpose: Represents the double burger.
+     */
     public class DoubleDraugr
     {
         /// <summary>
@@ -54,7 +54,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Gets instructions.
         /// </summary>
-        public List<string> SpecialInstrucitons
+        public List<string> SpecialInstructions
         {
             get
             {

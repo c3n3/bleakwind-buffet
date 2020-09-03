@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-/*
- * Author: Caden Churchman
- * Class name: SmokehouseSkeleton.cs
- * Purpose: Represents the breakfast item.
- */
 namespace BleakwindBuffet.Data.Entrees
 {
+    /*
+     * Author: Caden Churchman
+     * Class name: SmokehouseSkeleton.cs
+     * Purpose: Represents the breakfast item.
+     */
     public class SmokehouseSkeleton
     {
         /// <summary>
@@ -34,7 +34,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Gets instructions.
         /// </summary>
-        public List<string> SpecialInstrucitons
+        public List<string> SpecialInstructions
         {
             get
             {

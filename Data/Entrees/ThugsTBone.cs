@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using System.Text;
 
-/*
- * Author: Caden Churchman
- * Class name: ThugsTBone.cs
- * Purpose: Represents the steak.
- */
 namespace BleakwindBuffet.Data.Entrees
 {
+    /*
+     * Author: Caden Churchman
+     * Class name: ThugsTBone.cs
+     * Purpose: Represents the steak.
+     */
     public class ThugsTBone
     {
         /// <summary>
         /// Gets the instructions.
         /// </summary>
-        public List<string> SpecialInstrucitons => new List<string> { };
+        public List<string> SpecialInstructions => new List<string> { };
 
         /// <summary>
         /// The pirce.

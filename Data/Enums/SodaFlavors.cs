@@ -7,11 +7,11 @@
 namespace BleakwindBuffet.Data.Enums
 {
     /// <summary>
-    /// Provides soda flavors
+    /// Provides soda flavors.
     /// </summary>
     public enum SodaFlavor
     {
-        BlackBerry,
+        Blackberry,
         Cherry,
         Grapefruit,
         Lemon,

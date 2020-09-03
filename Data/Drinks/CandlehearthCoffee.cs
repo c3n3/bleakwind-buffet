@@ -3,16 +3,19 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-/*
- * Author: Caden Churchman
- * Class name: CandlehearthCoffee.cs
- * Purpose: Represents the coffee.
- */
 namespace BleakwindBuffet.Data.Drinks
 {
+    /*
+     * Author: Caden Churchman
+     * Class name: CandlehearthCoffee.cs
+     * Purpose: Represents the coffee.
+     */
     public class CandlehearthCoffee
     {
-        private bool ice = true;
+        /// <summary>
+        /// Private backing vars.
+        /// </summary>
+        private bool ice = false;
         private bool decaf = false;
         private bool roomForCream = false;
         private Size size = Size.Small;
@@ -83,7 +86,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <returns></returns>
         public override string ToString()
         {
-            return $"{Size} Candlehearth Coffee";
+            return $"{Size}{(Decaf ? " Decaf" : "")} Candlehearth Coffee";
         }
     }
 }

@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-/*
- * Author: Caden Churchman
- * Class name: DragonBornWaffleFries.cs
- * Purpose: Represents the fries.
- */
 namespace BleakwindBuffet.Data.Sides
 {
+    /*
+     * Author: Caden Churchman
+     * Class name: DragonBornWaffleFries.cs
+     * Purpose: Represents the fries.
+     */
     public class DragonbornWaffleFries
     {
         /// <summary>

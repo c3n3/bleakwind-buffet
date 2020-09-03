@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-/*
- * Author: Caden Churchman
- * Class name: VokunSalads.cs
- * Purpose: Represents the salad.
- */
 namespace BleakwindBuffet.Data.Sides
 {
+    /*
+     * Author: Caden Churchman
+     * Class name: VokunSalads.cs
+     * Purpose: Represents the salad.
+     */
     public class VokunSalad
     {
         /// <summary>

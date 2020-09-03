@@ -2,13 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-/*
- * Author: Caden Churchman
- * Class name: madOtarGrits.cs
- * Purpose: Represents the grits.
- */
+
 namespace BleakwindBuffet.Data.Sides
 {
+    /*
+     * Author: Caden Churchman
+     * Class name: madOtarGrits.cs
+     * Purpose: Represents the grits.
+     */
     public class MadOtarGrits
     {
         /// <summary>

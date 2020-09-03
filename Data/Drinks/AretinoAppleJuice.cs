@@ -3,16 +3,17 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-/*
- * Author: Caden Churchman
- * Class name: AretinoAppleJuice.cs
- * Purpose: Represents the juice.
- */
+
 namespace BleakwindBuffet.Data.Drinks
 {
+    /*
+     * Author: Caden Churchman
+     * Class name: AretinoAppleJuice.cs
+     * Purpose: Represents the juice.
+     */
     public class AretinoAppleJuice
     {
-        private bool ice = true;
+        private bool ice = false;
         private Size size = Size.Small;
 
         /// <summary>

@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-/*
- * Author: Caden Churchman
- * Class name: ThalmorTriple.cs
- * Purpose: Represents the triple burger.
- */
 namespace BleakwindBuffet.Data.Entrees
 {
+    /*
+     * Author: Caden Churchman
+     * Class name: ThalmorTriple.cs
+     * Purpose: Represents the triple burger.
+     */
     public class ThalmorTriple
     {
         /// <summary>
@@ -64,7 +64,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Gets instructions.
         /// </summary>
-        public List<string> SpecialInstrucitons
+        public List<string> SpecialInstructions
         {
             get
             {
