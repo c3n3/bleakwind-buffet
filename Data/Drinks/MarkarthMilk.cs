@@ -10,7 +10,7 @@ using System.Text;
  */
 namespace BleakwindBuffet.Data.Drinks
 {
-    class MarkarthMilk
+    public class MarkarthMilk
     {
         private bool ice = true;
         private Size size = Size.Small;

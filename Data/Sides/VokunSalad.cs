@@ -10,7 +10,7 @@ using System.Text;
  */
 namespace BleakwindBuffet.Data.Sides
 {
-    class VokunSalad
+    public class VokunSalad
     {
         /// <summary>
         /// The size.

@@ -10,7 +10,7 @@ using System.Text;
  */
 namespace BleakwindBuffet.Data.Drinks
 {
-    class SailorSoda
+    public class SailorSoda
     {
         private bool ice = true;
         private SodaFlavor flavor = SodaFlavor.Cherry;

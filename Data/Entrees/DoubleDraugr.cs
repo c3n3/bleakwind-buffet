@@ -9,7 +9,7 @@ using System.Text;
  */
 namespace BleakwindBuffet.Data.Entrees
 {
-    class DoubleDraugr
+    public class DoubleDraugr
     {
         /// <summary>
         /// Gets if bun.

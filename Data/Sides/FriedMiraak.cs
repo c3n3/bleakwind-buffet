@@ -10,7 +10,7 @@ using System.Text;
  */
 namespace Data.Sides
 {
-    class FriedMiraak
+    public class FriedMiraak
     {
         /// <summary>
         /// The size.

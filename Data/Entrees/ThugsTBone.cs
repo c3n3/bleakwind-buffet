@@ -9,7 +9,7 @@ using System.Text;
  */
 namespace BleakwindBuffet.Data.Entrees
 {
-    class ThugsTBone
+    public class ThugsTBone
     {
         /// <summary>
         /// Gets the instructions.

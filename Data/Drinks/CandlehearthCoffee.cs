@@ -10,7 +10,7 @@ using System.Text;
  */
 namespace BleakwindBuffet.Data.Drinks
 {
-    class CandlehearthCoffee
+    public class CandlehearthCoffee
     {
         private bool ice = true;
         private bool decaf = false;

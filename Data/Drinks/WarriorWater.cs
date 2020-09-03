@@ -10,7 +10,7 @@ using System.Text;
  */
 namespace BleakwindBuffet.Data.Drinks
 {
-    class WarriorWater
+    public class WarriorWater
     {
         private bool ice = true;
         private bool lemon = false;
