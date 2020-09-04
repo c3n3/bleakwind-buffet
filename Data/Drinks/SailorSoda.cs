@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace BleakwindBuffet.Data.Drinks
 {
     /*
@@ -42,12 +43,12 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Gets the calories.
         /// </summary>
-        public uint Calories => (uint)((Size == Size.Small) ? 56 : (Size == Size.Medium) ? 72 : 93);
+        public uint Calories => (uint)((Size == Size.Small) ? 117 : (Size == Size.Medium) ? 153 : 205);
 
         /// <summary>
         /// Gets special instructions.
         /// </summary>
-        public List<string> SpecialInstructions => (Ice) ? new List<string> { "Hold ice"} : new List<string> { };
+        public List<string> SpecialInstructions => (!Ice) ? new List<string> {"Hold ice"} : new List<string> { };
 
         /// <summary>
         /// Gets size.

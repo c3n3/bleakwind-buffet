@@ -44,12 +44,12 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// The price.
         /// </summary>
-        public double Price => 5.62;
+        public double Price => 7.23;
 
         /// <summary>
         /// The calories.
         /// </summary>
-        public uint Calories => 602;
+        public uint Calories => 784;
 
         /// <summary>
         /// To string method

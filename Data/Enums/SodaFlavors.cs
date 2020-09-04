@@ -4,6 +4,7 @@
  * Purpose: Class used to represent flavors through an enumeration
  */
 
+
 namespace BleakwindBuffet.Data.Enums
 {
     /// <summary>

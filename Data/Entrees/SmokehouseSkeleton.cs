@@ -39,7 +39,7 @@ namespace BleakwindBuffet.Data.Entrees
             get
             {
                 var l = new List<string> { };
-                if (!Egg) l.Add("Hold egg");
+                if (!Egg) l.Add("Hold eggs");
                 if (!HashBrowns) l.Add("Hold hash browns");
                 if (!Pancake) l.Add("Hold pancake");
                 if (!SausageLink) l.Add("Hold sausage");

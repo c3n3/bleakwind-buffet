@@ -52,7 +52,7 @@ namespace BleakwindBuffet.Data.Drinks
             get
             {
                 var l = new List<string> { };
-                if (Ice) l.Add("Add ice");
+                if (!Ice) l.Add("Hold ice");
                 if (Lemon) l.Add("Add lemon");
                 return l;
             }
