@@ -75,7 +75,7 @@ namespace BleakwindBuffet.Data.Drinks
             {
                 var l = new List<string> { };
                 if (RoomForCream) l.Add("Add Cream");
-                if (Ice) l.Add("Add Ice");
+                if (Ice) l.Add("Add ice");
                 return l;
             }
         }
