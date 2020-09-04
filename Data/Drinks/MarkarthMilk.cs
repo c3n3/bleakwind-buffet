@@ -46,7 +46,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Gets any special instructions.
         /// </summary>
-        public List<string> SpecialInstructions => Ice ? new List<string> { "Add ice" } : new List<string> { };
+        public List<string> SpecialInstructions => Ice ? new List<string> { "Add Ice" } : new List<string> { };
 
         /// <summary>
         /// Gets the string.

@@ -9,7 +9,7 @@ namespace BleakwindBuffet.Data.Entrees
      * Class name: BriarheartBurger.cs
      * Purpose: Represents the burger.
      */
-    public class Briarheartburger
+    public class BriarheartBurger
     {
         /// <summary>
         /// Gets if bun.
@@ -45,11 +45,10 @@ namespace BleakwindBuffet.Data.Entrees
                 var l = new List<string> { };
                 if (!Ketchup) l.Add("Hold ketchup");
                 if (!Mustard) l.Add("Hold mustard");
-                if (!Pickle) l.Add("Hold Pickle");
-                if (!Ketchup) l.Add("Hold ketchup");
+                if (!Pickle) l.Add("Hold pickle");
+                if (!Bun) l.Add("Hold bun");
                 if (!Cheese) l.Add("Hold cheese");
                 return l;
-
             }
         }
 
