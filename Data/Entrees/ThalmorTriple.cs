@@ -1,14 +1,17 @@
-﻿using System;
+﻿/*
+* Author: Caden Churchman
+* Class name: ThalmorTriple.cs
+* Purpose: Represents the triple burger.
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    /*
-     * Author: Caden Churchman
-     * Class name: ThalmorTriple.cs
-     * Purpose: Represents the triple burger.
-     */
+    /// <summary>
+    /// Represents the triple burger.
+    /// </summary>
     public class ThalmorTriple
     {
         /// <summary>

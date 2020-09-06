@@ -1,14 +1,17 @@
-﻿using System;
+﻿/*
+* Author: Caden Churchman
+* Class name: DoubleDraugr.cs
+* Purpose: Represents the double burger.
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    /*
-     * Author: Caden Churchman
-     * Class name: DoubleDraugr.cs
-     * Purpose: Represents the double burger.
-     */
+    /// <summary>
+    /// Represents the double draugr menu item.
+    /// </summary>
     public class DoubleDraugr
     {
         /// <summary>

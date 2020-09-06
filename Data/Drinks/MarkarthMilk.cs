@@ -1,15 +1,18 @@
-﻿using BleakwindBuffet.Data.Enums;
+﻿/*
+* Author: Caden Churchman
+* Class name: MarkarthMilk.cs
+* Purpose: Represents the milk.
+*/
+using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    /*
-     * Author: Caden Churchman
-     * Class name: MarkarthMilk.cs
-     * Purpose: Represents the milk.
-     */
+    /// <summary>
+    /// Represents milk
+    /// </summary>
     public class MarkarthMilk
     {
         private bool ice = false;

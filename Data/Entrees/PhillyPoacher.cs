@@ -1,14 +1,17 @@
-﻿using System;
+﻿/*
+* Author: Caden Churchman
+* Class name: PhillyPoacher.cs
+* Purpose: Represents the philly.
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    /*
-     * Author: Caden Churchman
-     * Class name: PhillyPoacher.cs
-     * Purpose: Represents the philly.
-     */
+    /// <summary>
+    /// Represents the Philly sandwaich.
+    /// </summary>
     public class PhillyPoacher
     {
         /// <summary>

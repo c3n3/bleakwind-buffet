@@ -1,4 +1,9 @@
-﻿using BleakwindBuffet.Data.Enums;
+﻿/*
+* Author: Caden Churchman
+* Class name: AretinoAppleJuice.cs
+* Purpose: Represents the juice.
+*/
+using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -6,13 +11,14 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    /*
-     * Author: Caden Churchman
-     * Class name: AretinoAppleJuice.cs
-     * Purpose: Represents the juice.
-     */
+    /// <summary>
+    /// Represents apple juice
+    /// </summary>
     public class AretinoAppleJuice
     {
+        /// <summary>
+        /// Private vars
+        /// </summary>
         private bool ice = false;
         private Size size = Size.Small;
 

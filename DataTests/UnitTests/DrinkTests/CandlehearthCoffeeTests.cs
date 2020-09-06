@@ -1,12 +1,16 @@
 ﻿/*
  * Author: Zachery Brunner
+*Edited By Caden Churchman
  * Class: CandlehearthCoffeeTests.cs
  * Purpose: Test the CandlehearthCoffee.cs class in the Data library
  */
 using Xunit;
 
-using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Reflection.Emit;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -15,41 +19,63 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [Fact]
         public void ShouldNotIncludeIceByDefault()
         {
+            var a = new CandlehearthCoffee();
+            Assert.False(a.Ice);
         }
 
         [Fact]
         public void ShouldNotBeDecafByDefault()
         {
+            var a = new CandlehearthCoffee();
+            Assert.False(a.Decaf);
         }
 
         [Fact]
         public void ShouldNotHaveRoomForCreamByDefault()
         {
+            var a = new CandlehearthCoffee();
+            Assert.False(a.RoomForCream);
         }
 
         [Fact]
         public void ShouldBeSmallByDefault()
         {
+            var c = new CandlehearthCoffee();
+            Assert.Equal(Size.Small, c.Size);
         }
 
         [Fact]
         public void ShouldBeAbleToSetIce()
         {
+            var a = new CandlehearthCoffee();
+            a.Size = Size.Medium;
+            Assert.Equal(Size.Medium, a.Size);
         }
 
         [Fact]
         public void ShouldBeAbleToSetDecaf()
         {
+            var a = new CandlehearthCoffee();
+            a.Decaf = true;
+            Assert.True(a.Decaf);
         }
 
         [Fact]
         public void ShouldBeAbleToSetRoomForCream()
         {
+            var a = new CandlehearthCoffee();
+            a.RoomForCream = true;
+            Assert.True(a.RoomForCream);
         }
 
         [Fact]
         public void ShouldBeAbleToSetSize()
         {
+            var a = new CandlehearthCoffee();
+            a.Size = Size.Large;
+            Assert.Equal(Size.Large, a.Size);
+            a.Size = Size.Medium;
+            Assert.Equal(Size.Medium, a.Size);
         }
 
         [Theory]
@@ -58,6 +84,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(Size.Large, 1.75)]
         public void ShouldHaveCorrectPriceForSize(Size size, double price)
         {
+            var a = new CandlehearthCoffee();
+            a.Size = size;
+            Assert.Equal(price, a.Price);
         }
 
         [Theory]
@@ -66,6 +95,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(Size.Large, 20)]
         public void ShouldHaveCorrectCaloriesForSize(Size size, uint cal)
         {
+            var a = new CandlehearthCoffee();
+            a.Size = size;
+            Assert.Equal(cal, a.Calories);
         }
 
         [Theory]
@@ -75,6 +107,23 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(false, false)]
         public void ShouldHaveCorrectSpecialInstructions(bool includeIce, bool includeCream)
         {
+            var a = new CandlehearthCoffee();
+            a.Ice = includeIce;
+            a.RoomForCream = includeCream;
+            if (includeCream)
+            {
+                Assert.Contains("Add cream", a.SpecialInstructions);
+            } else
+            {
+                Assert.DoesNotContain("Add cream", a.SpecialInstructions);
+            }
+            if (includeIce)
+            {
+                Assert.Contains("Add ice", a.SpecialInstructions);
+            } else
+            {
+                Assert.DoesNotContain("Add ice", a.SpecialInstructions);
+            }
         }
 
         [Theory]
@@ -86,6 +135,10 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(false, Size.Large, "Large Candlehearth Coffee")]
         public void ShouldReturnCorrectToStringBasedOnSize(bool decaf, Size size, string name)
         {
+            var a = new CandlehearthCoffee();
+            a.Decaf = decaf;
+            a.Size = size;
+            Assert.Equal(name, a.ToString());
         }
     }
 }

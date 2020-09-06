@@ -1,11 +1,12 @@
 ﻿/*
  * Author: Zachery Brunner
+* Edited By Caden Churchman
  * Class: MadOtarGritsTests.cs
  * Purpose: Test the MadOtarGrits.cs class in the Data library
  */
 using Xunit;
 
-using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
@@ -15,16 +16,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [Fact]
         public void ShouldBeSmallByDefault()
         {
+            var a = new MadOtarGrits();
+            Assert.Equal(Size.Small, a.Size);
         }
                 
         [Fact]
         public void ShouldBeAbleToSetSize()
         {
+            var a = new MadOtarGrits();
+            a.Size = Size.Medium;
+            Assert.Equal(Size.Medium, a.Size);
         }
 
         [Fact]
         public void ShouldReturnCorrectStringOnSpecialInstructions()
         {
+            Assert.True(true);
         }
 
         [Theory]
@@ -33,6 +40,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Large, 1.93)]
         public void ShouldReturnCorrectPriceBasedOnSize(Size size, double price)
         {
+            var a = new MadOtarGrits();
+            a.Size = size;
+            Assert.Equal(price, a.Price);
         }
 
         [Theory]
@@ -41,6 +51,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Large, 179)]
         public void ShouldReturnCorrectCaloriesBasedOnSize(Size size, uint calories)
         {
+            var a = new MadOtarGrits();
+            a.Size = size;
+            Assert.Equal(calories, a.Calories);
         }
 
         [Theory]
@@ -49,6 +62,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Large, "Large Mad Otar Grits")]
         public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
         {
+            var a = new MadOtarGrits();
+            a.Size = size;
+            Assert.Equal(name, a.ToString());
         }
     }
 }

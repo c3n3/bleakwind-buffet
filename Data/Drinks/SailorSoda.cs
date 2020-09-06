@@ -1,4 +1,9 @@
-﻿using BleakwindBuffet.Data.Enums;
+﻿/*
+* Author: Caden Churchman
+* Class name: SailorSoda.cs
+* Purpose: Represents the soda.
+*/
+using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -6,11 +11,9 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    /*
-     * Author: Caden Churchman
-     * Class name: SailorSoda.cs
-     * Purpose: Represents the soda.
-     */
+    /// <summary>
+    /// Represent soda of many flavors
+    /// </summary>
     public class SailorSoda
     {
         private bool ice = true;

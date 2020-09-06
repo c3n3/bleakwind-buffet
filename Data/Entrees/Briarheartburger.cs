@@ -1,14 +1,17 @@
-﻿using System;
+﻿/*
+* Author: Caden Churchman
+* Class name: BriarheartBurger.cs
+* Purpose: Represents the burger.
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    /*
-     * Author: Caden Churchman
-     * Class name: BriarheartBurger.cs
-     * Purpose: Represents the burger.
-     */
+    /// <summary>
+    /// Represents a burger.
+    /// </summary>
     public class BriarheartBurger
     {
         /// <summary>

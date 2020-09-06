@@ -1,15 +1,18 @@
-﻿using BleakwindBuffet.Data.Enums;
+﻿/*
+* Author: Caden Churchman
+* Class name: DragonBornWaffleFries.cs
+* Purpose: Represents the fries.
+*/
+using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Sides
 {
-    /*
-     * Author: Caden Churchman
-     * Class name: DragonBornWaffleFries.cs
-     * Purpose: Represents the fries.
-     */
+    /// <summary>
+    /// Represents fries.
+    /// </summary>
     public class DragonbornWaffleFries
     {
         /// <summary>

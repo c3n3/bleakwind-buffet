@@ -1,14 +1,17 @@
-﻿using System;
+﻿/*
+* Author: Caden Churchman
+* Class name: ThugsTBone.cs
+* Purpose: Represents the steak.
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    /*
-     * Author: Caden Churchman
-     * Class name: ThugsTBone.cs
-     * Purpose: Represents the steak.
-     */
+    /// <summary>
+    /// Represent the tbone steak.
+    /// </summary>
     public class ThugsTBone
     {
         /// <summary>

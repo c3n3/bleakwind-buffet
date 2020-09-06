@@ -1,5 +1,6 @@
 ﻿/*
  * Author: Zachery Brunner
+* Edited By Caden Churchman
  * Class name: Size.cs
  * Purpose: Class used to represent sizes through an enumeration
  */

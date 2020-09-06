@@ -1,15 +1,18 @@
-﻿using BleakwindBuffet.Data.Enums;
+﻿/*
+* Author: Caden Churchman
+* Class name: FriedMiraak.cs
+* Purpose: Represents the miraak.
+*/
+using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Sides
 {
-    /*
-     * Author: Caden Churchman
-     * Class name: FriedMiraak.cs
-     * Purpose: Represents the miraak.
-     */
+    /// <summary>
+    /// Represents the fried miraak.
+    /// </summary>
     public class FriedMiraak
     {
         /// <summary>

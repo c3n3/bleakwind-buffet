@@ -1,15 +1,18 @@
-﻿using BleakwindBuffet.Data.Enums;
+﻿/*
+* Author: Caden Churchman
+* Class name: madOtarGrits.cs
+* Purpose: Represents the grits.
+*/
+using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Sides
 {
-    /*
-     * Author: Caden Churchman
-     * Class name: madOtarGrits.cs
-     * Purpose: Represents the grits.
-     */
+    /// <summary>
+    /// Represetns the grits.
+    /// </summary>
     public class MadOtarGrits
     {
         /// <summary>

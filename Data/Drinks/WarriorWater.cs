@@ -1,15 +1,18 @@
-﻿using BleakwindBuffet.Data.Enums;
+﻿/*
+* Author: Caden Churchman
+* Class name: WarriorWater.cs
+* Purpose: Represents water.
+*/
+using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    /*
-     * Author: Caden Churchman
-     * Class name: WarriorWater.cs
-     * Purpose: Represents water.
-     */
+    /// <summary>
+    /// Represents water.
+    /// </summary>
     public class WarriorWater
     {
         private bool ice = true;

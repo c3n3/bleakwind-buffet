@@ -1,15 +1,18 @@
-﻿using BleakwindBuffet.Data.Enums;
+﻿/*
+* Author: Caden Churchman
+* Class name: CandlehearthCoffee.cs
+* Purpose: Represents the coffee.
+*/
+using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    /*
-     * Author: Caden Churchman
-     * Class name: CandlehearthCoffee.cs
-     * Purpose: Represents the coffee.
-     */
+    /// <summary>
+    /// Represents the coffee
+    /// </summary>
     public class CandlehearthCoffee
     {
         /// <summary>

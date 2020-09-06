@@ -1,14 +1,17 @@
-﻿using System;
+﻿/*
+* Author: Caden Churchman
+* Class name: SmokehouseSkeleton.cs
+* Purpose: Represents the breakfast item.
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
-{
-    /*
-     * Author: Caden Churchman
-     * Class name: SmokehouseSkeleton.cs
-     * Purpose: Represents the breakfast item.
-     */
+{   
+    /// <summary>
+    /// Represents the smokehouse skeleton.
+    /// </summary>
     public class SmokehouseSkeleton
     {
         /// <summary>

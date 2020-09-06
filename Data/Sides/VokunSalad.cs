@@ -1,15 +1,18 @@
-﻿using BleakwindBuffet.Data.Enums;
+﻿/*
+* Author: Caden Churchman
+* Class name: VokunSalads.cs
+* Purpose: Represents the salad.
+*/
+using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Sides
 {
-    /*
-     * Author: Caden Churchman
-     * Class name: VokunSalads.cs
-     * Purpose: Represents the salad.
-     */
+    /// <summary>
+    /// Represents the salad.
+    /// </summary>
     public class VokunSalad
     {
         /// <summary>

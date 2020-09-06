@@ -1,14 +1,17 @@
-﻿using System;
+﻿/*
+* Author: Caden Churchman
+* Class name: GardenOmelette.cs
+* Purpose: Represents the omelette.
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    /*
-     * Author: Caden Churchman
-     * Class name: GardenOmelette.cs
-     * Purpose: Represents the omelette.
-     */
+    /// <summary>
+    /// Represents the garden omelette.
+    /// </summary>
     public class GardenOrcOmelette
     {
         /// <summary>
