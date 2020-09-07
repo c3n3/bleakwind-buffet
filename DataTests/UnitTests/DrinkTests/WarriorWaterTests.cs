@@ -1,7 +1,7 @@
 ﻿/*
  * Author: Caden Churchman
- * Class: SailorSodaTests.cs
- * Purpose: Test the SailorSoda.cs class in the Data library
+ * Class: WarriorWater.cs
+ * Purpose: Test the WarriorWater.cs class in the Data library
  */
 using Xunit;
 
