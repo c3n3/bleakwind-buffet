@@ -1,4 +1,9 @@
-﻿using Xunit;
+﻿/*
+ * Author: Caden Churchman
+ * Class: SailorSodaTests.cs
+ * Purpose: Test the SailorSoda.cs class in the Data library
+ */
+using Xunit;
 
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
