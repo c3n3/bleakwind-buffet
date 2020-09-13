@@ -7,6 +7,7 @@
 using Xunit;
 
 using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.Data.Menu;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -111,6 +112,20 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         public void ShouldReturnCorrectToString()
         {
             Assert.Equal("Garden Orc Omelette", (new GardenOrcOmelette()).ToString());
+        }
+
+        [Fact]
+        public void ShouldBeAssignabledToBaseClass()
+        {
+            var a = new GardenOrcOmelette();
+            Assert.IsAssignableFrom<Entree>(a);
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToIOrderItem()
+        {
+            var a = new GardenOrcOmelette();
+            Assert.IsAssignableFrom<IOrderItem>(a);
         }
     }
 }

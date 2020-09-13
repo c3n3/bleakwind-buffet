@@ -12,7 +12,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Represents the garden omelette.
     /// </summary>
-    public class GardenOrcOmelette
+    public class GardenOrcOmelette: Entree
     {
         /// <summary>
         /// Gets the broc.
@@ -37,7 +37,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Gets instructions.
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
@@ -54,12 +54,12 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// The pirce.
         /// </summary>
-        public double Price => 4.57;
+        public override double Price => 4.57;
 
         /// <summary>
         /// The calories.
         /// </summary>
-        public uint Calories => 404;
+        public override uint Calories => 404;
 
         /// <summary>
         /// To string method

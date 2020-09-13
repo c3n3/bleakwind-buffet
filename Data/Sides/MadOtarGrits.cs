@@ -13,22 +13,41 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// Represetns the grits.
     /// </summary>
-    public class MadOtarGrits
+    public class MadOtarGrits: Side
     {
+        /// <summary>
+        /// ctor.
+        /// </summary>
+        /// <param name="size">size</param>
+        public MadOtarGrits(Size size)
+        {
+            Size = size;
+        }
+
+        /// <summary>
+        /// Ctor.
+        /// </summary>
+        public MadOtarGrits() { }
+
         /// <summary>
         /// The size.
         /// </summary>
-        public Size Size { get; set; } = Size.Small;
+        public override Size Size { get; set; } = Size.Small;
 
         /// <summary>
         /// The price.
         /// </summary>
-        public double Price => (Size == Size.Small) ? 1.22 : (Size == Size.Medium) ? 1.58 : 1.93;
+        public override double Price => (Size == Size.Small) ? 1.22 : (Size == Size.Medium) ? 1.58 : 1.93;
 
         /// <summary>
         /// The calories.
         /// </summary>
-        public uint Calories => (uint)((Size == Size.Small) ? 105 : (Size == Size.Medium) ? 142 : 179);
+        public override uint Calories => (uint)((Size == Size.Small) ? 105 : (Size == Size.Medium) ? 142 : 179);
+
+        /// <summary>
+        /// Gets the instructions.
+        /// </summary>
+        public override List<string> SpecialInstructions => new List<string> { };
 
         /// <summary>
         /// The to string method override.

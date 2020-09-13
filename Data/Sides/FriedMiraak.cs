@@ -13,22 +13,41 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// Represents the fried miraak.
     /// </summary>
-    public class FriedMiraak
+    public class FriedMiraak: Side
     {
+        /// <summary>
+        /// Ctor.
+        /// </summary>
+        /// <param name="size">size</param>
+        public FriedMiraak(Size size)
+        {
+            Size = size;
+        }
+
+        /// <summary>
+        /// Ctor.
+        /// </summary>
+        public FriedMiraak() { }
+
         /// <summary>
         /// The size.
         /// </summary>
-        public Size Size { get; set; } = Size.Small;
+        public override Size Size { get; set; } = Size.Small;
 
         /// <summary>
         /// The price.
         /// </summary>
-        public double Price => (Size == Size.Small) ? 1.78 : (Size == Size.Medium) ? 2.01 : 2.88;
+        public override double Price => (Size == Size.Small) ? 1.78 : (Size == Size.Medium) ? 2.01 : 2.88;
 
         /// <summary>
         /// The calories.
         /// </summary>
-        public uint Calories => (uint)((Size == Size.Small) ? 151 : (Size == Size.Medium) ? 236 : 306);
+        public override uint Calories => (uint)((Size == Size.Small) ? 151 : (Size == Size.Medium) ? 236 : 306);
+
+        /// <summary>
+        /// Gets the instructions.
+        /// </summary>
+        public override List<string> SpecialInstructions => new List<string> { };
 
         /// <summary>
         /// The to string method override.

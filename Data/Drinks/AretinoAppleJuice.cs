@@ -14,13 +14,27 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Represents apple juice
     /// </summary>
-    public class AretinoAppleJuice
+    public class AretinoAppleJuice: Drink
     {
         /// <summary>
         /// Private vars
         /// </summary>
         private bool ice = false;
         private Size size = Size.Small;
+
+        /// <summary>
+        /// Ctor.
+        /// </summary>
+        /// <param name="size">size</param>
+        public AretinoAppleJuice(Size size)
+        {
+            Size = size;
+        }
+
+        /// <summary>
+        /// Ctor.
+        /// </summary>
+        public AretinoAppleJuice() { }
 
         /// <summary>
         /// Gets if ice.
@@ -34,7 +48,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Gets the size.
         /// </summary>
-        public Size Size
+        public override Size Size
         {
             get => size;
             set => size = value;
@@ -43,17 +57,17 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Gets the price.
         /// </summary>
-        public double Price => (Size == Size.Small) ? 0.62 : (Size == Size.Medium) ? 0.87 : 1.01;
+        public override double Price => (Size == Size.Small) ? 0.62 : (Size == Size.Medium) ? 0.87 : 1.01;
 
         /// <summary>
         /// Gets the calories.
         /// </summary>
-        public uint Calories => (uint)((Size == Size.Small) ? 44 : (Size == Size.Medium) ? 88 : 132);
+        public override uint Calories => (uint)((Size == Size.Small) ? 44 : (Size == Size.Medium) ? 88 : 132);
 
         /// <summary>
         /// Gets the special instructions
         /// </summary>
-        public List<string> SpecialInstructions => Ice ? new List<string> { "Add ice" } : new List<string> { };
+        public override List<string> SpecialInstructions => Ice ? new List<string> { "Add ice" } : new List<string> { };
 
         /// <summary>
         /// Gets the string

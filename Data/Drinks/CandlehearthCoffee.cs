@@ -13,7 +13,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Represents the coffee
     /// </summary>
-    public class CandlehearthCoffee
+    public class CandlehearthCoffee: Drink
     {
         /// <summary>
         /// Private backing vars.
@@ -22,7 +22,21 @@ namespace BleakwindBuffet.Data.Drinks
         private bool decaf = false;
         private bool roomForCream = false;
         private Size size = Size.Small;
-        
+
+        /// <summary>
+        /// Ctor.
+        /// </summary>
+        /// <param name="size">size</param>
+        public CandlehearthCoffee(Size size)
+        {
+            Size = size;
+        }
+
+        /// <summary>
+        /// Ctor.
+        /// </summary>
+        public CandlehearthCoffee() { }
+
         /// <summary>
         /// Gets if ice.
         /// </summary>
@@ -35,7 +49,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Gets size.
         /// </summary>
-        public Size Size
+        public override Size Size
         {
             get => size;
             set => size = value;
@@ -62,17 +76,17 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Gets price.
         /// </summary>
-        public double Price => (Size == Size.Small) ? 0.75 : (Size == Size.Medium) ? 1.25 : 1.75;
+        public override double Price => (Size == Size.Small) ? 0.75 : (Size == Size.Medium) ? 1.25 : 1.75;
 
         /// <summary>
         /// Gets calories.
         /// </summary>
-        public double Calories => (Size == Size.Small) ? 7 : (Size == Size.Medium) ? 10 : 20;
+        public override uint Calories => (uint)((Size == Size.Small) ? 7 : (Size == Size.Medium) ? 10 : 20);
 
         /// <summary>
         /// Gets special instructions.
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

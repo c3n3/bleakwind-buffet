@@ -12,7 +12,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Represents the smokehouse skeleton.
     /// </summary>
-    public class SmokehouseSkeleton
+    public class SmokehouseSkeleton: Entree
     {
         /// <summary>
         /// Gets the link.
@@ -37,14 +37,14 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Gets instructions.
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
                 var l = new List<string> { };
                 if (!Egg) l.Add("Hold eggs");
                 if (!HashBrowns) l.Add("Hold hash browns");
-                if (!Pancake) l.Add("Hold pancake");
+                if (!Pancake) l.Add("Hold pancakes");
                 if (!SausageLink) l.Add("Hold sausage");
                 return l;
 
@@ -54,12 +54,12 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// The pirce.
         /// </summary>
-        public double Price => 5.62;
+        public override double Price => 5.62;
 
         /// <summary>
         /// The calories.
         /// </summary>
-        public uint Calories => 602;
+        public override uint Calories => 602;
 
         /// <summary>
         /// To string method

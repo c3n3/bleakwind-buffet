@@ -7,6 +7,7 @@
 using Xunit;
 
 using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.Data.Menu;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -80,12 +81,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             };
             if (includeOnion)
             {
-                Assert.DoesNotContain("Hold onion", a.SpecialInstructions);
+                Assert.DoesNotContain("Hold onions", a.SpecialInstructions);
                 Assert.DoesNotContain("Hold roll", a.SpecialInstructions);
                 Assert.DoesNotContain("Hold sirloin", a.SpecialInstructions);
                 return;
             }
-            Assert.Contains("Hold onion", a.SpecialInstructions);
+            Assert.Contains("Hold onions", a.SpecialInstructions);
             Assert.Contains("Hold roll", a.SpecialInstructions);
             Assert.Contains("Hold sirloin", a.SpecialInstructions);
         }
@@ -94,6 +95,20 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         public void ShouldReturnCorrectToString()
         {
             Assert.Equal("Philly Poacher", (new PhillyPoacher()).ToString());
+        }
+
+        [Fact]
+        public void ShouldBeAssignabledToBaseClass()
+        {
+            var a = new PhillyPoacher();
+            Assert.IsAssignableFrom<Entree>(a);
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToIOrderItem()
+        {
+            var a = new PhillyPoacher();
+            Assert.IsAssignableFrom<IOrderItem>(a);
         }
     }
 }

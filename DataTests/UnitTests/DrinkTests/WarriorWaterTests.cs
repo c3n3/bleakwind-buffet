@@ -8,6 +8,7 @@ using Xunit;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
 using System.Collections.Generic;
+using BleakwindBuffet.Data.Menu;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -93,6 +94,21 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             var a = new WarriorWater();
             a.Size = size;
             Assert.Equal(name, a.ToString());
+        }
+
+
+        [Fact]
+        public void ShouldBeAssignabledToBaseClass()
+        {
+            var a = new WarriorWater();
+            Assert.IsAssignableFrom<Drink>(a);
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToIOrderItem()
+        {
+            var a = new WarriorWater();
+            Assert.IsAssignableFrom<IOrderItem>(a);
         }
     }
 }

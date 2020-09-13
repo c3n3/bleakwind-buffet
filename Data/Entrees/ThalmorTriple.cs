@@ -12,7 +12,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Represents the triple burger.
     /// </summary>
-    public class ThalmorTriple
+    public class ThalmorTriple: Entree
     {
         /// <summary>
         /// Gets if bun.
@@ -67,7 +67,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Gets instructions.
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
@@ -90,12 +90,12 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// The pirce.
         /// </summary>
-        public double Price => 8.32;
+        public override double Price => 8.32;
 
         /// <summary>
         /// The calories.
         /// </summary>
-        public uint Calories => 943;
+        public override uint Calories => 943;
 
         /// <summary>
         /// To string method

@@ -13,22 +13,41 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// Represents the salad.
     /// </summary>
-    public class VokunSalad
+    public class VokunSalad: Side
     {
+        /// <summary>
+        /// Ctor.
+        /// </summary>
+        /// <param name="size">size</param>
+        public VokunSalad(Size size)
+        {
+            Size = size;
+        }
+
+        /// <summary>
+        /// CTOR.
+        /// </summary>
+        public VokunSalad() { }
+
         /// <summary>
         /// The size.
         /// </summary>
-        public Size Size { get; set; } = Size.Small;
+        public override Size Size { get; set; } = Size.Small;
 
         /// <summary>
         /// The price.
         /// </summary>
-        public double Price => (Size == Size.Small) ? 0.93 : (Size == Size.Medium) ? 1.28 : 1.82;
+        public override double Price => (Size == Size.Small) ? 0.93 : (Size == Size.Medium) ? 1.28 : 1.82;
 
         /// <summary>
         /// The calories.
         /// </summary>
-        public uint Calories => (uint)((Size == Size.Small) ? 41 : (Size == Size.Medium) ? 52 : 73);
+        public override uint Calories => (uint)((Size == Size.Small) ? 41 : (Size == Size.Medium) ? 52 : 73);
+
+        /// <summary>
+        /// Gets the instructions.
+        /// </summary>
+        public override List<string> SpecialInstructions => new List<string> { };
 
         /// <summary>
         /// The to string method override.

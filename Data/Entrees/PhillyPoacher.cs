@@ -12,7 +12,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Represents the Philly sandwaich.
     /// </summary>
-    public class PhillyPoacher
+    public class PhillyPoacher: Entree
     {
         /// <summary>
         /// Gets the sirloin.
@@ -32,13 +32,13 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Gets instructions.
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
                 var l = new List<string> { };
                 if (!Sirloin) l.Add("Hold sirloin");
-                if (!Onion) l.Add("Hold onion");
+                if (!Onion) l.Add("Hold onions");
                 if (!Roll) l.Add("Hold roll");
                 return l;
             }
@@ -47,12 +47,12 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// The price.
         /// </summary>
-        public double Price => 7.23;
+        public override double Price => 7.23;
 
         /// <summary>
         /// The calories.
         /// </summary>
-        public uint Calories => 784;
+        public override uint Calories => 784;
 
         /// <summary>
         /// To string method

@@ -11,6 +11,7 @@ using BleakwindBuffet.Data.Enums;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection.Emit;
+using BleakwindBuffet.Data.Menu;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -139,6 +140,20 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             a.Decaf = decaf;
             a.Size = size;
             Assert.Equal(name, a.ToString());
+        }
+
+        [Fact]
+        public void ShouldBeAssignabledToBaseClass()
+        {
+            var a = new CandlehearthCoffee();
+            Assert.IsAssignableFrom<Drink>(a);
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToIOrderItem()
+        {
+            var a = new CandlehearthCoffee();
+            Assert.IsAssignableFrom<IOrderItem>(a);
         }
     }
 }

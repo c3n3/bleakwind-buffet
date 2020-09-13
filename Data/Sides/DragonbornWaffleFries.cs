@@ -13,22 +13,41 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// Represents fries.
     /// </summary>
-    public class DragonbornWaffleFries
+    public class DragonbornWaffleFries: Side
     {
+        /// <summary>
+        /// Ctor.
+        /// </summary>
+        /// <param name="size">size</param>
+        public DragonbornWaffleFries(Size size)
+        {
+            Size = size;
+        }
+
+        /// <summary>
+        /// Ctor.
+        /// </summary>
+        public DragonbornWaffleFries() { }
+
         /// <summary>
         /// The size.
         /// </summary>
-        public Size Size { get; set; } = Size.Small;
+        public override Size Size { get; set; } = Size.Small;
 
         /// <summary>
         /// The price.
         /// </summary>
-        public double Price => (Size == Size.Small) ? 0.42 : (Size == Size.Medium) ? 0.76 : 0.96;
+        public override double Price => (Size == Size.Small) ? 0.42 : (Size == Size.Medium) ? 0.76 : 0.96;
 
         /// <summary>
         /// The calories.
         /// </summary>
-        public uint Calories => (uint)((Size == Size.Small) ? 77 : (Size == Size.Medium) ? 89 : 100);
+        public override uint Calories => (uint)((Size == Size.Small) ? 77 : (Size == Size.Medium) ? 89 : 100);
+
+        /// <summary>
+        /// Gets the instructions.
+        /// </summary>
+        public override List<string> SpecialInstructions => new List<string> { };
 
         /// <summary>
         /// The to string method override.

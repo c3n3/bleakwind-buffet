@@ -7,6 +7,7 @@
 using Xunit;
 
 using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.Data.Menu;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -95,13 +96,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             };
             if (includeEgg)
             {
-                Assert.DoesNotContain("Hold pancake", a.SpecialInstructions);
+                Assert.DoesNotContain("Hold pancakes", a.SpecialInstructions);
                 Assert.DoesNotContain("Hold sausage", a.SpecialInstructions);
                 Assert.DoesNotContain("Hold eggs", a.SpecialInstructions);
                 Assert.DoesNotContain("Hold hash browns", a.SpecialInstructions);
                 return;
             }
-            Assert.Contains("Hold pancake", a.SpecialInstructions);
+            Assert.Contains("Hold pancakes", a.SpecialInstructions);
             Assert.Contains("Hold sausage", a.SpecialInstructions);
             Assert.Contains("Hold eggs", a.SpecialInstructions);
             Assert.Contains("Hold hash browns", a.SpecialInstructions);
@@ -111,6 +112,20 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         public void ShouldReturnCorrectToString()
         {
             Assert.Equal("Smokehouse Skeleton", (new SmokehouseSkeleton()).ToString());
+        }
+
+        [Fact]
+        public void ShouldBeAssignabledToBaseClass()
+        {
+            var a = new SmokehouseSkeleton();
+            Assert.IsAssignableFrom<Entree>(a);
+        }
+
+        [Fact]
+        public void ShouldBeAssignableToIOrderItem()
+        {
+            var a = new SmokehouseSkeleton();
+            Assert.IsAssignableFrom<IOrderItem>(a);
         }
     }
 }
