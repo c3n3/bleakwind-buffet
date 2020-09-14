@@ -1,0 +1,196 @@
+﻿/*
+ * Author: Caden Churchman
+ * Class name: MenuStaticTests.cs
+ * Purpose: Tests the static Menu class
+ */
+
+using BleakwindBuffet.Data.Drinks;
+using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data.Menu;
+using BleakwindBuffet.Data.Sides;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Xunit;
+
+namespace BleakwindBuffet.DataTests.UnitTests.MenuTests
+{
+    public class MenuStaticTests
+    {
+        [Fact]
+        public void DrinksContainOnlyDrinks()
+        {
+            Assert.All(Menu.Drinks(), item => {
+                Assert.IsAssignableFrom<Drink>(item);
+            });
+        }
+
+        [Fact]
+        public void EntreesContainOnlyEntrees()
+        {
+            Assert.All(Menu.Entrees(), item =>
+            {
+                Assert.IsAssignableFrom<Entree>(item);
+            });
+        }
+        
+        [Fact]
+        public void SidesContainOnlySides()
+        {
+            Assert.All(Menu.Sides(), item =>
+            {
+                Assert.IsAssignableFrom<Side>(item);
+            });
+        }
+
+        [Fact]
+        public void DrinksContainAllInheritedDrinks()
+        {
+            // Credit to Sam Harwell https://stackoverflow.com/questions/1665120/how-can-i-get-all-the-inherited-classes-of-a-base-class
+            var types = AppDomain.CurrentDomain.GetAssemblies()
+                       .SelectMany(assembly => assembly.GetTypes())
+                       .Where(type => type.IsSubclassOf(typeof(Drink)));
+            // End Credit
+            Dictionary<string, bool> assertions = new Dictionary<string, bool>();
+            foreach (Type t in types)
+            {
+                assertions.Add(t.FullName, false);
+            }
+            foreach (IOrderItem item in Menu.Drinks())
+            {
+                assertions[item.GetType().FullName] = true;
+            }
+            Assert.All(assertions, item => Assert.True(item.Value));
+        }
+        
+        [Fact]
+        public void EntreesContainAllInheritedEntrees()
+        {
+            // Credit to Sam Harwell https://stackoverflow.com/questions/1665120/how-can-i-get-all-the-inherited-classes-of-a-base-class
+            var types = AppDomain.CurrentDomain.GetAssemblies()
+                       .SelectMany(assembly => assembly.GetTypes())
+                       .Where(type => type.IsSubclassOf(typeof(Entree)));
+            // End Credit
+            Dictionary<string, bool> assertions = new Dictionary<string, bool>();
+            foreach (Type t in types)
+            {
+                assertions.Add(t.FullName, false);
+            }
+            foreach (IOrderItem item in Menu.Entrees())
+            {
+                assertions[item.GetType().FullName] = true;
+            }
+            Assert.All(assertions, item => Assert.True(item.Value));
+        }
+        
+        [Fact]
+        public void SidesContainAllInheritedSides()
+        {
+            // Credit to Sam Harwell https://stackoverflow.com/questions/1665120/how-can-i-get-all-the-inherited-classes-of-a-base-class
+            var types = AppDomain.CurrentDomain.GetAssemblies()
+                       .SelectMany(assembly => assembly.GetTypes())
+                       .Where(type => type.IsSubclassOf(typeof(Side)));
+            // End Credit
+            Dictionary<string, bool> assertions = new Dictionary<string, bool>();
+            foreach (Type t in types)
+            {
+                assertions.Add(t.FullName, false);
+            }
+            foreach (IOrderItem item in Menu.Sides())
+            {
+                assertions[item.GetType().FullName] = true;
+            }
+            Assert.All(assertions, item => Assert.True(item.Value));
+        } 
+
+        [Fact]
+        public void FullMenuContainsAllIOrderItems()
+        {
+            // Credit to Sam Harwell https://stackoverflow.com/questions/1665120/how-can-i-get-all-the-inherited-classes-of-a-base-class
+            var types = AppDomain.CurrentDomain.GetAssemblies()
+                       .SelectMany(assembly => assembly.GetTypes())
+                       .Where(type => typeof(IOrderItem).IsAssignableFrom(type));
+            // End Credit
+            Dictionary<string, bool> assertions = new Dictionary<string, bool>();
+            foreach (Type t in types)
+            {
+                if (t.IsAbstract) // no checking abstract classes since they cannot be implemented
+                {
+                    continue;
+                }
+                assertions.Add(t.FullName, false);
+            }
+            foreach (IOrderItem item in Menu.FullMenu())
+            {
+                assertions[item.GetType().FullName] = true;
+            }
+            Assert.All(assertions, item => Assert.True(item.Value));
+        }
+
+        [Fact]
+        public void AllPossibleSailorSodasAreInDrinks()
+        {
+            SodaFlavor[] flavors = (SodaFlavor[])Enum.GetValues(typeof(SodaFlavor));
+            Size[] sizes = (Size[])Enum.GetValues(typeof(Size));
+            Dictionary<SodaFlavor, List<Size>> assertions = new Dictionary<SodaFlavor, List<Size>>();
+            foreach (SodaFlavor f in flavors) 
+            {
+                assertions.Add(f, new List<Size>());
+            }
+            foreach (IOrderItem item in Menu.Drinks())
+            {
+                if (item is SailorSoda)
+                {
+                    SailorSoda s = (SailorSoda)item;
+                    if (!assertions[s.Flavor].Contains(s.Size))
+                    {
+                        assertions[s.Flavor].Add(s.Size);
+                    }
+                }
+            }
+            Assert.All(assertions, item => Assert.Equal(item.Value.Count, sizes.Length));
+        }
+
+        [Fact]
+        public void SidesShouldContainAllPossibleSizes()
+        {
+            Size[] sizes = (Size[])Enum.GetValues(typeof(Size));
+            Dictionary<string, List<Size>> assertions = new Dictionary<string, List<Size>>();
+            assertions.Add(typeof(DragonbornWaffleFries).Name, new List<Size>());
+            assertions.Add(typeof(FriedMiraak).Name, new List<Size>());
+            assertions.Add(typeof(MadOtarGrits).Name, new List<Size>());
+            assertions.Add(typeof(VokunSalad).Name, new List<Size>());
+            foreach (IOrderItem item in Menu.Sides()) 
+            { 
+                Side side = (Side)item;
+                if (!assertions[side.GetType().Name].Contains(side.Size))
+                {
+                    assertions[side.GetType().Name].Add(side.Size);
+                }
+            }
+            Assert.All(assertions, item => Assert.Equal(item.Value.Count, sizes.Length));
+        }
+
+        [Fact]
+        public void DrinksContainAllPossibleSizes()
+        {
+            Size[] sizes = (Size[])Enum.GetValues(typeof(Size));
+            Dictionary<string, List<Size>> assertions = new Dictionary<string, List<Size>>();
+            assertions.Add(typeof(AretinoAppleJuice).Name, new List<Size>());
+            assertions.Add(typeof(CandlehearthCoffee).Name, new List<Size>());
+            assertions.Add(typeof(MarkarthMilk).Name, new List<Size>());
+            assertions.Add(typeof(SailorSoda).Name, new List<Size>());
+            assertions.Add(typeof(WarriorWater).Name, new List<Size>());
+            foreach (IOrderItem item in Menu.Drinks())
+            { 
+                Drink side = (Drink)item;
+                if (!assertions[side.GetType().Name].Contains(side.Size))
+                {
+                    assertions[side.GetType().Name].Add(side.Size);
+                }
+            }
+            Assert.All(assertions, item => Assert.Equal(item.Value.Count, sizes.Length));
+        }
+    }
+}

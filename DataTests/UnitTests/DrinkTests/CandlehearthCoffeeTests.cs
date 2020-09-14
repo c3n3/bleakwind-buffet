@@ -56,6 +56,10 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [Fact]
         public void ShouldBeAbleToSetDecaf()
         {
+            foreach (BleakwindBuffet.Data.Menu.IOrderItem item in BleakwindBuffet.Data.Menu.Menu.Drinks())
+            {
+                int test = 0;
+            }
             var a = new CandlehearthCoffee();
             a.Decaf = true;
             Assert.True(a.Decaf);

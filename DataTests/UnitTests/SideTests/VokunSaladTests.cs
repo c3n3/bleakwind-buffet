@@ -34,7 +34,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [Fact]
         public void ShouldReturnCorrectSpecialInstructions()
         {
-            Assert.True(true);
+            Assert.Empty((new VokunSalad()).SpecialInstructions);
         }
 
         [Theory]
