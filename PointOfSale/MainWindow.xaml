@@ -13,12 +13,12 @@
             <RowDefinition Height="71*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="847*"/>
-            <ColumnDefinition Width="300*"/>
+            <ColumnDefinition Width="698*"/>
+            <ColumnDefinition Width="290*"/>
         </Grid.ColumnDefinitions>
         <Frame x:Name="uxMainFrame" Content="" Margin="0" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2" Grid.Row="1"/>
 
         <local:Orders x:Name="uxOrder" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"/>
-        <Label x:Name="uxPageName" Content="Label" Height="33" Margin="15,20,0,20" Width="704" FontSize="18" HorizontalAlignment="Left"/>
+        <Label x:Name="uxPageName" Content="Label" Height="33" Margin="15,20,0,20" Width="704" FontSize="18" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

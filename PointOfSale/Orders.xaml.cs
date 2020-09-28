@@ -39,7 +39,7 @@ namespace PointOfSale
 
         public void AddOrder(IOrderItem item)
         {
-            var l = new Item(item.ToString() + $"\n{item.Price}", item);
+            var l = new Item(item.ToString() + $" {item.Price}", item);
             l.uxTitle.HorizontalContentAlignment = HorizontalAlignment.Left;
             uxOrderStack.Children.Add(l);
             UpdatePrice();

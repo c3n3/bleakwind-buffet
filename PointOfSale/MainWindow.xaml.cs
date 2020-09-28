@@ -30,7 +30,7 @@ namespace PointOfSale
             InitializeComponent();
             ResetFrame();
             uxPageName.Content = "Menu";
-            Title = "Bleakwind Buffet";
+            Title = "Bleakwind Buffet - 8K Gold Edition - Adobe RGB 125% - Premium Extension Pack";
         }
 
         /// <summary>
