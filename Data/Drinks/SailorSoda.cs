@@ -14,7 +14,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Represent soda of many flavors
     /// </summary>
-    public class SailorSoda: Drink
+    public class SailorSoda : Drink
     {
         private bool ice = true;
         private SodaFlavor flavor = SodaFlavor.Cherry;
@@ -67,7 +67,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Gets special instructions.
         /// </summary>
-        public override List<string> SpecialInstructions => (!Ice) ? new List<string> {"Hold ice"} : new List<string> { };
+        public override List<string> SpecialInstructions => (!Ice) ? new List<string> { "Hold ice" } : new List<string> { };
 
         /// <summary>
         /// Gets size.
@@ -85,6 +85,19 @@ namespace BleakwindBuffet.Data.Drinks
         public override string ToString()
         {
             return $"{Size} {Flavor} Sailor Soda";
+        }
+
+        /// <summary>
+        /// Have to add soda flavors to the options.
+        /// </summary>
+        public override Dictionary<string, List<object>> EnumOptions
+        {
+            get
+            {
+                var a = base.EnumOptions;
+                a.Add("Flavor", new List<object> { SodaFlavor.Blackberry, SodaFlavor.Cherry, SodaFlavor.Grapefruit, SodaFlavor.Lemon, SodaFlavor.Peach, SodaFlavor.Watermelon });
+                return a;
+            }
         }
     }
 }

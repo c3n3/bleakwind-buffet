@@ -8,6 +8,8 @@ using Xunit;
 
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Menu;
+using System.Collections.Generic;
+using System;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
@@ -172,6 +174,61 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         {
             var a = new BriarheartBurger();
             Assert.IsAssignableFrom<IOrderItem>(a);
+        }
+
+        [Fact]
+        public void BooleanOptionsArrayShouldReturnValidProperties()
+        {
+            var a = new BriarheartBurger();
+            List<string> props = a.BoolOptions;
+
+            foreach (string prop in props)
+            {
+                Assert.IsType<bool>(a[prop]);
+            }
+        }
+
+        [Fact]
+        public void BooleanOptionsArrayShouldBeSetable()
+        {
+            var a = new BriarheartBurger();
+            List<string> props = a.BoolOptions;
+
+            foreach (string prop in props)
+            {
+                bool set = (bool)a[prop] ? false : true;
+                a[prop] = set;
+                Assert.Equal(set, (bool)a[prop]);
+            }
+        }
+
+        [Fact]
+        public void EnumOptionsShouldBeEmpty()
+        {
+            var a = new BriarheartBurger();
+            var d = a.EnumOptions;
+            Assert.Empty(d);
+        }
+
+        [Fact]
+        public void ClassAccessorMethodShouldThrowArgumentErrorForInvalidProperty()
+        {
+            var a = new BriarheartBurger();
+            Assert.Throws<ArgumentException>(() => a["INVALID PROPERTY"]);
+        }
+        
+        [Fact]
+        public void ClassAccessorMethodShouldThrowArgumentErrorWhenSettingWithInvalidValue()
+        {
+            var a = new BriarheartBurger();
+            Assert.Throws<ArgumentException>(() => a["Price"] = "INVALID VALUE");
+        }
+        
+        [Fact]
+        public void ClassAccessorMethodShouldThrowArgumentErrorWhenSettingWithInvalidPropertyName()
+        {
+            var a = new BriarheartBurger();
+            Assert.Throws<ArgumentException>(() => a["INVALID PROPERTY"] = 1);
         }
     }
 }

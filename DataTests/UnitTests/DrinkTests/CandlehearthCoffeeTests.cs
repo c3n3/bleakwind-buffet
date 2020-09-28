@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection.Emit;
 using BleakwindBuffet.Data.Menu;
+using System;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -158,6 +159,63 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             var a = new CandlehearthCoffee();
             Assert.IsAssignableFrom<IOrderItem>(a);
+        }
+
+        [Fact]
+        public void BooleanOptionsArrayShouldReturnValidProperties()
+        {
+            var a = new CandlehearthCoffee();
+            List<string> props = a.BoolOptions;
+
+            foreach (string prop in props)
+            {
+                Assert.IsType<bool>(a[prop]);
+            }
+        }
+
+        [Fact]
+        public void BooleanOptionsArrayShouldBeSetable()
+        {
+            var a = new CandlehearthCoffee();
+            List<string> props = a.BoolOptions;
+
+            foreach (string prop in props)
+            {
+                bool set = (bool)a[prop] ? false : true;
+                a[prop] = set;
+                Assert.Equal(set, (bool)a[prop]);
+            }
+        }
+
+        [Fact]
+        public void EnumOptionsShouldContainAllSizes()
+        {
+            var a = new CandlehearthCoffee();
+            var d = a.EnumOptions;
+            Assert.Contains(Size.Small, d["Size"]);
+            Assert.Contains(Size.Medium, d["Size"]);
+            Assert.Contains(Size.Large, d["Size"]);
+        }
+
+        [Fact]
+        public void ClassAccessorMethodShouldThrowArgumentErrorForInvalidProperty()
+        {
+            var a = new CandlehearthCoffee();
+            Assert.Throws<ArgumentException>(() => a["INVALID PROPERTY"]);
+        }
+
+        [Fact]
+        public void ClassAccessorMethodShouldThrowArgumentErrorWhenSettingWithInvalidValue()
+        {
+            var a = new CandlehearthCoffee();
+            Assert.Throws<ArgumentException>(() => a["Price"] = "INVALID VALUE");
+        }
+
+        [Fact]
+        public void ClassAccessorMethodShouldThrowArgumentErrorWhenSettingWithInvalidPropertyName()
+        {
+            var a = new CandlehearthCoffee();
+            Assert.Throws<ArgumentException>(() => a["INVALID PROPERTY"] = 1);
         }
     }
 }

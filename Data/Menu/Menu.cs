@@ -29,10 +29,28 @@ namespace BleakwindBuffet.Data.Menu
         }
         
         /// <summary>
+        /// Gets all the sides.
+        /// </summary>
+        /// <returns>Array of the objects.</returns>
+        public static IEnumerable<IOrderItem> SideItems()
+        {
+            return new List<IOrderItem> { new DragonbornWaffleFries(), new FriedMiraak(), new MadOtarGrits(), new VokunSalad() };
+        }
+        
+        /// <summary>
         /// An array of entrees.
         /// </summary>
         /// <returns> The array </returns>
         public static IEnumerable<IOrderItem> Entrees()
+        {
+            return new List<IOrderItem> { new BriarheartBurger(), new DoubleDraugr(), new GardenOrcOmelette(), new PhillyPoacher(), new SmokehouseSkeleton(), new ThalmorTriple(), new ThugsTBone() };
+        }
+        
+        /// <summary>
+        /// An array of entrees.
+        /// </summary>
+        /// <returns> The array </returns>
+        public static IEnumerable<IOrderItem> EntreeItems()
         {
             return new List<IOrderItem> { new BriarheartBurger(), new DoubleDraugr(), new GardenOrcOmelette(), new PhillyPoacher(), new SmokehouseSkeleton(), new ThalmorTriple(), new ThugsTBone() };
         }
@@ -56,6 +74,15 @@ namespace BleakwindBuffet.Data.Menu
                 }
             }
             return temp;
+        }
+        
+        /// <summary>
+        /// An array of the drinks.
+        /// </summary>
+        /// <returns> the array </returns>
+        public static IEnumerable<IOrderItem> DrinkItems()
+        {
+            return new List<IOrderItem> { new AretinoAppleJuice(), new CandlehearthCoffee(), new MarkarthMilk(), new WarriorWater(), new SailorSoda() };
         }
 
         /// <summary>

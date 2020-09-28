@@ -11,6 +11,7 @@ using Xunit;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Menu;
+using System.Collections.Generic;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -143,6 +144,76 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             var a = new SailorSoda();
             Assert.IsAssignableFrom<IOrderItem>(a);
+        }
+
+        [Fact]
+        public void BooleanOptionsArrayShouldReturnValidProperties()
+        {
+            var a = new SailorSoda();
+            List<string> props = a.BoolOptions;
+
+            foreach (string prop in props)
+            {
+                Assert.IsType<bool>(a[prop]);
+            }
+        }
+
+        [Fact]
+        public void BooleanOptionsArrayShouldBeSetable()
+        {
+            var a = new SailorSoda();
+            List<string> props = a.BoolOptions;
+
+            foreach (string prop in props)
+            {
+                bool set = (bool)a[prop] ? false : true;
+                a[prop] = set;
+                Assert.Equal(set, (bool)a[prop]);
+            }
+        }
+
+        [Fact]
+        public void EnumOptionsShouldContainAllSizes()
+        {
+            var a = new SailorSoda();
+            var d = a.EnumOptions;
+            Assert.Contains(Size.Small, d["Size"]);
+            Assert.Contains(Size.Medium, d["Size"]);
+            Assert.Contains(Size.Large, d["Size"]);
+        }
+        
+        [Fact]
+        public void EnumOptionsShouldContainAllFlavors()
+        {
+            var a = new SailorSoda();
+            var d = a.EnumOptions;
+            Assert.Contains(SodaFlavor.Blackberry, d["Flavor"]);
+            Assert.Contains(SodaFlavor.Cherry, d["Flavor"]);
+            Assert.Contains(SodaFlavor.Grapefruit, d["Flavor"]);
+            Assert.Contains(SodaFlavor.Lemon, d["Flavor"]);
+            Assert.Contains(SodaFlavor.Peach, d["Flavor"]);
+            Assert.Contains(SodaFlavor.Watermelon, d["Flavor"]);
+        }
+
+        [Fact]
+        public void ClassAccessorMethodShouldThrowArgumentErrorForInvalidProperty()
+        {
+            var a = new SailorSoda();
+            Assert.Throws<ArgumentException>(() => a["INVALID PROPERTY"]);
+        }
+
+        [Fact]
+        public void ClassAccessorMethodShouldThrowArgumentErrorWhenSettingWithInvalidValue()
+        {
+            var a = new SailorSoda();
+            Assert.Throws<ArgumentException>(() => a["Price"] = "INVALID VALUE");
+        }
+
+        [Fact]
+        public void ClassAccessorMethodShouldThrowArgumentErrorWhenSettingWithInvalidPropertyName()
+        {
+            var a = new SailorSoda();
+            Assert.Throws<ArgumentException>(() => a["INVALID PROPERTY"] = 1);
         }
     }
 }
