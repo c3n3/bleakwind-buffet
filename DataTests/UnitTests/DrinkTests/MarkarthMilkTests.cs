@@ -14,8 +14,58 @@ using System;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
-    public class MarkarthMilkTests
+   public class MarkarthMilkTests
     {
+		[Fact]
+		public void ShouldBeConvertableToINotifyPropertyChanged()
+		{
+			Assert.IsAssignableFrom<System.ComponentModel.INotifyPropertyChanged>(new MarkarthMilk());
+		}
+
+        [Fact]
+        public void AllBooleanPropertiesShouldNotifyOfChange()
+        {
+            MarkarthMilk a = new MarkarthMilk();
+            foreach (var option in a.BoolOptions)
+            {
+                Assert.PropertyChanged(a, option, () => a[option] = !(bool)a[option]);
+            }
+        }
+
+        [Fact]
+        public void AllEnumPropertiesShouldNotifyOfChange()
+        {
+            var a = new MarkarthMilk();
+            foreach (var kv in a.EnumOptions)
+            {
+                Assert.PropertyChanged(a, kv.Key, () => a[kv.Key] = kv.Value[0]);
+            }
+        }
+
+        [Fact]
+        public void AllBoolOptionsShouldChangeSpecialInstructions()
+        {
+            MarkarthMilk a = new MarkarthMilk();
+            foreach (var option in a.BoolOptions)
+            {
+                Assert.PropertyChanged(a, "SpecialInstructions", () => a[option] = !(bool)a[option]);
+            }
+        }
+
+        [Fact]
+        public void SizeShouldChangePrice()
+        {
+            var a = new MarkarthMilk();
+            Assert.PropertyChanged(a, "Price", () => a.Size = Size.Large);
+        }
+
+        [Fact]
+        public void SizeShouldChangeCalories()
+        {
+            var a = new MarkarthMilk();
+            Assert.PropertyChanged(a, "Calories", () => a.Size = Size.Large);
+        }
+
         [Fact]
         public void ShouldNotIncludeIceByDefault()
         {

@@ -13,8 +13,44 @@ using System;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
-    public class ThugsTBoneTests
+   public class ThugsTBoneTests
     {
+		[Fact]
+		public void ShouldBeConvertableToINotifyPropertyChanged()
+		{
+			Assert.IsAssignableFrom<System.ComponentModel.INotifyPropertyChanged>(new ThugsTBone());
+		}
+
+        [Fact]
+        public void AllBooleanPropertiesShouldNotifyOfChange()
+        {
+            ThugsTBone a = new ThugsTBone();
+            foreach (var option in a.BoolOptions)
+            {
+                Assert.PropertyChanged(a, option, () => a[option] = !(bool)a[option]);
+            }
+        }
+
+        [Fact]
+        public void AllEnumPropertiesShouldNotifyOfChange()
+        {
+            var a = new ThugsTBone();
+            foreach (var kv in a.EnumOptions)
+            {
+                Assert.PropertyChanged(a, kv.Key, () => a[kv.Key] = kv.Value[0]);
+            }
+        }
+
+        [Fact]
+        public void AllBoolOptionsShouldChangeSpecialInstructions()
+        {
+            ThugsTBone a = new ThugsTBone();
+            foreach (var option in a.BoolOptions)
+            {
+                Assert.PropertyChanged(a, "SpecialInstructions", () => a[option] = !(bool)a[option]);
+            }
+        }
+
         [Fact]
         public void ShouldReturnCorrectPrice()
         {

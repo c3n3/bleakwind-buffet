@@ -16,6 +16,11 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public class SailorSoda : Drink
     {
+        /// <summary>
+        /// Property Changed event handler
+        /// </summary>
+        public override event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
         private bool ice = true;
         private SodaFlavor flavor = SodaFlavor.Cherry;
         private Size size = Size.Small;
@@ -42,7 +47,13 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Ice
         {
             get => ice;
-            set => ice = value;
+            set 
+			{
+				ice = value;
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Ice"));
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("SpecialInstructions"));
+;
+			}
         }
 
         /// <summary>
@@ -51,7 +62,11 @@ namespace BleakwindBuffet.Data.Drinks
         public SodaFlavor Flavor
         {
             get => flavor;
-            set => flavor = value;
+            set 
+			{
+				flavor = value;
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Flavor"));
+			}
         }
 
         /// <summary>
@@ -75,7 +90,13 @@ namespace BleakwindBuffet.Data.Drinks
         public override Size Size
         {
             get => size;
-            set => size = value;
+            set 
+			{
+				size = value;
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Size"));
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Price"));
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Calories"));
+			}
         }
 
         /// <summary>

@@ -6,7 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.ComponentModel;
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
@@ -14,28 +14,78 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class GardenOrcOmelette: Entree
     {
+        public override event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Gets the broc.
         /// </summary>
-        public bool Broccoli { get; set; } 
+        public bool Broccoli { 
+			get 
+ 			{
+				return _broccoli;
+			}
+			set
+			{
+				_broccoli = value;
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Broccoli"));
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("SpecialInstructions"));
+;
+			}
+		} 
 		private bool _broccoli = true;
 
         /// <summary>
         /// Gets the mushrooms.
         /// </summary>
-        public bool Mushrooms { get; set; } 
+        public bool Mushrooms { 
+			get 
+ 			{
+				return _mushrooms;
+			}
+			set
+			{
+				_mushrooms = value;
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Mushrooms"));
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("SpecialInstructions"));
+;
+			}
+		} 
 		private bool _mushrooms = true;
 
         /// <summary>
         /// Gets the tomato.
         /// </summary>
-        public bool Tomato { get; set; } 
+        public bool Tomato { 
+			get 
+ 			{
+				return _tomato;
+			}
+			set
+			{
+				_tomato = value;
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Tomato"));
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("SpecialInstructions"));
+;
+			}
+		} 
 		private bool _tomato = true;
 
         /// <summary>
         /// Gets the link.
         /// </summary>
-        public bool Cheddar { get; set; } 
+        public bool Cheddar { 
+			get 
+ 			{
+				return _cheddar;
+			}
+			set
+			{
+				_cheddar = value;
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Cheddar"));
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("SpecialInstructions"));
+;
+			}
+		} 
 		private bool _cheddar = true;
 
         /// <summary>

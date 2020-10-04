@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Caden Churchman
+ * Class: AddItem
+ * Purpose: Represents a list of all the items on the menu
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +26,9 @@ namespace PointOfSale
     /// </summary>
     public partial class Items : UserControl
     {
+        /// <summary>
+        /// Item clicked thing
+        /// </summary>
         public event EventHandler ItemClicked;
 
         /// <summary>

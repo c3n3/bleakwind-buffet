@@ -16,6 +16,11 @@ namespace BleakwindBuffet.Data.Drinks
     public class CandlehearthCoffee: Drink
     {
         /// <summary>
+        /// Property Changed event handler
+        /// </summary>
+        public override event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
         /// Private backing vars.
         /// </summary>
         private bool ice = false;
@@ -43,7 +48,12 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Ice
         {
             get => ice;
-            set => ice = value;
+            set 
+			{
+				ice = value;
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Ice"));
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("SpecialInstructions"));
+			}
         }
 
         /// <summary>
@@ -52,7 +62,13 @@ namespace BleakwindBuffet.Data.Drinks
         public override Size Size
         {
             get => size;
-            set => size = value;
+            set 
+			{
+				size = value;
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Size"));
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Price"));
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Calories"));
+			}
         }
 
         /// <summary>
@@ -61,7 +77,12 @@ namespace BleakwindBuffet.Data.Drinks
         public bool RoomForCream
         {
             get => roomForCream;
-            set => roomForCream = value;
+            set 
+			{
+				roomForCream = value;
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("RoomForCream"));
+                PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         /// <summary>
@@ -70,7 +91,13 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Decaf
         {
             get => decaf;
-            set => decaf = value;
+            set 
+			{
+				decaf = value;
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Decaf"));
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("SpecialInstructions"));
+;
+			}
         }
 
         /// <summary>

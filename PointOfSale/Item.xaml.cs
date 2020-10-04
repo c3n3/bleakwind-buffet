@@ -1,4 +1,9 @@
-﻿using BleakwindBuffet.Data.Menu;
+﻿/*
+ * Author: Caden Churchman
+ * Class: Item
+ * Purpose: Represents an item in a list
+ */
+using BleakwindBuffet.Data.Menu;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
@@ -14,34 +15,98 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class BriarheartBurger : Entree
     {
+        public override event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Gets if bun.
         /// </summary>
-        public bool Bun { get; set; } 
+        public bool Bun
+        {
+            get
+            {
+                return _bun;
+            }
+            set
+            {
+                _bun = value;
+                PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Bun"));
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("SpecialInstructions"));
+;
+            }
+        }
 		private bool _bun = true;
 
         /// <summary>
         /// Gets if ketchup.
         /// </summary>
-        public bool Ketchup { get; set; } 
+        public bool Ketchup 
+        { 
+			get 
+ 			{
+				return _ketchup;
+			}
+			set
+			{
+				_ketchup = value;
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Ketchup"));
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("SpecialInstructions"));
+;
+			}
+		} 
 		private bool _ketchup = true;
 
         /// <summary>
         /// Gets the mustard
         /// </summary>
-        public bool Mustard { get; set; } 
+        public bool Mustard { 
+			get 
+ 			{
+				return _mustard;
+			}
+			set
+			{
+				_mustard = value;
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Mustard"));
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("SpecialInstructions"));
+;
+			}
+		} 
 		private bool _mustard = true;
 
         /// <summary>
         /// Gets the pickle.
         /// </summary>
-        public bool Pickle { get; set; } 
+        public bool Pickle { 
+			get 
+ 			{
+				return _pickle;
+			}
+			set
+			{
+				_pickle = value;
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Pickle"));
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("SpecialInstructions"));
+;
+			}
+		} 
 		private bool _pickle = true;
 
         /// <summary>
         /// Gets the cheese.
         /// </summary>
-        public bool Cheese { get; set; } 
+        public bool Cheese { 
+			get 
+ 			{
+				return _cheese;
+			}
+			set
+			{
+				_cheese = value;
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Cheese"));
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("SpecialInstructions"));
+;
+			}
+		} 
 		private bool _cheese = true;
 
         /// <summary>

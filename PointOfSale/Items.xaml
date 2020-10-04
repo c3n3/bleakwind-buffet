@@ -9,16 +9,15 @@
     <UniformGrid Background="Black" Columns="3" Rows="1" Grid.IsSharedSizeScope="True" RenderTransformOrigin="0.5,0.5">
         <Grid>
             <Label x:Name="uxEntreesTitle_Copy1" Content="Drinks" Margin="10,0" VerticalAlignment="Top" Background="#FFC78383" Height="33"/>
-            <StackPanel x:Name="uxDrinks" Margin="10,33,10,0" Background="#FFB8B6B6" Grid.Column="2"/>
+            <StackPanel x:Name="uxDrinks" Margin="0,33,0,0" Grid.Column="2"/>
         </Grid>
         <Grid>
             <Label x:Name="uxEntreesTitle" Content="Entrees" Margin="10,0" VerticalAlignment="Top" Background="#FFC78383" Height="33"/>
-            <StackPanel x:Name="uxEntrees" Margin="10,33,10,0" Background="#FFB8B6B6"/>
-
+            <StackPanel x:Name="uxEntrees" Margin="0,33,0,0" />
         </Grid>
         <Grid>
             <Label x:Name="uxEntreesTitle_Copy" Content="Sides" Margin="10,0" Background="#FFC78383" VerticalAlignment="Top" Height="33"/>
-            <StackPanel x:Name="uxSides" Margin="10,33,10,0" Background="#FFB8B6B6" Grid.Column="1"/>
+            <StackPanel x:Name="uxSides" Margin="0,33,0,0" Grid.Column="1"/>
         </Grid>
 
     </UniformGrid>

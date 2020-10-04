@@ -1,4 +1,9 @@
-﻿using BleakwindBuffet.Data;
+﻿/*
+ * Author: Caden Churchman
+ * Class: MainWindow
+ * Purpose: Main window
+ */
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Menu;
 using System;
 using System.Collections.Generic;

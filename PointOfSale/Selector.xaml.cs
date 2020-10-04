@@ -1,4 +1,9 @@
-﻿using BleakwindBuffet.Data.Drinks;
+﻿/*
+ * Author: Caden Churchman
+ * Class: Selector
+ * Purpose: Utilizes the radial buttons to make a selector menu for the given vailable options.
+ */
+using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Menu;
 using System;
 using System.Collections.Generic;

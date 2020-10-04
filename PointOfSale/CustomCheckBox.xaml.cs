@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Author: Caden Churchman
+ * Class: CustomCheckBox
+ * Purpose: Makes a custom checkbox
+ */
+using BleakwindBuffet.Data.Menu;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,7 +34,16 @@ namespace PointOfSale
         /// <summary>
         /// If it is on
         /// </summary>
-        public bool On;
+        public bool On { get; set; }
+
+        /// <summary>
+        /// Makes dependency property for data binding
+        /// </summary>
+        public static readonly DependencyProperty OnProperty =
+            DependencyProperty.Register(
+            "On", typeof(bool),
+            typeof(CustomCheckBox)
+            );
 
         /// <summary>
         /// Value 

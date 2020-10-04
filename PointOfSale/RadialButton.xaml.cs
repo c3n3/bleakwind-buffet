@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Caden Churchman
+ * Class: RadialButton
+ * Purpose: Creates a button from the given characteristics
+ */
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -20,6 +25,11 @@ namespace PointOfSale
     /// <summary>
     /// Interaction logic for CircleFragmentButton.xaml
     /// </summary>
+    /// <remarks>
+    ///     This is currently a failure. Was meant to create a radial button with text along the middle of a polygon. 
+    ///     The TextBlocks and Labels have failed me. They cannot take an absolute position, and will not conform to my exact needs.
+    ///     I need some html and css.
+    /// </remarks>
     public partial class RadialButton : UserControl
     {
         /// <summary>
@@ -84,19 +94,13 @@ namespace PointOfSale
             var p3 = new Point((L / 2 + _length) * Math.Cos(da) + _center.X, (L / 2 + _length) * Math.Sin(da) + _center.Y);
             ps.Add(p3);
             ps.Add(p2);
-            //Poly.Points = ps;
             double fontSize = _length / 2;
             Poly.Opacity = 0;
-            
-
-
             t.FontSize = fontSize;
             t.Text = Value.ToString();
             t.Foreground = new SolidColorBrush(Colors.Black);
             Canvas.SetLeft(textBorder, (_length) * Math.Cos(da) + _center.X - ActualWidth / 2);
             Canvas.SetTop(textBorder, (_length) * Math.Sin(da) + _center.Y - ActualHeight / 2);
-            //Canvas.SetLeft(textBorder, p3.X - ActualWidth / 2);
-            //Canvas.SetTop(textBorder, p3.Y - ActualHeight / 2);
             RotateTransform r = new RotateTransform(da * 180 / Math.PI, 0, 0);
             textBorder.RenderTransform = r;
         }

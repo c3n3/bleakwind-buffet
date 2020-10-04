@@ -13,8 +13,44 @@ using System;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
-    public class GardenOrcOmeletteTests
+   public class GardenOrcOmeletteTests
     {
+		[Fact]
+		public void ShouldBeConvertableToINotifyPropertyChanged()
+		{
+			Assert.IsAssignableFrom<System.ComponentModel.INotifyPropertyChanged>(new GardenOrcOmelette());
+		}
+
+        [Fact]
+        public void AllBooleanPropertiesShouldNotifyOfChange()
+        {
+            GardenOrcOmelette a = new GardenOrcOmelette();
+            foreach (var option in a.BoolOptions)
+            {
+                Assert.PropertyChanged(a, option, () => a[option] = !(bool)a[option]);
+            }
+        }
+
+        [Fact]
+        public void AllEnumPropertiesShouldNotifyOfChange()
+        {
+            var a = new GardenOrcOmelette();
+            foreach (var kv in a.EnumOptions)
+            {
+                Assert.PropertyChanged(a, kv.Key, () => a[kv.Key] = kv.Value[0]);
+            }
+        }
+
+        [Fact]
+        public void AllBoolOptionsShouldChangeSpecialInstructions()
+        {
+            GardenOrcOmelette a = new GardenOrcOmelette();
+            foreach (var option in a.BoolOptions)
+            {
+                Assert.PropertyChanged(a, "SpecialInstructions", () => a[option] = !(bool)a[option]);
+            }
+        }
+
         [Fact]
         public void ShouldInlcudeBroccoliByDefault()
         {

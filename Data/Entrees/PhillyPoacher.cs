@@ -15,21 +15,63 @@ namespace BleakwindBuffet.Data.Entrees
     public class PhillyPoacher: Entree
     {
         /// <summary>
+        /// Property Changed event handler
+        /// </summary>
+        public override event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+
+        /// <summary>
         /// Gets the sirloin.
         /// </summary>
-        public bool Sirloin { get; set; } 
+        public bool Sirloin { 
+			get 
+ 			{
+				return _sirloin;
+			}
+			set
+			{
+				_sirloin = value;
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Sirloin"));
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("SpecialInstructions"));
+;
+			}
+		} 
 		private bool _sirloin = true;
 
         /// <summary>
         /// Gets the onion.
         /// </summary>
-        public bool Onion { get; set; } 
+        public bool Onion { 
+			get 
+ 			{
+				return _onion;
+			}
+			set
+			{
+				_onion = value;
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Onion"));
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("SpecialInstructions"));
+;
+			}
+		} 
 		private bool _onion = true;
 
         /// <summary>
         /// Gets the roll.
         /// </summary>
-        public bool Roll { get; set; } 
+        public bool Roll { 
+			get 
+ 			{
+				return _roll;
+			}
+			set
+			{
+				_roll = value;
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Roll"));
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("SpecialInstructions"));
+;
+			}
+		} 
 		private bool _roll = true;
 
         /// <summary>

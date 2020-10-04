@@ -13,8 +13,44 @@ using System;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
-    public class DoubleDraugrTests
-    {   
+   public class DoubleDraugrTests
+    {
+		[Fact]
+		public void ShouldBeConvertableToINotifyPropertyChanged()
+		{
+			Assert.IsAssignableFrom<System.ComponentModel.INotifyPropertyChanged>(new DoubleDraugr());
+		}
+
+        [Fact]
+        public void AllBooleanPropertiesShouldNotifyOfChange()
+        {
+            DoubleDraugr a = new DoubleDraugr();
+            foreach (var option in a.BoolOptions)
+            {
+                Assert.PropertyChanged(a, option, () => a[option] = !(bool)a[option]);
+            }
+        }
+
+        [Fact]
+        public void AllEnumPropertiesShouldNotifyOfChange()
+        {
+            var a = new DoubleDraugr();
+            foreach (var kv in a.EnumOptions)
+            {
+                Assert.PropertyChanged(a, kv.Key, () => a[kv.Key] = kv.Value[0]);
+            }
+        }
+
+        [Fact]
+        public void AllBoolOptionsShouldChangeSpecialInstructions()
+        {
+            DoubleDraugr a = new DoubleDraugr();
+            foreach (var option in a.BoolOptions)
+            {
+                Assert.PropertyChanged(a, "SpecialInstructions", () => a[option] = !(bool)a[option]);
+            }
+        }
+
         [Fact]
         public void ShouldIncludeBunByDefault()
         {

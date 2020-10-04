@@ -13,9 +13,44 @@ using System;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
-    public class BriarheartBurgerTests
+   public class BriarheartBurgerTests
     {
-        
+		[Fact]
+		public void ShouldBeConvertableToINotifyPropertyChanged()
+		{
+			Assert.IsAssignableFrom<System.ComponentModel.INotifyPropertyChanged>(new BriarheartBurger());
+		}
+
+        [Fact]
+        public void AllBooleanPropertiesShouldNotifyOfChange()
+        {
+            BriarheartBurger a = new BriarheartBurger();
+            foreach (var option in a.BoolOptions)
+            {
+                Assert.PropertyChanged(a, option, () => a[option] = !(bool)a[option]);
+            }
+        }
+
+        [Fact]
+        public void AllEnumPropertiesShouldNotifyOfChange()
+        {
+            var a = new BriarheartBurger();
+            foreach (var kv in a.EnumOptions)
+            {
+                Assert.PropertyChanged(a, kv.Key, () => a[kv.Key] = kv.Value[0]);
+            }
+        }
+
+        [Fact]
+        public void AllBoolOptionsShouldChangeSpecialInstructions()
+        {
+            BriarheartBurger a = new BriarheartBurger();
+            foreach (var option in a.BoolOptions)
+            {
+                Assert.PropertyChanged(a, "SpecialInstructions", () => a[option] = !(bool)a[option]);
+            }
+        }
+
         [Fact]
         public void ShouldIncludeBunByDefault()
         {

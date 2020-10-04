@@ -1,7 +1,13 @@
-﻿using BleakwindBuffet.Data.Menu;
+﻿/*
+ * Author: Caden Churchman
+ * Class: Orders
+ * Purpose: This is a list of all orders
+ */
+using BleakwindBuffet.Data.Menu;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -37,9 +43,9 @@ namespace PointOfSale
             double total = 0;
             foreach (var a in uxOrderStack.Children)
             {
-                total += ((Item)a).Value.Price;
+                total += ((OrderedItem)a).Value.Price;
             }
-            uxPrice.Content = $"Price: \n\t{total}";
+            uxPrice.Content = $"Subtotal: {Math.Round(total, 2)}\nTax: {Math.Round(total * Constants.TAX, 2)}\n Total: {Math.Round(total + total * Constants.TAX, 2)}";
             Console.WriteLine(total);
         }
 
@@ -49,8 +55,9 @@ namespace PointOfSale
         /// <param name="item"> the item </param>
         public void AddOrder(IOrderItem item)
         {
-            var l = new Item(item.ToString() + $" {item.Price}", item);
+            var l = new OrderedItem(item.ToString(), item);
             l.uxTitle.HorizontalContentAlignment = HorizontalAlignment.Left;
+            l.Deleted += DeleteOrder;
             uxOrderStack.Children.Add(l);
             UpdatePrice();
         }
@@ -64,6 +71,15 @@ namespace PointOfSale
         {
             uxOrderStack.Children.Clear();
             UpdatePrice();
+        }
+
+        public void DeleteOrder(object item, EventArgs e)
+        {
+            if (item is OrderedItem i)
+            {
+                uxOrderStack.Children.Remove(i);
+                UpdatePrice();
+            }
         }
     }
 }

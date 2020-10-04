@@ -5,14 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
-             d:DesignHeight="200" d:DesignWidth="400"
+             d:DesignHeight="45" d:DesignWidth="400"
              Margin="5, 0, 5, 5"
              >
     <UserControl.Resources>
         <BitmapImage x:Key="ex" UriSource="Images/ex.png"></BitmapImage>
         <BitmapImage x:Key="check" UriSource="Images/check.png"></BitmapImage>
     </UserControl.Resources>
-
+    <Border CornerRadius="10" BorderThickness="4" BorderBrush="AliceBlue">
     <Grid  Background="CadetBlue" MouseLeftButtonUp="Grid_MouseLeftButtonUp" HorizontalAlignment="Stretch" Height="40">
         <Grid.ColumnDefinitions>
             <ColumnDefinition>
@@ -25,4 +25,5 @@
         </Grid>
         <Label Grid.Column="1"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="15" x:Name="value_label" VerticalContentAlignment="Center">Value</Label>
     </Grid>
+    </Border>
 </UserControl>

@@ -17,6 +17,8 @@
             <StackPanel x:Name="uxOrderStack"/>
         </ScrollViewer>
         <Button x:Name="uxClearOrders" Click="uxClearOrders_Click" Content="Clear" HorizontalAlignment="Center" Margin="64,14,72,10" Grid.Row="2" VerticalAlignment="Center" Width="74"/>
-        <Label x:Name="uxPrice" Content="Label" HorizontalAlignment="Left" Height="31" Margin="10,0,0,0" Grid.Row="3" VerticalAlignment="Top" Width="188" MinHeight="50"/>
+        <Border Grid.Row="3" BorderBrush="Black" BorderThickness="0, 5, 0, 0" Background="LightGray">
+            <Label x:Name="uxPrice" Content="Label" HorizontalAlignment="Left" Height="50" Margin="10,0,0,0" VerticalAlignment="Top" Width="188" MinHeight="80"/>
+        </Border>
     </Grid>
 </UserControl>

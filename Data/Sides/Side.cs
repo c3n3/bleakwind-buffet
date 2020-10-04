@@ -17,6 +17,11 @@ namespace BleakwindBuffet.Data.Sides
     public abstract class Side: IOrderItem
     {
         /// <summary>
+        /// Property Changed event handler
+        /// </summary>
+        public abstract event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
         /// Allows properties to be set via string.
         /// </summary>
         /// <param name="property"> the name of the property </param>

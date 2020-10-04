@@ -1,6 +1,6 @@
 ﻿/*
  * Author: Zachery Brunner
-* Edited By Caden Churchman
+ * Edited By Caden Churchman
  * Class: DragonbornWaffleFriesTests.cs
  * Purpose: Test the DragonbornWaffleFries.cs class in the Data library
  */
@@ -11,11 +11,62 @@ using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Menu;
 using System.Collections.Generic;
 using System;
+using System.Runtime;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
-    public class DragonbornWaffleFriesTests
+   public class DragonbornWaffleFriesTests
     {
+		[Fact]
+		public void ShouldBeConvertableToINotifyPropertyChanged()
+		{
+			Assert.IsAssignableFrom<System.ComponentModel.INotifyPropertyChanged>(new DragonbornWaffleFries());
+		}
+
+        [Fact]
+        public void AllBooleanPropertiesShouldNotifyOfChange()
+        {
+            DragonbornWaffleFries a = new DragonbornWaffleFries();
+            foreach (var option in a.BoolOptions)
+            {
+                Assert.PropertyChanged(a, option, () => a[option] = !(bool)a[option]);
+            }
+        }
+
+        [Fact]
+        public void AllEnumPropertiesShouldNotifyOfChange()
+        {
+            var a = new DragonbornWaffleFries();
+            foreach (var kv in a.EnumOptions)
+            {
+                Assert.PropertyChanged(a, kv.Key, () => a[kv.Key] = kv.Value[0]);
+            }
+        }
+
+        [Fact]
+        public void AllBoolOptionsShouldChangeSpecialInstructions()
+        {
+            DragonbornWaffleFries a = new DragonbornWaffleFries();
+            foreach (var option in a.BoolOptions)
+            {
+                Assert.PropertyChanged(a, "SpecialInstructions", () => a[option] = !(bool)a[option]);
+            }
+        }
+
+        [Fact]
+        public void SizeShouldChangePrice()
+        {
+            var a = new DragonbornWaffleFries();
+            Assert.PropertyChanged(a, "Price", () => a.Size = Size.Large);
+        }
+
+        [Fact]
+        public void SizeShouldChangeCalories()
+        {
+            var a = new DragonbornWaffleFries();
+            Assert.PropertyChanged(a, "Calories", () => a.Size = Size.Large);
+        }
+
         [Fact]
         public void ShouldBeSmallByDefault()
         {
@@ -118,6 +169,29 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             Assert.Contains(Size.Small, d["Size"]);
             Assert.Contains(Size.Medium, d["Size"]);
             Assert.Contains(Size.Large, d["Size"]);
+        }
+        
+        [Fact]
+        public void EnumOptionsShouldBeSetable()
+        {
+            var a = new DragonbornWaffleFries();
+            var d = a.EnumOptions;
+            foreach (var kv in d)
+            {
+                a[kv.Key] = kv.Value[0];
+            }
+        } 
+        
+        [Fact]
+        public void EnumOptionsShouldBeGetable()
+        {
+            var a = new DragonbornWaffleFries();
+            var d = a.EnumOptions;
+            foreach (var kv in d)
+            {
+                var g = a[kv.Key];
+                Assert.NotNull(a);
+            }
         }
 
         [Fact]

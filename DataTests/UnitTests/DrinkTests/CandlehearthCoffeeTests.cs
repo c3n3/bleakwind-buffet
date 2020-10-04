@@ -16,8 +16,58 @@ using System;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
-    public class CandlehearthCoffeeTests
+   public class CandlehearthCoffeeTests
     {
+		[Fact]
+		public void ShouldBeConvertableToINotifyPropertyChanged()
+		{
+			Assert.IsAssignableFrom<System.ComponentModel.INotifyPropertyChanged>(new CandlehearthCoffee());
+		}
+
+        [Fact]
+        public void AllBooleanPropertiesShouldNotifyOfChange()
+        {
+            CandlehearthCoffee a = new CandlehearthCoffee();
+            foreach (var option in a.BoolOptions)
+            {
+                Assert.PropertyChanged(a, option, () => a[option] = !(bool)a[option]);
+            }
+        }
+
+        [Fact]
+        public void AllEnumPropertiesShouldNotifyOfChange()
+        {
+            var a = new CandlehearthCoffee();
+            foreach (var kv in a.EnumOptions)
+            {
+                Assert.PropertyChanged(a, kv.Key, () => a[kv.Key] = kv.Value[0]);
+            }
+        }
+
+        [Fact]
+        public void AllBoolOptionsShouldChangeSpecialInstructions()
+        {
+            CandlehearthCoffee a = new CandlehearthCoffee();
+            foreach (var option in a.BoolOptions)
+            {
+                Assert.PropertyChanged(a, "SpecialInstructions", () => a[option] = !(bool)a[option]);
+            }
+        }
+
+        [Fact]
+        public void SizeShouldChangePrice()
+        {
+            var a = new CandlehearthCoffee();
+            Assert.PropertyChanged(a, "Price", () => a.Size = Size.Large);
+        }
+
+        [Fact]
+        public void SizeShouldChangeCalories()
+        {
+            var a = new CandlehearthCoffee();
+            Assert.PropertyChanged(a, "Calories", () => a.Size = Size.Large);
+        }
+
         [Fact]
         public void ShouldNotIncludeIceByDefault()
         {

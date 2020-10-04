@@ -16,8 +16,8 @@ using Xunit;
 
 namespace BleakwindBuffet.DataTests.UnitTests.MenuTests
 {
-    public class MenuStaticTests
-    {
+   public class MenuStaticTests
+   {
         [Fact]
         public void DrinksContainOnlyDrinks()
         {
@@ -62,6 +62,26 @@ namespace BleakwindBuffet.DataTests.UnitTests.MenuTests
                 assertions[item.GetType().FullName] = true;
             }
             Assert.All(assertions, item => Assert.True(item.Value));
+        }  
+        
+        [Fact]
+        public void DrinkItemsContainAllInheritedDrinks()
+        {
+            // Credit to Sam Harwell https://stackoverflow.com/questions/1665120/how-can-i-get-all-the-inherited-classes-of-a-base-class
+            var types = AppDomain.CurrentDomain.GetAssemblies()
+                       .SelectMany(assembly => assembly.GetTypes())
+                       .Where(type => type.IsSubclassOf(typeof(Drink)));
+            // End Credit
+            Dictionary<string, bool> assertions = new Dictionary<string, bool>();
+            foreach (Type t in types)
+            {
+                assertions.Add(t.FullName, false);
+            }
+            foreach (IOrderItem item in Menu.DrinkItems())
+            {
+                assertions[item.GetType().FullName] = true;
+            }
+            Assert.All(assertions, item => Assert.True(item.Value));
         }
         
         [Fact]
@@ -85,6 +105,26 @@ namespace BleakwindBuffet.DataTests.UnitTests.MenuTests
         }
         
         [Fact]
+        public void EntreeItemsContainAllInheritedEntrees()
+        {
+            // Credit to Sam Harwell https://stackoverflow.com/questions/1665120/how-can-i-get-all-the-inherited-classes-of-a-base-class
+            var types = AppDomain.CurrentDomain.GetAssemblies()
+                       .SelectMany(assembly => assembly.GetTypes())
+                       .Where(type => type.IsSubclassOf(typeof(Entree)));
+            // End Credit
+            Dictionary<string, bool> assertions = new Dictionary<string, bool>();
+            foreach (Type t in types)
+            {
+                assertions.Add(t.FullName, false);
+            }
+            foreach (IOrderItem item in Menu.EntreeItems())
+            {
+                assertions[item.GetType().FullName] = true;
+            }
+            Assert.All(assertions, item => Assert.True(item.Value));
+        }
+        
+        [Fact]
         public void SidesContainAllInheritedSides()
         {
             // Credit to Sam Harwell https://stackoverflow.com/questions/1665120/how-can-i-get-all-the-inherited-classes-of-a-base-class
@@ -98,6 +138,26 @@ namespace BleakwindBuffet.DataTests.UnitTests.MenuTests
                 assertions.Add(t.FullName, false);
             }
             foreach (IOrderItem item in Menu.Sides())
+            {
+                assertions[item.GetType().FullName] = true;
+            }
+            Assert.All(assertions, item => Assert.True(item.Value));
+        }
+        
+        [Fact]
+        public void SideItemsContainAllInheritedSides()
+        {
+            // Credit to Sam Harwell https://stackoverflow.com/questions/1665120/how-can-i-get-all-the-inherited-classes-of-a-base-class
+            var types = AppDomain.CurrentDomain.GetAssemblies()
+                       .SelectMany(assembly => assembly.GetTypes())
+                       .Where(type => type.IsSubclassOf(typeof(Side)));
+            // End Credit
+            Dictionary<string, bool> assertions = new Dictionary<string, bool>();
+            foreach (Type t in types)
+            {
+                assertions.Add(t.FullName, false);
+            }
+            foreach (IOrderItem item in Menu.SideItems())
             {
                 assertions[item.GetType().FullName] = true;
             }
@@ -170,6 +230,26 @@ namespace BleakwindBuffet.DataTests.UnitTests.MenuTests
                 }
             }
             Assert.All(assertions, item => Assert.Equal(item.Value.Count, sizes.Length));
+        }
+        
+        [Fact]
+        public void SidesItemsShouldContainAllSides()
+        {
+            Size[] sizes = (Size[])Enum.GetValues(typeof(Size));
+            Dictionary<string, bool> assertions = new Dictionary<string, bool>();
+            assertions.Add(typeof(DragonbornWaffleFries).Name, false);
+            assertions.Add(typeof(FriedMiraak).Name, false);
+            assertions.Add(typeof(MadOtarGrits).Name, false);
+            assertions.Add(typeof(VokunSalad).Name, false);
+            foreach (IOrderItem item in Menu.SideItems()) 
+            { 
+                Side side = (Side)item;
+                if (!assertions[side.GetType().Name])
+                {
+                    assertions[side.GetType().Name] = true;
+                }
+            }
+            Assert.All(assertions, item => Assert.True(item.Value));
         }
 
         [Fact]

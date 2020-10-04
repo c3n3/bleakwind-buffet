@@ -17,6 +17,58 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
     public class AretinoAppleJuiceTests
     {
+        private AretinoAppleJuice k = new AretinoAppleJuice();
+
+		[Fact]
+		public void ShouldBeConvertableToINotifyPropertyChanged()
+		{
+			Assert.IsAssignableFrom<System.ComponentModel.INotifyPropertyChanged>(new AretinoAppleJuice());
+		}
+
+        [Fact]
+        public void AllBooleanPropertiesShouldNotifyOfChange()
+        {
+            AretinoAppleJuice a = new AretinoAppleJuice();
+            foreach (var option in a.BoolOptions)
+            {
+                Assert.PropertyChanged(a, option, () => a[option] = !(bool)a[option]);
+            }
+        }
+
+        [Fact]
+        public void AllEnumPropertiesShouldNotifyOfChange()
+        {
+            var a = new AretinoAppleJuice();
+            foreach (var kv in a.EnumOptions)
+            {
+                Assert.PropertyChanged(a, kv.Key, () => a[kv.Key] = kv.Value[0]);
+            }
+        }
+
+        [Fact]
+        public void AllBoolOptionsShouldChangeSpecialInstructions()
+        {
+            AretinoAppleJuice a = new AretinoAppleJuice();
+            foreach (var option in a.BoolOptions)
+            {
+                Assert.PropertyChanged(a, "SpecialInstructions", () => a[option] = !(bool)a[option]);
+            }
+        }
+
+        [Fact]
+        public void SizeShouldChangePrice()
+        {
+            var a = new AretinoAppleJuice();
+            Assert.PropertyChanged(a, "Price", () => a.Size = Size.Large);
+        }
+
+        [Fact]
+        public void SizeShouldChangeCalories()
+        {
+            var a = new AretinoAppleJuice();
+            Assert.PropertyChanged(a, "Calories", () => a.Size = Size.Large);
+        }
+
         [Fact]
         public void ShouldNotIncludeIceByDefault()
         {

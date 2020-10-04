@@ -16,6 +16,11 @@ namespace BleakwindBuffet.Data.Sides
     public class FriedMiraak: Side
     {
         /// <summary>
+        /// Property Changed event handler
+        /// </summary>
+        public override event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
         /// Ctor.
         /// </summary>
         /// <param name="size">size</param>
@@ -32,7 +37,16 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// The size.
         /// </summary>
-        public override Size Size { get; set; } 
+        public override Size Size {
+			get => _size;
+			set 
+			{
+				_size = value;
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Size"));
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Price"));
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Calories"));
+			}
+		} 
 		private Size _size = Size.Small;
 
         /// <summary>

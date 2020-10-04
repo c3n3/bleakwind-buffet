@@ -14,8 +14,59 @@ using System.Collections.Generic;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
-    public class FriedMiraakTests
+   public class FriedMiraakTests
     {
+		[Fact]
+		public void ShouldBeConvertableToINotifyPropertyChanged()
+		{
+			Assert.IsAssignableFrom<System.ComponentModel.INotifyPropertyChanged>(new FriedMiraak());
+		}
+
+        [Fact]
+        public void AllBooleanPropertiesShouldNotifyOfChange()
+        {
+            FriedMiraak a = new FriedMiraak();
+            foreach (var option in a.BoolOptions)
+            {
+                Assert.PropertyChanged(a, option, () => a[option] = !(bool)a[option]);
+            }
+        }
+
+        [Fact]
+        public void AllEnumPropertiesShouldNotifyOfChange()
+        {
+            var a = new FriedMiraak();
+            foreach (var kv in a.EnumOptions)
+            {
+                Assert.PropertyChanged(a, kv.Key, () => a[kv.Key] = kv.Value[0]);
+            }
+        }
+
+        [Fact]
+        public void AllBoolOptionsShouldChangeSpecialInstructions()
+        {
+            FriedMiraak a = new FriedMiraak();
+            foreach (var option in a.BoolOptions)
+            {
+                Assert.PropertyChanged(a, "SpecialInstructions", () => a[option] = !(bool)a[option]);
+            }
+        }
+
+        [Fact]
+        public void SizeShouldChangePrice()
+        {
+            var a = new FriedMiraak();
+            Assert.PropertyChanged(a, "Price", () => a.Size = Size.Large);
+        }
+
+        [Fact]
+        public void SizeShouldChangeCalories()
+        {
+            var a = new FriedMiraak();
+            Assert.PropertyChanged(a, "Calories", () => a.Size = Size.Large);
+        }
+
+
         [Fact]
         public void ShouldBeSmallByDefault()
         {

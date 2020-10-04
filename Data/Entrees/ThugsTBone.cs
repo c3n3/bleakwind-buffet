@@ -15,6 +15,12 @@ namespace BleakwindBuffet.Data.Entrees
     public class ThugsTBone: Entree
     {
         /// <summary>
+        /// Property Changed event handler
+        /// </summary>
+        public override event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+
+        /// <summary>
         /// Gets the instructions.
         /// </summary>
         public override List<string> SpecialInstructions => new List<string> { };

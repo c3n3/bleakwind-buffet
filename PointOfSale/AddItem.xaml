@@ -24,5 +24,6 @@
         <Button x:Name="uxAddButton" Content="Add" Click="uxAddButton_Click" Grid.Column="0" Grid.Row="3" FontSize="20"/>
         <Button Panel.ZIndex="-1" x:Name="uxCancelButton" Content="Cancel" Click="uxCancelButton_Click" Grid.Column="1" Grid.Row="3" FontSize="20"/>
         <Label x:Name="uxItemTitle" Content="Label" HorizontalAlignment="Stretch" Margin="5, 5, 5, 5" VerticalAlignment="Stretch" Background="#FFF38D8D" FontSize="25" VerticalContentAlignment="Center"/>
+        <Label Grid.Column="1" x:Name="uxPrice" Content="{Binding Price}" HorizontalAlignment="Stretch" Margin="5, 5, 5, 5" VerticalAlignment="Stretch" Background="#FFF38D8D" FontSize="25" VerticalContentAlignment="Center"/>
     </Grid>
 </UserControl>

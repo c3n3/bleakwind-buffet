@@ -15,26 +15,83 @@ namespace BleakwindBuffet.Data.Entrees
     public class SmokehouseSkeleton: Entree
     {
         /// <summary>
+        /// Property Changed event handler
+        /// </summary>
+        public override event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
         /// Gets the link.
         /// </summary>
-        public bool SausageLink { get; set; } 
+        public bool SausageLink { 
+			get 
+ 			{
+				return _sausageLink;
+			}
+			set
+			{
+				_sausageLink = value;
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("SausageLink"));
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("SpecialInstructions"));
+;
+			}
+		} 
 		private bool _sausageLink = true;
         
         /// <summary>
         /// Gets the link.
         /// </summary>
-        public bool Egg { get; set; } 
-		private bool _sgg = true;
-        
+        public bool Egg { 
+			get 
+ 			{
+				return _egg;
+			}
+			set
+			{
+				_egg = value;
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Egg"));
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("SpecialInstructions"));
+;
+			}
+		} 
+		private bool _egg = true;
+
         /// <summary>
         /// Gets the link.
         /// </summary>
-        public bool HashBrowns{ get; set; } = true;
-        
+        public bool Pancake
+        {
+            get
+            {
+                return _pancake;
+            }
+            set
+            {
+                _pancake = value;
+                PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Pancake"));
+                PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("SpecialInstructions"));
+                ;
+            }
+        }
+        private bool _pancake = true;
+
         /// <summary>
         /// Gets the link.
         /// </summary>
-        public bool Pancake{ get; set; } = true;
+        public bool HashBrowns
+        {
+            get
+            {
+                return _hashBrowns;
+            }
+            set
+            {
+                _hashBrowns = value;
+                PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("HashBrowns"));
+                PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("SpecialInstructions"));
+                ;
+            }
+        }
+        private bool _hashBrowns = true;
 
         /// <summary>
         /// Gets instructions.

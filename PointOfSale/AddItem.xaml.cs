@@ -1,4 +1,9 @@
-﻿using BleakwindBuffet.Data.Menu;
+﻿/*
+ * Author: Caden Churchman
+ * Class: AddItem
+ * Purpose: Makes the menu to edit an item to add
+ */
+using BleakwindBuffet.Data.Menu;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,16 +42,18 @@ namespace PointOfSale
         {
             InitializeComponent();
             _item = item;
+            DataContext = _item;
             //TODO: Replace the jank name thing.
             uxItemTitle.Content = Regex.Replace(_item.GetType().Name, "([A-Z])", " $1");
             foreach (string option in _item.BoolOptions)
             {
                 var checkbox = new CustomCheckBox(option, (bool)_item[option]);
-                //checkbox.FontSize = 15;
-                //checkbox.HorizontalAlignment = HorizontalAlignment.Stretch;
-                //checkbox.VerticalAlignment = VerticalAlignment.Stretch;
-                //checkbox.Content = option;
-                //checkbox.IsChecked = (bool)_item[option];
+                var bind = new Binding();
+                bind.Source = _item;
+                bind.Path = new PropertyPath(option);
+                bind.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+                bind.Mode = BindingMode.TwoWay;
+                BindingOperations.SetBinding(checkbox, CustomCheckBox.OnProperty, bind);
                 uxBoolOptions.Children.Add(checkbox);
             }
             foreach (KeyValuePair<string, List<object>> option in _item.EnumOptions)
@@ -56,15 +63,16 @@ namespace PointOfSale
                 Grid.SetZIndex(border, 1000);
                 var combo = new Selector(option.Value, option.Value[0], option.Key);
                 combo.Selected += AddSelector;
-                //combo.FontSize = 15;
-                //combo.Tag = option.Key;
-                //combo.SelectedIndex = option.Value.IndexOf(_item[option.Key]);
-                //combo.ItemsSource = option.Value;
                 border.Child = combo;
                 uxEnumOptions.Children.Add(border);
             }
         }
 
+        /// <summary>
+        /// When the selector sends out a selected event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void AddSelector(object sender, EventArgs e)
         {
             if (sender is Selector s)
@@ -91,14 +99,13 @@ namespace PointOfSale
         /// <param name="e"> The args </param>
         private void uxAddButton_Click(object sender, RoutedEventArgs e)
         {
-
             foreach (var combo in uxEnumOptions.Children)
             {
-                _item[(string)(((Selector)((Border)combo).Child)).Key] = ((Selector)(((Border)combo).Child)).Value;
+                _item[(((Selector)((Border)combo).Child)).Key] = ((Selector)(((Border)combo).Child)).Value;
             }
             foreach (var checkbox in uxBoolOptions.Children)
             {
-                _item[(string)((CustomCheckBox)(checkbox)).Value] = ((CustomCheckBox)(checkbox)).On;
+                _item[((CustomCheckBox)(checkbox)).Value] = ((CustomCheckBox)(checkbox)).On;
             }
             Result(_item, null);
         }
