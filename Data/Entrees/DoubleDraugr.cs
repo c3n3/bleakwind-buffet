@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
@@ -14,45 +15,65 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class DoubleDraugr : Entree
     {
+        public override event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Gets if bun.
         /// </summary>
-        public bool Bun { get; set; } = true;
+        public bool Bun { 
+            get
+            {
+                return _bun;
+            }
+            set
+            {
+                _bun = value;
+                PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Bun"));
+            }
+        }
+        private bool _bun = true;
 
         /// <summary>
         /// Gets if ketchup.
         /// </summary>
-        public bool Ketchup { get; set; } = true;
+        public bool Ketchup { get; set; } 
+		private bool _ketchup = true;
 
         /// <summary>
         /// Gets the mustard.
         /// </summary>
-        public bool Mustard { get; set; } = true;
+        public bool Mustard { get; set; } 
+		private bool _mustard = true;
 
         /// <summary>
         /// Gets the pickle.
         /// </summary>
-        public bool Pickle { get; set; } = true;
+        public bool Pickle { get; set; } 
+		private bool _pickle = true;
 
         /// <summary>
         /// Gets if tomato.
         /// </summary>
-        public bool Tomato { get; set; } = true;
+        public bool Tomato { get; set; } 
+		private bool _tomato = true;
 
         /// <summary>
         /// Gets if lettuce.
         /// </summary>
-        public bool Lettuce { get; set; } = true;
+        public bool Lettuce { get; set; } 
+		private bool _lettuce = true;
 
         /// <summary>
         /// Gets if mayo.
         /// </summary>
-        public bool Mayo { get; set; } = true;
+        public bool Mayo { get; set; } 
+		private bool _mayo = true;
 
         /// <summary>
         /// Gets the cheese.
         /// </summary>
-        public bool Cheese { get; set; } = true;
+        public bool Cheese { get; set; } 
+		private bool _cheese = true;
 
         /// <summary>
         /// Gets instructions.
@@ -71,7 +92,6 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!Tomato) l.Add("Hold tomato");
                 if (!Lettuce) l.Add("Hold lettuce");
                 return l;
-
             }
         }
 

@@ -17,17 +17,20 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Gets the sirloin.
         /// </summary>
-        public bool Sirloin { get; set; } = true;
+        public bool Sirloin { get; set; } 
+		private bool _sirloin = true;
 
         /// <summary>
         /// Gets the onion.
         /// </summary>
-        public bool Onion { get; set; } = true;
+        public bool Onion { get; set; } 
+		private bool _onion = true;
 
         /// <summary>
         /// Gets the roll.
         /// </summary>
-        public bool Roll { get; set; } = true;
+        public bool Roll { get; set; } 
+		private bool _roll = true;
 
         /// <summary>
         /// Gets instructions.

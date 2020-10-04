@@ -21,11 +21,17 @@ namespace PointOfSale
     /// </summary>
     public partial class Orders : UserControl
     {
+        /// <summary>
+        /// The orders
+        /// </summary>
         public Orders()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Update price
+        /// </summary>
         public void UpdatePrice()
         {
             double total = 0;
@@ -37,6 +43,10 @@ namespace PointOfSale
             Console.WriteLine(total);
         }
 
+        /// <summary>
+        /// The add order
+        /// </summary>
+        /// <param name="item"> the item </param>
         public void AddOrder(IOrderItem item)
         {
             var l = new Item(item.ToString() + $" {item.Price}", item);
@@ -45,6 +55,11 @@ namespace PointOfSale
             UpdatePrice();
         }
 
+        /// <summary>
+        /// Click handler
+        /// </summary>
+        /// <param name="sender"> sender </param>
+        /// <param name="e"> event </param>
         private void uxClearOrders_Click(object sender, RoutedEventArgs e)
         {
             uxOrderStack.Children.Clear();

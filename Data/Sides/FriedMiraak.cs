@@ -32,7 +32,8 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// The size.
         /// </summary>
-        public override Size Size { get; set; } = Size.Small;
+        public override Size Size { get; set; } 
+		private Size _size = Size.Small;
 
         /// <summary>
         /// The price.

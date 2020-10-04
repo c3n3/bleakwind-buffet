@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
@@ -16,6 +17,8 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public abstract class Entree : IOrderItem
     {
+        public virtual event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Allows properties to be set via string.
         /// </summary>

@@ -5,10 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              MouseLeftButtonDown="Left_Click"
              xmlns:local="clr-namespace:PointOfSale"
-             mc:Ignorable="d" Background="#FFECD2D2" VerticalContentAlignment="Top" Padding="0,0,0,5" Margin="0">
+             mc:Ignorable="d" VerticalContentAlignment="Top" Margin="0">
 
-    <Border BorderBrush="Black" BorderThickness="0,2">
-        <Label x:Name="uxTitle"  Margin="0" Content="Test" FontSize="14" Padding="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+    <Border BorderBrush="Black" BorderThickness="0,2" Margin="0, 5, 0, 5" Background="#FFECD2D2">
+        <Label x:Name="uxTitle"  Content="Test" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
     </Border>
     
 </UserControl>

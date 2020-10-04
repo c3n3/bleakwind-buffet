@@ -8,23 +8,21 @@
       d:DesignHeight="450" d:DesignWidth="800" Background="Black"
       >
 
-    <Grid Background="Black" Margin="0,64,0,0">
+    <Grid Background="Black" Margin="0,0,0,0" x:Name="item_grid">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition/>
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <UniformGrid Background="Black" Grid.RowSpan="2" Margin="0,0,0,104" MinWidth="603">
-            <StackPanel x:Name="uxBoolProps" Margin="10,0,5,0" Background="#FF909DEE"/>
-            <StackPanel x:Name="uxEnumProps" Margin="5,0,10,0" Background="#FF909DEE"/>
-        </UniformGrid>
-        <Grid Grid.Row="1" Margin="0,312,376,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="63*"/>
-                <ColumnDefinition Width="149*"/>
-            </Grid.ColumnDefinitions>
-            <Button x:Name="uxAddButton" Content="Add" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Click="uxAddButton_Click" Height="20" Grid.Column="1" Width="75"/>
-            <Button x:Name="uxCancelButton" Content="Cancel" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Click="uxCancelButton_Click" Height="20" Width="75"/>
-        </Grid>
-        <Label x:Name="uxItemTitle" Content="Label" HorizontalAlignment="Left" Margin="0,-58,0,0" VerticalAlignment="Top" Height="48" Width="251" Background="#FFF38D8D" FontSize="15" VerticalContentAlignment="Center"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="1" Background="DarkSlateBlue" x:Name="uxBoolOptions"></StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1" Background="DarkSlateBlue" x:Name="uxEnumOptions" ClipToBounds="False">
+        </StackPanel>
+        <Button x:Name="uxAddButton" Content="Add" Click="uxAddButton_Click" Grid.Column="0" Grid.Row="3" FontSize="20"/>
+        <Button Panel.ZIndex="-1" x:Name="uxCancelButton" Content="Cancel" Click="uxCancelButton_Click" Grid.Column="1" Grid.Row="3" FontSize="20"/>
+        <Label x:Name="uxItemTitle" Content="Label" HorizontalAlignment="Stretch" Margin="5, 5, 5, 5" VerticalAlignment="Stretch" Background="#FFF38D8D" FontSize="25" VerticalContentAlignment="Center"/>
     </Grid>
 </UserControl>

@@ -17,27 +17,32 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Gets if bun.
         /// </summary>
-        public bool Bun { get; set; } = true;
+        public bool Bun { get; set; } 
+		private bool _bun = true;
 
         /// <summary>
         /// Gets if ketchup.
         /// </summary>
-        public bool Ketchup { get; set; } = true;
+        public bool Ketchup { get; set; } 
+		private bool _ketchup = true;
 
         /// <summary>
         /// Gets the mustard
         /// </summary>
-        public bool Mustard { get; set; } = true;
+        public bool Mustard { get; set; } 
+		private bool _mustard = true;
 
         /// <summary>
         /// Gets the pickle.
         /// </summary>
-        public bool Pickle { get; set; } = true;
+        public bool Pickle { get; set; } 
+		private bool _pickle = true;
 
         /// <summary>
         /// Gets the cheese.
         /// </summary>
-        public bool Cheese { get; set; } = true;
+        public bool Cheese { get; set; } 
+		private bool _cheese = true;
 
         /// <summary>
         /// Gets instructions.

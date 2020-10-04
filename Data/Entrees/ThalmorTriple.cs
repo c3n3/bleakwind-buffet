@@ -17,7 +17,8 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Gets if bun.
         /// </summary>
-        public bool Bun { get; set; } = true;
+        public bool Bun { get; set; } 
+		private bool _bun = true;
 
         /// <summary>
         /// Gets if ketchup.
@@ -32,37 +33,44 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Gets the pickle.
         /// </summary>
-        public bool Pickle { get; set; } = true;
+        public bool Pickle { get; set; } 
+		private bool _pickle = true;
 
         /// <summary>
         /// Gets if tomato.
         /// </summary>
-        public bool Tomato { get; set; } = true;
+        public bool Tomato { get; set; } 
+		private bool _tomato = true;
 
         /// <summary>
         /// Gets if lettuce.
         /// </summary>
-        public bool Lettuce { get; set; } = true;
+        public bool Lettuce { get; set; } 
+		private bool _lettuce = true;
 
         /// <summary>
         /// Gets if mayo.
         /// </summary>
-        public bool Mayo { get; set; } = true;
+        public bool Mayo { get; set; } 
+		private bool _mayo = true;
 
         /// <summary>
         /// Gets the cheese.
         /// </summary>
-        public bool Cheese { get; set; } = true;
+        public bool Cheese { get; set; } 
+		private bool _cheese = true;
 
         /// <summary>
         /// Get bacon.
         /// </summary>
-        public bool Bacon { get; set; } = true;
+        public bool Bacon { get; set; } 
+		private bool _bacon = true;
 
         /// <summary>
         /// Gets egg.
         /// </summary>
-        public bool Egg { get; set; } = true;
+        public bool Egg { get; set; } 
+		private bool _egg = true;
 
         /// <summary>
         /// Gets instructions.

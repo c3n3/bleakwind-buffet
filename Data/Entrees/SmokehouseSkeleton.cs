@@ -17,12 +17,14 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Gets the link.
         /// </summary>
-        public bool SausageLink { get; set; } = true;
+        public bool SausageLink { get; set; } 
+		private bool _sausageLink = true;
         
         /// <summary>
         /// Gets the link.
         /// </summary>
-        public bool Egg { get; set; } = true;
+        public bool Egg { get; set; } 
+		private bool _sgg = true;
         
         /// <summary>
         /// Gets the link.

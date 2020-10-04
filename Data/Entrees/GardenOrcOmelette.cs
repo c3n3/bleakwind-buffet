@@ -17,22 +17,26 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Gets the broc.
         /// </summary>
-        public bool Broccoli { get; set; } = true;
+        public bool Broccoli { get; set; } 
+		private bool _broccoli = true;
 
         /// <summary>
         /// Gets the mushrooms.
         /// </summary>
-        public bool Mushrooms { get; set; } = true;
+        public bool Mushrooms { get; set; } 
+		private bool _mushrooms = true;
 
         /// <summary>
         /// Gets the tomato.
         /// </summary>
-        public bool Tomato { get; set; } = true;
+        public bool Tomato { get; set; } 
+		private bool _tomato = true;
 
         /// <summary>
         /// Gets the link.
         /// </summary>
-        public bool Cheddar { get; set; } = true;
+        public bool Cheddar { get; set; } 
+		private bool _cheddar = true;
 
         /// <summary>
         /// Gets instructions.
