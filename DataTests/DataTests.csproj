@@ -8,6 +8,8 @@
     <AssemblyName>DataTests</AssemblyName>
 
     <RootNamespace>BleakwindBuffet.DataTests</RootNamespace>
+
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>

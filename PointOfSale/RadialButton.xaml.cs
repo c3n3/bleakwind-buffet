@@ -40,22 +40,22 @@ namespace PointOfSale
         /// <summary>
         /// The Center of the button
         /// </summary>
-        public Point _center = new Point(0, 0);
+        private Point _center = new Point(0, 0);
 
         /// <summary>
         /// The width angle 
         /// </summary>
-        public double _widthAngle = Math.PI / 2;
+        private double _widthAngle = Math.PI / 2;
 
         /// <summary>
         /// Self explainatory 
         /// </summary>
-        public double _directionalAngle = Math.PI / 2;
+        private double _directionalAngle = Math.PI / 2;
 
         /// <summary>
         /// The length of the middle arc
         /// </summary>
-        public double _length = 0;
+        private double _length = 0;
 
         /// <summary>
         /// The value

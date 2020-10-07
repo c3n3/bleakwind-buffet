@@ -29,7 +29,6 @@
                 <Label FontStretch="Normal" x:Name="uxTitle"  Content="Test" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                 <Label Grid.Row="1"   FontStretch="Normal" x:Name="uxInfo" FontSize="10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
                 <Label Grid.Row="2"   FontStretch="Normal" x:Name="uxPrice"  Content="{Binding Price}" FontSize="10" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
-                
             </Grid>
     </Grid>
         </Border>

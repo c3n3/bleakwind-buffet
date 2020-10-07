@@ -165,7 +165,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.MenuTests
         } 
 
         [Fact]
-        public void FullMenuContainsAllIOrderItems()
+        public void FullMenuContainsAllIOrderItemsMinusCombos()
         {
             // Credit to Sam Harwell https://stackoverflow.com/questions/1665120/how-can-i-get-all-the-inherited-classes-of-a-base-class
             var types = AppDomain.CurrentDomain.GetAssemblies()
@@ -176,6 +176,10 @@ namespace BleakwindBuffet.DataTests.UnitTests.MenuTests
             foreach (Type t in types)
             {
                 if (t.IsAbstract) // no checking abstract classes since they cannot be implemented
+                {
+                    continue;
+                }
+                if (t.Name == typeof(Combo).Name) // Exception for a combo as this varies
                 {
                     continue;
                 }

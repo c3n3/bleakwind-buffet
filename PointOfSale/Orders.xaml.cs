@@ -27,12 +27,15 @@ namespace PointOfSale
     /// </summary>
     public partial class Orders : UserControl
     {
+        public Order Order { get; set; } = new Order();
+
         /// <summary>
         /// The orders
         /// </summary>
         public Orders()
         {
             InitializeComponent();
+            DataContext = Order;
         }
 
         /// <summary>
@@ -45,7 +48,7 @@ namespace PointOfSale
             {
                 total += ((OrderedItem)a).Value.Price;
             }
-            uxPrice.Content = $"Subtotal: {Math.Round(total, 2)}\nTax: {Math.Round(total * Constants.TAX, 2)}\n Total: {Math.Round(total + total * Constants.TAX, 2)}";
+            //uxPrice.Content = $"Subtotal: {Math.Round(total, 2)}\nTax: {Math.Round(total * Constants.TAX, 2)}\n Total: {Math.Round(total + total * Constants.TAX, 2)}";
             Console.WriteLine(total);
         }
 
@@ -60,6 +63,7 @@ namespace PointOfSale
             l.Deleted += DeleteOrder;
             uxOrderStack.Children.Add(l);
             UpdatePrice();
+            Order.Add(item);
         }
 
         /// <summary>
@@ -78,6 +82,7 @@ namespace PointOfSale
             if (item is OrderedItem i)
             {
                 uxOrderStack.Children.Remove(i);
+                Order.Remove(i.Value);
                 UpdatePrice();
             }
         }

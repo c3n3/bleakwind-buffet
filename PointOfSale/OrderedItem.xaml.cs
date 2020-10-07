@@ -46,9 +46,9 @@ namespace PointOfSale
             InitializeComponent();
             string t = "";
             this.DataContext = item;
-            foreach (var opt in item.BoolOptions)
+            foreach (var opt in item.SpecialInstructions)
             {
-                t += "\n\t" + opt + ((bool)item[opt] ? ": Yes" : ": No");
+                t += "\n\t" + opt;
             }
             uxInfo.Content = t;
             uxTitle.Content = title;

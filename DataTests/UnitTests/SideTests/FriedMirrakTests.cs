@@ -23,32 +23,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 		}
 
         [Fact]
-        public void AllBooleanPropertiesShouldNotifyOfChange()
-        {
-            FriedMiraak a = new FriedMiraak();
-            foreach (var option in a.BoolOptions)
-            {
-                Assert.PropertyChanged(a, option, () => a[option] = !(bool)a[option]);
-            }
-        }
-
-        [Fact]
         public void AllEnumPropertiesShouldNotifyOfChange()
         {
             var a = new FriedMiraak();
             foreach (var kv in a.EnumOptions)
             {
                 Assert.PropertyChanged(a, kv.Key, () => a[kv.Key] = kv.Value[0]);
-            }
-        }
-
-        [Fact]
-        public void AllBoolOptionsShouldChangeSpecialInstructions()
-        {
-            FriedMiraak a = new FriedMiraak();
-            foreach (var option in a.BoolOptions)
-            {
-                Assert.PropertyChanged(a, "SpecialInstructions", () => a[option] = !(bool)a[option]);
             }
         }
 
@@ -136,29 +116,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         }
 
         [Fact]
-        public void BooleanOptionsArrayShouldReturnValidProperties()
+        public void BooleanOptionsArrayShouldBeEmpty()
         {
-            var a = new FriedMiraak();
-            List<string> props = a.BoolOptions;
-
-            foreach (string prop in props)
-            {
-                Assert.IsType<bool>(a[prop]);
-            }
-        }
-
-        [Fact]
-        public void BooleanOptionsArrayShouldBeSetable()
-        {
-            var a = new FriedMiraak();
-            List<string> props = a.BoolOptions;
-
-            foreach (string prop in props)
-            {
-                bool set = (bool)a[prop] ? false : true;
-                a[prop] = set;
-                Assert.Equal(set, (bool)a[prop]);
-            }
+            Assert.Empty((new FriedMiraak()).BoolOptions);
         }
 
         [Fact]

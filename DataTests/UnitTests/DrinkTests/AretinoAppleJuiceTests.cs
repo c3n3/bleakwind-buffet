@@ -17,8 +17,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
     public class AretinoAppleJuiceTests
     {
-        private AretinoAppleJuice k = new AretinoAppleJuice();
-
 		[Fact]
 		public void ShouldBeConvertableToINotifyPropertyChanged()
 		{
