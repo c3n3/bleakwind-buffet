@@ -17,7 +17,15 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public abstract class Entree : IOrderItem
     {
+        /// <summary>
+        /// This is the property changed
+        /// </summary>
         public virtual event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// This is used to bind the to string method
+        /// </summary>
+        public string Name => ToString();
 
         /// <summary>
         /// Allows properties to be set via string.

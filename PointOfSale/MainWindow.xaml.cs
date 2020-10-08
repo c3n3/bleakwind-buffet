@@ -38,6 +38,8 @@ namespace PointOfSale
             Title = "Bleakwind Buffet - 8K Gold Edition - Adobe RGB 125% - Premium Extension Pack";
         }
 
+        private int _editIndex = -1;
+
         /// <summary>
         /// Reset the frame.
         /// </summary>
@@ -71,10 +73,31 @@ namespace PointOfSale
         {
             if (item != null)
             {
-                uxOrder.AddOrder((IOrderItem)item);
+                if (_editIndex != -1)
+                {
+                    uxOrder.Change((IOrderItem)item, _editIndex);
+                } else
+                {
+                    uxOrder.AddOrder((IOrderItem)item);
+                }
             }
+            _editIndex = -1;
             ResetFrame();
             uxPageName.Content = "Menu";
+        }
+
+        /// <summary>
+        /// This is the uxOrder edit event handler
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void uxOrder_EditItem(object sender, EventArgs e)
+        {
+            _editIndex = ((ItemEventArgs)e).index;
+            var addPage = new AddItem(((ItemEventArgs)e).item);
+            addPage.Result += new EventHandler(AddResult);
+            uxMainFrame.Content = addPage;
+            uxPageName.Content = "Add / Edit Item";
         }
     }
 }

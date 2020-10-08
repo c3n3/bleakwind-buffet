@@ -26,6 +26,9 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomCheckBox : UserControl
     {
+        /// <summary>
+        /// This is the switched event handler
+        /// </summary>
         public event EventHandler Switched;
 
         //private string ex = "Images\\ex.png";
@@ -89,6 +92,7 @@ namespace PointOfSale
         private void Grid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             On = !On;
+            Switched?.Invoke(this, new CheckboxEventArgs(Value, On));
             SetImage();
         }
     }

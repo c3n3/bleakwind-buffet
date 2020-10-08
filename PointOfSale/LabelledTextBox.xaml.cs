@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Caden Churchman
+ * Class: LabelledTextBox
+ * Purpose: The creation of a simpe labeled value system
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,37 +25,38 @@ namespace PointOfSale
     /// </summary>
     public partial class LabelledTextBox : UserControl
     {
+        /// <summary>
+        /// This is the label prop
+        /// </summary>
         public static readonly DependencyProperty LabelProp = DependencyProperty.Register("Label", typeof(string), typeof(LabelledTextBox), new FrameworkPropertyMetadata("TEST"));
+
+        /// <summary>
+        /// This is the value dependency prop
+        /// </summary>
         public static readonly DependencyProperty ValueProp = DependencyProperty.Register("Value", typeof(string), typeof(LabelledTextBox), new FrameworkPropertyMetadata("TEST"));
+
+        /// <summary>
+        /// Clicked thing
+        /// </summary>
+        public event EventHandler Clicked;
+
+        /// <summary>
+        /// This is the Ctor
+        /// </summary>
         public LabelledTextBox()
         {
             InitializeComponent();
             uxGrid.DataContext = this;
         }
 
-        public string Label
-        {
-            get => (string)GetValue(LabelProp);
-            set
-            {
-                SetValue(LabelProp, value);
-            }
-        }
+        /// <summary>
+        /// The label
+        /// </summary>
+        public string Label { get; set; }
 
-        public string Value {
-            get
-            {
-                return (string)GetValue(ValueProp);
-            }
-            set
-            {
-                double t;
-                if (Double.TryParse(value, out t))
-                {
-                    SetValue(LabelProp, Math.Round(t, 2));
-                }
-                SetValue(ValueProp, value);
-            }
-        }
+        /// <summary>
+        /// The value of the label
+        /// </summary>
+        public string Value { get; set; }
     }
 }

@@ -1,4 +1,9 @@
-﻿using BleakwindBuffet.Data.Drinks;
+﻿/*
+* Author: Caden Churchman
+* Class name: Combo.cs
+* Purpose: The combo item on the menu.
+*/
+using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Sides;
 using System;
@@ -14,6 +19,11 @@ namespace BleakwindBuffet.Data.Menu
     /// </summary>
     public class Combo : IOrderItem
     {
+        /// <summary>
+        /// This is used to bind the to string method
+        /// </summary>
+        public string Name => ToString();
+
         /// <summary>
         /// The event handler.
         /// </summary>
@@ -223,57 +233,6 @@ namespace BleakwindBuffet.Data.Menu
                 }
             }
         }
-        
-        ///// <summary>
-        ///// Actually only store one item per combo
-        ///// </summary>
-        ///// <param name="item"></param>
-        //public void Add(IOrderItem item)
-        //{
-        //    if (item is Drink d)
-        //    {
-        //        _drinks.Add(d);
-        //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Drink"));
-        //    } 
-        //    else if (item is Entree e)
-        //    {
-        //        _entrees.Add(e);
-        //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Entree"));
-        //    } 
-        //    else if (item is Side s)
-        //    {
-        //        _sides.Add(s);
-        //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Side"));
-        //    } 
-        //    else
-        //    {
-        //        throw new NotImplementedException();
-        //    }
-        //}
-
-        //public void Remove(IOrderItem item)
-        //{
-        //    if (item is Drink d)
-        //    {
-        //        _drinks.Remove(d);
-        //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Drink"));
-        //    }
-        //    else if (item is Entree e)
-        //    {
-        //        _entrees.Remove(e);
-        //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Entree"));
-        //    }
-        //    else if (item is Side s)
-        //    {
-        //        _sides.Remove(s);
-        //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Side"));
-        //    }
-        //    else
-        //    {
-        //        throw new NotImplementedException();
-        //    }
-        //}
-            
 
         /// <summary>
         /// Should not be used for this class as of right now. EnumOptions and BoolOptions will return nothing therfore nothing is valid to use this with

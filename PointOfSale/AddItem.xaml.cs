@@ -32,6 +32,9 @@ namespace PointOfSale
         /// </summary>
         public event EventHandler Result;
 
+        /// <summary>
+        /// This is the item
+        /// </summary>
         private IOrderItem _item;
 
         /// <summary>
@@ -48,12 +51,7 @@ namespace PointOfSale
             foreach (string option in _item.BoolOptions)
             {
                 var checkbox = new CustomCheckBox(option, (bool)_item[option]);
-                var bind = new Binding();
-                bind.Source = _item;
-                bind.Path = new PropertyPath(option);
-                bind.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-                bind.Mode = BindingMode.TwoWay;
-                BindingOperations.SetBinding(checkbox, CustomCheckBox.OnProperty, bind);
+                checkbox.Switched += CheckboxSwitchedEventListener;
                 uxBoolOptions.Children.Add(checkbox);
             }
             foreach (KeyValuePair<string, List<object>> option in _item.EnumOptions)
@@ -108,6 +106,19 @@ namespace PointOfSale
                 _item[((CustomCheckBox)(checkbox)).Value] = ((CustomCheckBox)(checkbox)).On;
             }
             Result(_item, null);
+        }
+
+        /// <summary>
+        /// When the checkbox is switched
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void CheckboxSwitchedEventListener(object sender, EventArgs e)
+        {
+            if (e is CheckboxEventArgs args)
+            {
+                _item[args.Option] = args.On;
+            }
         }
     }
 }

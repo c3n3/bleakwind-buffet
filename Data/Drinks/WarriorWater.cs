@@ -102,6 +102,7 @@ namespace BleakwindBuffet.Data.Drinks
 			{
 				size = value;
 				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Size"));
+				PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Name"));
 			}
         }
 

@@ -5,13 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
-             d:DesignHeight="50" d:DesignWidth="100">
+             d:DesignHeight="50" d:DesignWidth="100"
+             >
     <Grid x:Name="uxGrid" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBlock Text="{Binding Label, Mode=TwoWay}" VerticalAlignment="Center" Foreground="White"></TextBlock>
-        <TextBlock Grid.Column="1" Text="{Binding Value, Mode=TwoWay}" VerticalAlignment="Center" Foreground="White"></TextBlock>
+        <TextBlock Text="{Binding Label, StringFormat=N2}" VerticalAlignment="Center" Foreground="White"></TextBlock>
+        <TextBlock Grid.Column="1" Text="{Binding Value, StringFormat=N2}" VerticalAlignment="Center" Foreground="White"></TextBlock>
     </Grid>
 </UserControl>

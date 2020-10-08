@@ -3,6 +3,7 @@
  * Class: OrderedItem
  * Purpose: Represents an item on the orders list
  */
+using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Menu;
 using System;
 using System.Collections.Generic;
@@ -24,8 +25,33 @@ namespace PointOfSale
     /// <summary>
     /// Interaction logic for OrderedItem.xaml
     /// </summary>
-    public partial class OrderedItem
+    public partial class OrderedItem : UserControl
     {
+        /// <summary>
+        /// This is the special instructions property
+        /// </summary>
+        public static readonly DependencyProperty SpecialInstructionsProp = DependencyProperty.Register("SpecialInstructions", typeof(List<string>), typeof(OrderedItem), new FrameworkPropertyMetadata(new List<string>()));
+
+        /// <summary>
+        /// This is the TitleProp
+        /// </summary>
+        public static readonly DependencyProperty TitleProp = DependencyProperty.Register("Title", typeof(string), typeof(OrderedItem), new FrameworkPropertyMetadata(""));
+
+        /// <summary>
+        /// This is the price dependancy property
+        /// </summary>
+        public static readonly DependencyProperty PriceProp = DependencyProperty.Register("Price", typeof(string), typeof(OrderedItem), new FrameworkPropertyMetadata(""));
+
+        /// <summary>
+        /// This is the SpecialInstruction
+        /// </summary>
+        public List<string> SpecialInstructions { get; set; }
+
+        /// <summary>
+        /// Price Property
+        /// </summary>
+        public string Price { get; set; }
+
         /// <summary>
         /// The cl
         /// </summary>
@@ -34,25 +60,14 @@ namespace PointOfSale
         /// <summary>
         /// The value in terms of an item
         /// </summary>
-        public IOrderItem Value { get; private set; }
+        public IOrderItem Value { get; set; }
 
         /// <summary>
-        /// Represents a graphical IOrderItem
+        /// Default Ctor
         /// </summary>
-        /// <param name="title"> The title </param>
-        /// <param name="item"> The item of the thing </param>
-        public OrderedItem(string title, IOrderItem item)
+        public OrderedItem()
         {
             InitializeComponent();
-            string t = "";
-            this.DataContext = item;
-            foreach (var opt in item.SpecialInstructions)
-            {
-                t += "\n\t" + opt;
-            }
-            uxInfo.Content = t;
-            uxTitle.Content = title;
-            Value = item;
         }
 
         /// <summary>
@@ -93,7 +108,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Border_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Deleted(this, null);
+            Deleted(DataContext, null);
         }
     }
 }

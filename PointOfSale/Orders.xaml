@@ -12,11 +12,32 @@
             <RowDefinition Height="44*"/>
             <RowDefinition Height="41*"/>
         </Grid.RowDefinitions>
-        <Label Content="Orders" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="225" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <ScrollViewer Margin="0,10,0,0" Grid.Row="1" VerticalScrollBarVisibility="Auto">
-            <StackPanel x:Name="uxOrderStack"/>
-        </ScrollViewer>
-        <Button x:Name="uxClearOrders" Click="uxClearOrders_Click" Content="Clear" HorizontalAlignment="Center" Margin="64,14,72,10" Grid.Row="2" VerticalAlignment="Center" Width="74"/>
+        <Label Content="Order" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="225" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <ListView Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Visible" x:Name="uxOrderStack" ItemsSource="{Binding}" Background="Aquamarine">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Foreground" Value="Transparent"></Setter>
+                        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <EventSetter Event="Selected" Handler="uxOrderStack_Selected"/>
+                        <EventSetter Event="Unselected" Handler="uxOrderStack_Unselected"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <local:OrderedItem HorizontalAlignment="Stretch" Deleted="DeleteOrder"></local:OrderedItem>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        <Grid Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Black">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="uxClearOrders" Click="uxClearOrders_Click" Content="Clear" HorizontalAlignment="Stretch" Grid.Column="0" VerticalAlignment="Stretch"/>
+            <Button IsEnabled="False" x:Name="uxEditOrder" Click="uxEditOrder_Click" Content="Edit" HorizontalAlignment="Stretch" Grid.Column="1" VerticalAlignment="Stretch"/>
+        </Grid>
         <Border Grid.Row="3" BorderBrush="Black" BorderThickness="0, 5, 0, 0" Background="Black">
             <Grid>
                 <Grid.RowDefinitions>
@@ -24,9 +45,9 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <local:LabelledTextBox Grid.Row="0" Label="Subtotal" Value="{Binding Subtotal}"/>
-                <local:LabelledTextBox Grid.Row="1" Label="Tax" Value="{Binding Tax}"/>
-                <local:LabelledTextBox Grid.Row="2" Label="Total" Value="{Binding Total}"/>
+                <local:LabelledTextBox Grid.Row="0" Label=" Subtotal" Value="{Binding Subtotal, StringFormat=N2}"/>
+                <local:LabelledTextBox Grid.Row="1" Label=" Tax" Value="{Binding Tax, StringFormat=N2}"/>
+                <local:LabelledTextBox Grid.Row="2" Label=" Total" Value="{Binding Total, StringFormat=N2}"/>
             </Grid>
         </Border>
     </Grid>

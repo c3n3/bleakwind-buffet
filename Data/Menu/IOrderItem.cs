@@ -16,6 +16,11 @@ namespace BleakwindBuffet.Data.Menu
     public interface IOrderItem : INotifyPropertyChanged
     {
         /// <summary>
+        /// This is used to bind the to string method
+        /// </summary>
+        string Name { get; }
+
+        /// <summary>
         /// The price of the item.
         /// </summary>
         double Price { get; }

@@ -18,7 +18,7 @@
         </Grid.ColumnDefinitions>
         <Frame x:Name="uxMainFrame" Content="" Margin="0" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2" Grid.Row="1"/>
         
-        <local:Orders x:Name="uxOrder" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"/>
+        <local:Orders x:Name="uxOrder" Grid.Row="1" Grid.Column="1" EditItem="uxOrder_EditItem" Grid.RowSpan="2"/>
         <Label x:Name="uxPageName" Content="Label" Height="33" Foreground="Aqua" Width="704" FontSize="18" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

@@ -77,10 +77,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CheckboxEventArgs.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="CustomCheckBox.xaml.cs">
       <DependentUpon>CustomCheckBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ItemEventArgs.cs" />
     <Compile Include="LabelledTextBox.xaml.cs">
       <DependentUpon>LabelledTextBox.xaml</DependentUpon>
     </Compile>

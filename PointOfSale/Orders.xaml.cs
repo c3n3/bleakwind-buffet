@@ -27,7 +27,15 @@ namespace PointOfSale
     /// </summary>
     public partial class Orders : UserControl
     {
+        /// <summary>
+        /// This is the order of the menu system
+        /// </summary>
         public Order Order { get; set; } = new Order();
+
+        /// <summary>
+        /// This is the event handler of the edit item
+        /// </summary>
+        public event EventHandler EditItem;
 
         /// <summary>
         /// The orders
@@ -42,14 +50,8 @@ namespace PointOfSale
         /// Update price
         /// </summary>
         public void UpdatePrice()
-        {
-            double total = 0;
-            foreach (var a in uxOrderStack.Children)
-            {
-                total += ((OrderedItem)a).Value.Price;
-            }
-            //uxPrice.Content = $"Subtotal: {Math.Round(total, 2)}\nTax: {Math.Round(total * Constants.TAX, 2)}\n Total: {Math.Round(total + total * Constants.TAX, 2)}";
-            Console.WriteLine(total);
+        { 
+            //DEPRICATED
         }
 
         /// <summary>
@@ -58,10 +60,6 @@ namespace PointOfSale
         /// <param name="item"> the item </param>
         public void AddOrder(IOrderItem item)
         {
-            var l = new OrderedItem(item.ToString(), item);
-            l.uxTitle.HorizontalContentAlignment = HorizontalAlignment.Left;
-            l.Deleted += DeleteOrder;
-            uxOrderStack.Children.Add(l);
             UpdatePrice();
             Order.Add(item);
         }
@@ -73,18 +71,63 @@ namespace PointOfSale
         /// <param name="e"> event </param>
         private void uxClearOrders_Click(object sender, RoutedEventArgs e)
         {
-            uxOrderStack.Children.Clear();
+            Order.Clear();
             UpdatePrice();
         }
 
+        /// <summary>
+        /// This deletes a order
+        /// </summary>
+        /// <param name="item"> the item </param>
+        /// <param name="e"> this is the event </param>
         public void DeleteOrder(object item, EventArgs e)
         {
-            if (item is OrderedItem i)
+            if (item is IOrderItem i)
             {
-                uxOrderStack.Children.Remove(i);
-                Order.Remove(i.Value);
+                //uxOrderStack.Children.Remove(i);
+                Order.Remove(i);
                 UpdatePrice();
             }
+        }
+
+        /// <summary>
+        /// This is the Change function
+        /// </summary>
+        /// <param name="item"> the item to change </param>
+        /// <param name="index"> the index of the item </param>
+        public void Change(IOrderItem item, int index)
+        {
+            Order.Replace(item, index);
+        }
+
+        /// <summary>
+        /// This is the stack selected event handler
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void uxOrderStack_Selected(object sender, RoutedEventArgs e)
+        {
+            uxEditOrder.IsEnabled = true;
+        }
+
+        /// <summary>
+        /// This is the unselect event handler
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void uxOrderStack_Unselected(object sender, RoutedEventArgs e)
+        {
+            uxEditOrder.IsEnabled = false;
+        }
+
+        /// <summary>
+        /// This is the edit click event handler
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void uxEditOrder_Click(object sender, RoutedEventArgs e)
+        {
+            EditItem?.Invoke(this, new ItemEventArgs((IOrderItem)uxOrderStack.SelectedItem, uxOrderStack.SelectedIndex));
         }
     }
 }

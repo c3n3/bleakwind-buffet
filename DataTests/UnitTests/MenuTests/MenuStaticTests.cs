@@ -257,6 +257,18 @@ namespace BleakwindBuffet.DataTests.UnitTests.MenuTests
         }
 
         [Fact]
+        public void SidesItemsShouldNotifyNameForEnumOptions()
+        {
+            foreach (IOrderItem item in Menu.SideItems())
+            {
+                foreach (var kv in item.EnumOptions)
+                {
+                    Assert.PropertyChanged(item, kv.Key, () => item[kv.Key] = kv.Value[kv.Value.Count - 1]);
+                }
+            }
+        }
+
+        [Fact]
         public void DrinksContainAllPossibleSizes()
         {
             Size[] sizes = (Size[])Enum.GetValues(typeof(Size));

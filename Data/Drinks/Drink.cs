@@ -11,8 +11,16 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
 {
+    /// <summary>
+    /// This is the Drink class
+    /// </summary>
     public abstract class Drink: IOrderItem
     {
+        /// <summary>
+        /// This is used to bind the to string method
+        /// </summary>
+        public string Name => ToString();
+
         /// <summary>
         /// Property Changed event handler
         /// </summary>

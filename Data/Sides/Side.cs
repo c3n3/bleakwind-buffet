@@ -17,6 +17,11 @@ namespace BleakwindBuffet.Data.Sides
     public abstract class Side: IOrderItem
     {
         /// <summary>
+        /// This is used to bind the to string method
+        /// </summary>
+        public string Name => ToString();
+
+        /// <summary>
         /// Property Changed event handler
         /// </summary>
         public abstract event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;

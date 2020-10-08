@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Caden Churchman
+* Class name: Order
+* Purpose: Repersents Order.
+*/
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,7 +31,7 @@ namespace BleakwindBuffet.Data.Menu
         /// <summary>
         /// _items in order
         /// </summary>
-        List<IOrderItem> _items = new List<IOrderItem>();
+        private List<IOrderItem> _items = new List<IOrderItem>();
 
         /// <summary>
         /// Collection changed
@@ -37,6 +42,23 @@ namespace BleakwindBuffet.Data.Menu
         /// 
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Clear
+        /// </summary>
+        public void Clear()
+        {
+            foreach (IOrderItem i in _items)
+            {
+                i.PropertyChanged -= ItemChangedEventListener;
+            }
+            _items = new List<IOrderItem>();
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tax"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Total"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+        }
 
         /// <summary>
         /// Add an item
@@ -50,7 +72,26 @@ namespace BleakwindBuffet.Data.Menu
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tax"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Total"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
-            CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add));
+            CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, item));
+        }
+
+        /// <summary>
+        /// Replace an item
+        /// </summary>
+        /// <param name="item"> The item to replace </param>
+        /// <param name="index"> the index </param>
+        public void Replace(IOrderItem item, int index)
+        {
+            _items[index].PropertyChanged -= ItemChangedEventListener;
+            IOrderItem i = _items[index];
+            _items.RemoveAt(index);
+            item.PropertyChanged += ItemChangedEventListener;
+            _items.Insert(index, item);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tax"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Total"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+            CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Replace, item, i, index));
         }
 
         /// <summary>
@@ -60,12 +101,13 @@ namespace BleakwindBuffet.Data.Menu
         public void Remove(IOrderItem item)
         {
             item.PropertyChanged -= ItemChangedEventListener;
+            int index = _items.IndexOf(item);
             _items.Remove(item);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tax"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Total"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
-            CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove));
+            CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, item, index));
         }
 
         /// <summary>

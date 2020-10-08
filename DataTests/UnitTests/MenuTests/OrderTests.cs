@@ -65,6 +65,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.MenuTests
         public void OrderIsICollectionChanged()
         {
             Assert.IsAssignableFrom<INotifyCollectionChanged>(new Order());
+        } 
+        
+        [Fact]
+        public void OrderCanBeCleared()
+        {
+            var a = new Order();
+            a.Add(new BriarheartBurger());
+            a.Clear();
+            Assert.Empty(a);
+        }
+
+        [Fact]
+        public void OrderCanReplace()
+        {
+            var a = new Order();
+            a.Add(new BriarheartBurger());
+            a.Replace(new DragonbornWaffleFries(), 0);
+            foreach (IOrderItem i in a)
+            {
+                Assert.IsAssignableFrom<Side>(i);
+            }
         }
 
         [Fact]

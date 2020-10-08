@@ -8,26 +8,35 @@
              MouseEnter="UserControl_MouseEnter"
              MouseLeave="UserControl_MouseLeave"
              x:Name="Container"
+             HorizontalAlignment="Stretch"
              >
-        <Border BorderBrush="Black" BorderThickness="0,2" Margin="0, 5, 0, 5" Background="#FFECD2D2" CornerRadius="5">
-    <Grid>
+        <Border BorderBrush="Black" BorderThickness="0,2" Margin="0, 5, 0, 5" CornerRadius="5" Background="BlanchedAlmond">
+    <Grid x:Name="uxGrid" HorizontalAlignment="Stretch">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
-            <Border MaxHeight="50" MouseLeftButtonUp="Border_MouseLeftButtonUp">
+            <Border MaxHeight="50" MouseLeftButtonUp="Border_MouseLeftButtonUp" HorizontalAlignment="Stretch">
                 <Viewbox Stretch="Uniform" Grid.Column="0">
-                    <TextBlock HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontStretch="Expanded" x:Name="uxEx" Text="X" Foreground="DarkRed" Visibility="Hidden"></TextBlock>
+                    <TextBlock HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontStretch="Expanded" x:Name="uxEx" Text="X" Visibility="Hidden" Foreground="Red"></TextBlock>
                 </Viewbox>
             </Border>
-            <Grid Grid.Column="1">
+            <Grid Grid.Column="1" HorizontalAlignment="Stretch">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                     <RowDefinition Height="2*"></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                <Label FontStretch="Normal" x:Name="uxTitle"  Content="Test" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                <Label Grid.Row="1"   FontStretch="Normal" x:Name="uxInfo" FontSize="10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+                <Label HorizontalAlignment="Left" FontStretch="Normal" x:Name="uxTitle"  Content="{Binding Name}" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <ListBox Background="Transparent" BorderThickness="0" Grid.Row="1" ItemsSource="{Binding SpecialInstructions}"  FontStretch="Normal" x:Name="uxInfo" FontSize="10" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center">
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="Selector.IsEnabled" Value="False"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter Property="BorderBrush" Value="Transparent"/>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                </ListBox>
                 <Label Grid.Row="2"   FontStretch="Normal" x:Name="uxPrice"  Content="{Binding Price}" FontSize="10" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
             </Grid>
     </Grid>
