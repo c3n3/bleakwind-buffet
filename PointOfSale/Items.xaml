@@ -28,6 +28,6 @@
             <Label x:Name="uxEntreesTitle_Copy" Content="Sides" Margin="10,0" Background="#FFC78383" VerticalAlignment="Top" Height="33"/>
             <StackPanel x:Name="uxSides" Margin="0,33,0,0" Grid.Column="1"/>
         </Grid>
-        <Button Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Click="Button_Click">Add Combo!</Button>
+        <Button Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Click="Button_Click" FontSize="30">Add Combo!</Button>
     </Grid>
 </UserControl>

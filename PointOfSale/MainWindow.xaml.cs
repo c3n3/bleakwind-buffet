@@ -70,6 +70,8 @@ namespace PointOfSale
         {
             var b = new PopupPayment(uxOrder.Order);
             _popup = new Window();
+            _popup.MinHeight = 450;
+            _popup.MinWidth = 800;
             b.Result += PopupResult;
             _popup.Closed += PopupClosed;
             _popup.Content = b;

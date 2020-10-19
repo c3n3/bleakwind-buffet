@@ -67,6 +67,7 @@ namespace PointOfSale.PayMenu
             List<Monies.Money> change = Change;
             OpenDrawer();
             AddToReg(PaymentMonies);
+            PaymentMonies.ForEach(x => x.Count = 0);
             RemoveFromReg(change);
         }
 

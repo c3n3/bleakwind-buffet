@@ -55,5 +55,10 @@ namespace PointOfSale.PayMenu
             _chacheDrawer.Pay();
             Paid?.Invoke(this, null);
         }
+
+        private void uxBack_Click(object sender, RoutedEventArgs e)
+        {
+            Back?.Invoke(this, null);
+        }
     }
 }

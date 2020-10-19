@@ -11,7 +11,7 @@
             <RowDefinition Height="279*"/>
             <RowDefinition Height="44*"/>
             <RowDefinition Height="41*"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <Label Content="Order" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="225" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
             <ListView Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Visible" x:Name="uxOrderStack" ItemsSource="{Binding}" Background="Aquamarine">
