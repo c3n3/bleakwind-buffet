@@ -28,12 +28,17 @@ namespace PointOfSale
         /// <summary>
         /// This is the label prop
         /// </summary>
-        public static readonly DependencyProperty LabelProp = DependencyProperty.Register("Label", typeof(string), typeof(LabelledTextBox), new FrameworkPropertyMetadata("TEST"));
+        public static readonly DependencyProperty LabelProp = DependencyProperty.Register("Label", typeof(string), typeof(LabelledTextBox), new FrameworkPropertyMetadata(""));
 
         /// <summary>
         /// This is the value dependency prop
         /// </summary>
-        public static readonly DependencyProperty ValueProp = DependencyProperty.Register("Value", typeof(string), typeof(LabelledTextBox), new FrameworkPropertyMetadata("TEST"));
+        public static readonly DependencyProperty ValueProp = DependencyProperty.Register("Value", typeof(string), typeof(LabelledTextBox), new FrameworkPropertyMetadata(""));
+
+        /// <summary>
+        /// The text color
+        /// </summary>
+        public static DependencyProperty TextColorProp = DependencyProperty.Register("TextColor", typeof(Color), typeof(LabelledTextBox), new FrameworkPropertyMetadata(Colors.White));
 
         /// <summary>
         /// Clicked thing
@@ -58,5 +63,14 @@ namespace PointOfSale
         /// The value of the label
         /// </summary>
         public string Value { get; set; }
+
+        /// <summary>
+        /// The text color
+        /// </summary>
+        public Color TextColor
+        {
+            get => (Color)GetValue(TextColorProp);
+            set => SetValue(TextColorProp, value);
+        }
     }
 }

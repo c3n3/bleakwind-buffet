@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PointOfSale", "PointOfSale\
 		{B66B462C-DA57-4DB7-9053-DEBD3953F479} = {B66B462C-DA57-4DB7-9053-DEBD3953F479}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PointOfSaleTests", "PointOfSaleTests\PointOfSaleTests.csproj", "{FCF5A96F-2A58-4346-9782-2FDB8E0CD105}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,14 @@ Global
 		{2538A9F5-0EC9-49A9-BC6E-A88C8DC69372}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2538A9F5-0EC9-49A9-BC6E-A88C8DC69372}.Release|x64.ActiveCfg = Release|x64
 		{2538A9F5-0EC9-49A9-BC6E-A88C8DC69372}.Release|x64.Build.0 = Release|x64
+		{FCF5A96F-2A58-4346-9782-2FDB8E0CD105}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCF5A96F-2A58-4346-9782-2FDB8E0CD105}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCF5A96F-2A58-4346-9782-2FDB8E0CD105}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FCF5A96F-2A58-4346-9782-2FDB8E0CD105}.Debug|x64.Build.0 = Debug|Any CPU
+		{FCF5A96F-2A58-4346-9782-2FDB8E0CD105}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCF5A96F-2A58-4346-9782-2FDB8E0CD105}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCF5A96F-2A58-4346-9782-2FDB8E0CD105}.Release|x64.ActiveCfg = Release|Any CPU
+		{FCF5A96F-2A58-4346-9782-2FDB8E0CD105}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

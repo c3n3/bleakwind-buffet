@@ -37,7 +37,7 @@
                         </Style>
                     </ListBox.ItemContainerStyle>
                 </ListBox>
-                <Label Grid.Row="2"   FontStretch="Normal" x:Name="uxPrice"  Content="{Binding Price}" FontSize="10" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                <Label Grid.Row="2"   FontStretch="Normal" x:Name="uxPrice"  Content="{Binding Price, StringFormat=N2}" FontSize="10" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
             </Grid>
     </Grid>
         </Border>

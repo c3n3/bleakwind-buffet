@@ -1,0 +1,19 @@
+﻿<Page x:Class="PointOfSale.PayMenu.PopupPayment"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PointOfSale.PayMenu"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PopupPayment">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="Aquamarine" BorderThickness="3px" Background="Crimson" x:Name="uxContent"></Border>
+        <Button Grid.Row="1" x:Name="uxCancel" Click="uxCancel_Click">Cancel</Button>
+    </Grid>
+</Page>

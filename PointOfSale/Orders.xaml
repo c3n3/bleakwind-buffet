@@ -11,6 +11,7 @@
             <RowDefinition Height="279*"/>
             <RowDefinition Height="44*"/>
             <RowDefinition Height="41*"/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <Label Content="Order" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="225" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
             <ListView Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Visible" x:Name="uxOrderStack" ItemsSource="{Binding}" Background="Aquamarine">
@@ -38,17 +39,18 @@
             <Button x:Name="uxClearOrders" Click="uxClearOrders_Click" Content="Clear" HorizontalAlignment="Stretch" Grid.Column="0" VerticalAlignment="Stretch"/>
             <Button IsEnabled="False" x:Name="uxEditOrder" Click="uxEditOrder_Click" Content="Edit" HorizontalAlignment="Stretch" Grid.Column="1" VerticalAlignment="Stretch"/>
         </Grid>
-        <Border Grid.Row="3" BorderBrush="Black" BorderThickness="0, 5, 0, 0" Background="Black">
+        <Border Grid.Row="3" BorderBrush="Black" BorderThickness="0, 5, 0, 0" Background="Khaki">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <local:LabelledTextBox Grid.Row="0" Label=" Subtotal" Value="{Binding Subtotal, StringFormat=N2}"/>
+                <local:LabelledTextBox Grid.Row="0" Label=" Subtotal" Value="{Binding Subtotal, StringFormat=N2}" TextColor="AliceBlue"/>
                 <local:LabelledTextBox Grid.Row="1" Label=" Tax" Value="{Binding Tax, StringFormat=N2}"/>
                 <local:LabelledTextBox Grid.Row="2" Label=" Total" Value="{Binding Total, StringFormat=N2}"/>
             </Grid>
         </Border>
+        <Button Grid.Row="4" x:Name="uxPay" Background="DarkOliveGreen" Foreground="Aquamarine" FontWeight="Bold" FontSize="20" VerticalContentAlignment="Top" Click="uxPay_Click">Pay</Button>
     </Grid>
 </UserControl>

@@ -22,7 +22,7 @@ namespace BleakwindBuffet.Data.Menu
         /// <summary>
         /// This is used to bind the to string method
         /// </summary>
-        public string Name => ToString();
+        public string Name => "Combo";
 
         /// <summary>
         /// The event handler.
@@ -231,6 +231,7 @@ namespace BleakwindBuffet.Data.Menu
                 {
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(e.PropertyName));
                 }
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 

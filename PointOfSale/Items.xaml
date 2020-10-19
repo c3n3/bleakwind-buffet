@@ -6,19 +6,28 @@
       xmlns:local="clr-namespace:PointOfSale"
       mc:Ignorable="d" MinWidth="500" MinHeight="200">
 
-    <UniformGrid Background="Black" Columns="3" Rows="1" Grid.IsSharedSizeScope="True" RenderTransformOrigin="0.5,0.5">
-        <Grid>
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"></RowDefinition>
+            <RowDefinition ></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1">
             <Label x:Name="uxEntreesTitle_Copy1" Content="Drinks" Margin="10,0" VerticalAlignment="Top" Background="#FFC78383" Height="33"/>
             <StackPanel x:Name="uxDrinks" Margin="0,33,0,0" Grid.Column="2"/>
         </Grid>
-        <Grid>
+        <Grid Grid.Column="0">
             <Label x:Name="uxEntreesTitle" Content="Entrees" Margin="10,0" VerticalAlignment="Top" Background="#FFC78383" Height="33"/>
             <StackPanel x:Name="uxEntrees" Margin="0,33,0,0" />
         </Grid>
-        <Grid>
+        <Grid Grid.Column="2">
             <Label x:Name="uxEntreesTitle_Copy" Content="Sides" Margin="10,0" Background="#FFC78383" VerticalAlignment="Top" Height="33"/>
             <StackPanel x:Name="uxSides" Margin="0,33,0,0" Grid.Column="1"/>
         </Grid>
-
-    </UniformGrid>
+        <Button Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Click="Button_Click">Add Combo!</Button>
+    </Grid>
 </UserControl>

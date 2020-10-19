@@ -149,7 +149,7 @@ namespace BleakwindBuffet.Data.Menu
                 array.SetValue(item, index++);
             }
         }
-
+        
         /// <summary>
         /// This gets an enumerator
         /// </summary>

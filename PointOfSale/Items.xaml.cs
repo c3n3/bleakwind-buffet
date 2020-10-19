@@ -3,6 +3,7 @@
  * Class: AddItem
  * Purpose: Represents a list of all the items on the menu
  */
+using BleakwindBuffet.Data.Menu;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -67,6 +68,16 @@ namespace PointOfSale
         public void SendItem(object sender, EventArgs m)
         {
             ItemClicked(((Item)sender).Value, new EventArgs());
+        }
+
+        /// <summary>
+        /// When the add combo button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ItemClicked(new Combo(), null);
         }
     }
 }

@@ -37,12 +37,20 @@ namespace PointOfSale
         /// </summary>
         public event EventHandler EditItem;
 
+        public event EventHandler Pay;
+
         /// <summary>
         /// The orders
         /// </summary>
         public Orders()
         {
             InitializeComponent();
+            DataContext = Order;
+        }
+
+        public void NewOrder()
+        {
+            Order = new Order();
             DataContext = Order;
         }
 
@@ -128,6 +136,20 @@ namespace PointOfSale
         private void uxEditOrder_Click(object sender, RoutedEventArgs e)
         {
             EditItem?.Invoke(this, new ItemEventArgs((IOrderItem)uxOrderStack.SelectedItem, uxOrderStack.SelectedIndex));
+        }
+
+        /// <summary>
+        /// This makes the pay process start
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void uxPay_Click(object sender, RoutedEventArgs e)
+        {
+            if (Order.Count == 0)
+            {
+                return;
+            }
+            Pay?.Invoke(Order, null);
         }
     }
 }

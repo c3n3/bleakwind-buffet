@@ -9,10 +9,10 @@
              >
     <Grid x:Name="uxGrid" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Text="{Binding Label, StringFormat=N2}" VerticalAlignment="Center" Foreground="White"></TextBlock>
-        <TextBlock Grid.Column="1" Text="{Binding Value, StringFormat=N2}" VerticalAlignment="Center" Foreground="White"></TextBlock>
+        <TextBlock Text="{Binding Label, StringFormat=N2}" VerticalAlignment="Center" Foreground="{Binding TextColor}"></TextBlock>
+        <TextBlock Grid.Column="1" Text="{Binding Value, StringFormat=N2}" VerticalAlignment="Center" Foreground="{Binding TextColor}"></TextBlock>
     </Grid>
 </UserControl>

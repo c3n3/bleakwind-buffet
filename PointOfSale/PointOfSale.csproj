@@ -59,6 +59,9 @@
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="RoundRegister">
+      <HintPath>..\Data\Register\RoundRegister.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -78,6 +81,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CheckboxEventArgs.cs" />
+    <Compile Include="ComboMenu.xaml.cs">
+      <DependentUpon>ComboMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ComboScreen.xaml.cs">
+      <DependentUpon>ComboScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Constants.cs" />
     <Compile Include="CustomCheckBox.xaml.cs">
       <DependentUpon>CustomCheckBox.xaml</DependentUpon>
@@ -89,6 +98,25 @@
     <Compile Include="OrderedItem.xaml.cs">
       <DependentUpon>OrderedItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PayMenu\CacheDrawer.cs" />
+    <Compile Include="PayMenu\CachePayScreen.xaml.cs">
+      <DependentUpon>CachePayScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PayMenu\CreditPayScreen.xaml.cs">
+      <DependentUpon>CreditPayScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PayMenu\Money.cs" />
+    <Compile Include="PayMenu\Money.xaml.cs">
+      <DependentUpon>Money.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PayMenu\PayChooseMenu.xaml.cs">
+      <DependentUpon>PayChooseMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PayMenu\PaymentMethod.cs" />
+    <Compile Include="PayMenu\PopupPayment.xaml.cs">
+      <DependentUpon>PopupPayment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PayMenu\PopupPaymentResultArgs.cs" />
     <Compile Include="RadialButton.xaml.cs">
       <DependentUpon>RadialButton.xaml</DependentUpon>
     </Compile>
@@ -96,6 +124,14 @@
       <DependentUpon>Selector.xaml</DependentUpon>
     </Compile>
     <Page Include="AddItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ComboMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ComboScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -108,6 +144,26 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="OrderedItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PayMenu\CachePayScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PayMenu\CreditPayScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PayMenu\Money.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PayMenu\PayChooseMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PayMenu\PopupPayment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -188,10 +244,15 @@
       <Name>Data</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Combo\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\check.png" />
     <AdditionalFiles Include="Images\ex.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PayMenu\RoundRegister.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
