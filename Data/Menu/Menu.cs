@@ -10,6 +10,7 @@ using BleakwindBuffet.Data.Sides;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace BleakwindBuffet.Data.Menu
 {
@@ -28,6 +29,24 @@ namespace BleakwindBuffet.Data.Menu
             };
         }
         
+        /// <summary>
+        /// This gets the name of item to display on the menu
+        /// </summary>
+        /// <param name="item"> the item </param>
+        /// <returns> the menu name </returns>
+        public static string GetMenuName(IOrderItem item)
+        {
+            if (item is Entree)
+            {
+                return item.ToString();
+            }
+            else if (item is Side || item is Drink)
+            {
+                return Regex.Replace(item.GetType().Name, "([A-Z])", " $1");
+            }
+            return "Combo";
+        }
+
         /// <summary>
         /// Gets all the sides.
         /// </summary>

@@ -1,0 +1,150 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to the Bleakwind Buffet</h1>
+    <p class="description">
+        We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight from the world of Skyrim.
+        Shake the blood off your sword and sake your thirst with one of our old-fashioned sailor sodas.
+        Hack into a Smokehouse Skeleton with your dagger. Or vanquish the the mighty Thalmor Triple Burger!
+        You’ve had a hard adventure and earned your loot, so spend it with us!.
+    </p>
+    <div class="item-container">
+        <div class="type-container">
+            <h2 class="item-title">Entrees</h2>
+            @foreach (var item in BleakwindBuffet.Data.Menu.Menu.EntreeItems())
+            {
+                <div class="menu-item">
+                    <p class="item-name">@BleakwindBuffet.Data.Menu.Menu.GetMenuName(item)</p>
+                    <p class="item-price">$@item.Price | @item.Calories cal</p>
+                </div>
+            }
+        </div>
+        <div class="type-container">
+            <h2 class="item-title">Drinks</h2>
+            @foreach (BleakwindBuffet.Data.Drinks.Drink item in BleakwindBuffet.Data.Menu.Menu.DrinkItems())
+            {
+                <div class="menu-item">
+                    <p class="item-name">@BleakwindBuffet.Data.Menu.Menu.GetMenuName(item)</p>
+                    <div class="item-info">
+                        <h4>@item.Size</h4><div> -> </div><p>$@item.Price | @item.Calories cal</p>
+                    </div>
+                    @{ item.Size = BleakwindBuffet.Data.Enums.Size.Medium; }
+                    <div class="item-info">
+                        <h4>@item.Size</h4><div> -> </div><p>$@item.Price | @item.Calories cal</p>
+                    </div>
+                    @{ item.Size = BleakwindBuffet.Data.Enums.Size.Large; }
+                    <div class="item-info">
+                        <h4>@item.Size</h4><div> -> </div><p>$@item.Price | @item.Calories cal</p>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="type-container">
+            <h2 class="item-title">Sides</h2>
+            @foreach (BleakwindBuffet.Data.Sides.Side item in BleakwindBuffet.Data.Menu.Menu.SideItems())
+            {
+                <div class="menu-item">
+                    <p class="item-name">@BleakwindBuffet.Data.Menu.Menu.GetMenuName(item)</p>
+                    <div class="item-info">
+                        <h4>@item.Size</h4><div> -> </div><p>$@item.Price | @item.Calories cal</p>
+                    </div>
+                        @{ item.Size = BleakwindBuffet.Data.Enums.Size.Medium; }
+                    <div class="item-info">
+                        <h4>@item.Size</h4><div> -> </div><p>$@item.Price | @item.Calories cal</p>
+                    </div>
+                        @{ item.Size = BleakwindBuffet.Data.Enums.Size.Large; }
+                    <div class="item-info">
+                        <h4>@item.Size</h4><div> -> </div><p>$@item.Price | @item.Calories cal</p>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="type-container flavor-container">
+            <h2 class="type-title">Sailor Soda Flavors</h2>
+            @foreach (var flavor in Enum.GetValues(typeof(BleakwindBuffet.Data.Enums.SodaFlavor)))
+            {
+                <p class="type-container">@flavor</p>
+            }
+        </div>
+    </div>
+    <div class="ad">
+        <h3>! COMBO DEAL !</h3>
+        <p><strong>Combine any side, entree, and drink for a $1 discount!</strong></p>
+    </div>
+</div>
+<style>
+    .item-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px 20px 0 20px;
+    }
+
+    .type-container {
+        padding: 10px;
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .item-title {
+        border-bottom: 1px solid red;
+    }
+
+    .ad {
+        border: 2px solid black;
+        background: red;
+        color: white;
+    }
+
+    .description {
+        text-align: left;
+    }
+
+    .flavor-container {
+        background: lightgray;
+        border: solid 2px black;
+        max-height: 515px;
+        color: darkslategrey;
+    }
+
+    .flavor-container > h2 {
+        color: black;
+    }
+
+    .menu-item {
+        border: solid 2px gray;
+        padding: 5px;
+        margin: 5px;
+        min-width: 140px;
+    }
+
+    .menu-item > h2 {
+        border-bottom: solid 
+    }
+
+    .item-info {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 10px;
+    }
+
+    .item-info > p {
+        text-align: right;
+    }
+
+    .item-info > h4 {
+        text-align: left;
+        font-size: 10px;
+        overflow: hidden;
+    }
+
+    .item-name {
+        font-size: 16px;
+    }
+</style>

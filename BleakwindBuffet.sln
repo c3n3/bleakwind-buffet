@@ -17,7 +17,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PointOfSale", "PointOfSale\
 		{B66B462C-DA57-4DB7-9053-DEBD3953F479} = {B66B462C-DA57-4DB7-9053-DEBD3953F479}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PointOfSaleTests", "PointOfSaleTests\PointOfSaleTests.csproj", "{FCF5A96F-2A58-4346-9782-2FDB8E0CD105}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PointOfSaleTests", "PointOfSaleTests\PointOfSaleTests.csproj", "{FCF5A96F-2A58-4346-9782-2FDB8E0CD105}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Website", "Website\Website.csproj", "{23FC4735-B5C1-4441-9929-4747923B5476}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,14 @@ Global
 		{FCF5A96F-2A58-4346-9782-2FDB8E0CD105}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FCF5A96F-2A58-4346-9782-2FDB8E0CD105}.Release|x64.ActiveCfg = Release|Any CPU
 		{FCF5A96F-2A58-4346-9782-2FDB8E0CD105}.Release|x64.Build.0 = Release|Any CPU
+		{23FC4735-B5C1-4441-9929-4747923B5476}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23FC4735-B5C1-4441-9929-4747923B5476}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23FC4735-B5C1-4441-9929-4747923B5476}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{23FC4735-B5C1-4441-9929-4747923B5476}.Debug|x64.Build.0 = Debug|Any CPU
+		{23FC4735-B5C1-4441-9929-4747923B5476}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23FC4735-B5C1-4441-9929-4747923B5476}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23FC4735-B5C1-4441-9929-4747923B5476}.Release|x64.ActiveCfg = Release|Any CPU
+		{23FC4735-B5C1-4441-9929-4747923B5476}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
