@@ -9,6 +9,7 @@ using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Sides;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -94,6 +95,17 @@ namespace BleakwindBuffet.Data.Menu
             }
             return temp;
         }
+
+        public static List<Drink> DrinksWithoutTheStupidIterationsOfSailorSoda()
+        {
+            var temp = new List<Drink> {
+                new AretinoAppleJuice(Size.Small), new CandlehearthCoffee(Size.Small), new MarkarthMilk(Size.Small), new WarriorWater(Size.Small),
+                new AretinoAppleJuice(Size.Medium), new CandlehearthCoffee(Size.Medium), new MarkarthMilk(Size.Medium), new WarriorWater(Size.Medium),
+                new AretinoAppleJuice(Size.Large), new CandlehearthCoffee(Size.Large), new MarkarthMilk(Size.Large), new WarriorWater(Size.Large),
+                new SailorSoda(Size.Large, SodaFlavor.Cherry), new SailorSoda(Size.Medium, SodaFlavor.Cherry), new SailorSoda(Size.Small, SodaFlavor.Cherry)
+            };
+            return temp;
+        }
         
         /// <summary>
         /// An array of the drinks.
@@ -125,6 +137,17 @@ namespace BleakwindBuffet.Data.Menu
                 temp.Add(item);
             }
             return temp;
+        }
+
+        /// <summary>
+        /// Just uses the filter function. Why should I make some static functions for the exact same purpose
+        /// </summary>
+        /// <param name="list"> the list </param>
+        /// <param name="filter"> the filter function </param>
+        /// <returns></returns>
+        public static void Filter(List<IOrderItem> list, Func<IOrderItem, bool> filter)
+        {
+            list = list.Where(filter).ToList();
         }
     }
 }

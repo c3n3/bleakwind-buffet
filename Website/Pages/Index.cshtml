@@ -12,65 +12,97 @@
         Hack into a Smokehouse Skeleton with your dagger. Or vanquish the the mighty Thalmor Triple Burger!
         You’ve had a hard adventure and earned your loot, so spend it with us!.
     </p>
-    <div class="item-container">
-        <div class="type-container">
-            <h2 class="item-title">Entrees</h2>
-            @foreach (var item in BleakwindBuffet.Data.Menu.Menu.EntreeItems())
-            {
-                <div class="menu-item">
-                    <p class="item-name">@BleakwindBuffet.Data.Menu.Menu.GetMenuName(item)</p>
-                    <p class="item-price">$@item.Price | @item.Calories cal</p>
+    <div class="main-container">
+        <div class="sidebar">
+            <form class="sidebar">
+            <label class="filter-title"><strong>Filter</strong></label>
+                <div class="type-checkbox">
+                    <div><input type="checkbox" name="ItemType" value="Drinks" checked="@Model.ItemType.Contains("Drinks")"/><label>&nbsp; Drinks</label></div>
+                    <div><input type="checkbox" name="ItemType" value="Entrees" checked="@Model.ItemType.Contains("Entrees")"/><label>&nbsp; Entrees</label></div>
+                    <div><input type="checkbox" name="ItemType" value="Sides" checked="@Model.ItemType.Contains("Sides")"/><label>&nbsp; Side</label></div>
                 </div>
-            }
-        </div>
-        <div class="type-container">
-            <h2 class="item-title">Drinks</h2>
-            @foreach (BleakwindBuffet.Data.Drinks.Drink item in BleakwindBuffet.Data.Menu.Menu.DrinkItems())
-            {
-                <div class="menu-item">
-                    <p class="item-name">@BleakwindBuffet.Data.Menu.Menu.GetMenuName(item)</p>
-                    <div class="item-info">
-                        <h4>@item.Size</h4><div> -> </div><p>$@item.Price | @item.Calories cal</p>
-                    </div>
-                    @{ item.Size = BleakwindBuffet.Data.Enums.Size.Medium; }
-                    <div class="item-info">
-                        <h4>@item.Size</h4><div> -> </div><p>$@item.Price | @item.Calories cal</p>
-                    </div>
-                    @{ item.Size = BleakwindBuffet.Data.Enums.Size.Large; }
-                    <div class="item-info">
-                        <h4>@item.Size</h4><div> -> </div><p>$@item.Price | @item.Calories cal</p>
-                    </div>
+                <label class="filter-title"><strong>Calories</strong></label>
+                <div class="number-filter">
+                    <input type="number" name="CalMin" placeholder="min" min="0" step="25" value="@Model.CalMin"/>
+                    <input type="number" name="CalMax" placeholder="max" min="0" step="25" value="@Model.CalMax"/>
                 </div>
-            }
-        </div>
-        <div class="type-container">
-            <h2 class="item-title">Sides</h2>
-            @foreach (BleakwindBuffet.Data.Sides.Side item in BleakwindBuffet.Data.Menu.Menu.SideItems())
-            {
-                <div class="menu-item">
-                    <p class="item-name">@BleakwindBuffet.Data.Menu.Menu.GetMenuName(item)</p>
-                    <div class="item-info">
-                        <h4>@item.Size</h4><div> -> </div><p>$@item.Price | @item.Calories cal</p>
-                    </div>
-                        @{ item.Size = BleakwindBuffet.Data.Enums.Size.Medium; }
-                    <div class="item-info">
-                        <h4>@item.Size</h4><div> -> </div><p>$@item.Price | @item.Calories cal</p>
-                    </div>
-                        @{ item.Size = BleakwindBuffet.Data.Enums.Size.Large; }
-                    <div class="item-info">
-                        <h4>@item.Size</h4><div> -> </div><p>$@item.Price | @item.Calories cal</p>
-                    </div>
+                <label class="filter-title"><strong>Price</strong></label>
+                <div class="number-filter">
+                    <input type="number" name="PriceMin" placeholder="min" min="0" step="0.25" value="@Model.PriceMin"/>
+                    <input type="number" name="PriceMax" placeholder="max" min="0" step="0.25" value="@Model.PriceMax"/>
                 </div>
-            }
+                <br />
+                <input type="submit" value="Search"/>
+            </form>
         </div>
-        <div class="type-container flavor-container">
-            <h2 class="type-title">Sailor Soda Flavors</h2>
-            @foreach (var flavor in Enum.GetValues(typeof(BleakwindBuffet.Data.Enums.SodaFlavor)))
-            {
-                <p class="type-container">@flavor</p>
-            }
+        <div class="item-container">
+            <div class="type-container">
+                <h2 class="item-title">Entrees</h2>
+                @if (Model.ItemType.Contains("Entrees") && Model.items["Entrees"].Values.Count != 0)
+                    @foreach (var kv in Model.items["Entrees"])
+                    {
+                        @if (kv.Value.Count != 0)
+                        {
+                            <div class="menu-item">
+                                <p class="item-name">@kv.Key</p>
+                                @foreach (BleakwindBuffet.Data.Entrees.Entree item in kv.Value)
+                                {
+                                    <div class="item-info">
+                                        <p>$@item.Price | @item.Calories cal</p>
+                                    </div>
+                                }
+                            </div>
+                        }
+                    }
+            </div>
+            <div class="type-container">
+                <h2 class="item-title">Drinks</h2>
+                @if (Model.ItemType.Contains("Drinks"))
+                @foreach (var kv in Model.items["Drinks"])
+                {
+                    @if (kv.Value.Count != 0)
+                    {
+                        <div class="menu-item">
+                            <p class="item-name">@kv.Key</p>
+                            @foreach (BleakwindBuffet.Data.Drinks.Drink item in kv.Value)
+                            {
+                                <div class="item-info">
+                                    <h4>@item.Size</h4><div> -> </div><p>$@item.Price | @item.Calories cal</p>
+                                </div>
+                            }
+                        </div>
+                     }
+                }
+            </div>
+            <div class="type-container">
+                <h2 class="item-title">Sides</h2>
+                @if (Model.ItemType.Contains("Sides") && Model.items["Sides"].Values.Count != 0)
+                    @foreach (var kv in Model.items["Sides"])
+                    {
+                        @if (kv.Value.Count != 0)
+                        {
+                            <div class="menu-item">
+                                <p class="item-name">@kv.Key</p>
+                                @foreach (BleakwindBuffet.Data.Sides.Side item in kv.Value)
+                                {
+                                    <div class="item-info">
+                                        <h4>@item.Size</h4><div> -> </div><p>$@item.Price | @item.Calories cal</p>
+                                    </div>
+                                }
+                            </div>
+                        }
+                    }
+            </div>
+            <div class="type-container flavor-container">
+                <h2 class="type-title">Sailor Soda Flavors</h2>
+                @foreach (var flavor in Enum.GetValues(typeof(BleakwindBuffet.Data.Enums.SodaFlavor)))
+                {
+                    <p class="type-container">@flavor</p>
+                }
+            </div>
         </div>
     </div>
+
     <div class="ad">
         <h3>! COMBO DEAL !</h3>
         <p><strong>Combine any side, entree, and drink for a $1 discount!</strong></p>
@@ -81,6 +113,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        flex: 4;
         padding: 10px 20px 0 20px;
     }
 
@@ -146,5 +179,45 @@
 
     .item-name {
         font-size: 16px;
+    }
+
+    .main-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .number-filter {
+        display: flex;
+        flex-direction: row;
+        margin-left: 10px;
+    }
+
+    .number-filter > input {
+        width: 55px;
+    }
+
+    .sidebar {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .sidebar > form {
+        border: solid 1px gray;
+        margin: 10px;
+        padding: 5px;
+    }
+
+    .type-checkbox {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        margin-left: 10px;
+    }
+
+    .filter-title {
+        font-size: 15px;
+        border-bottom: solid 1px red;
     }
 </style>
