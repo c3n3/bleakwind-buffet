@@ -288,5 +288,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.MenuTests
             }
             Assert.All(assertions, item => Assert.Equal(item.Value.Count, sizes.Length));
         }
+
+        [Fact]
+        public void FilterFunctionFilters()
+        {
+            var a = Menu.FullMenu().ToList();
+            Menu.Filter(ref a, x => x.Calories == 0);
+            foreach (var b in a)
+            {
+                Assert.Equal((uint)0, b.Calories);
+            }
+        }
+
+        [Fact]
+        public void FilterFunctionFiltersPart2()
+        {
+            var a = Menu.FullMenu().ToList();
+            Menu.Filter(ref a, x => x.Price < 1);
+            foreach (var b in a)
+            {
+                Assert.True(b.Price < 1);
+            }
+        }
     }
 }

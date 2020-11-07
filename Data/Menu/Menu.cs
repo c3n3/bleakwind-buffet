@@ -140,12 +140,13 @@ namespace BleakwindBuffet.Data.Menu
         }
 
         /// <summary>
-        /// Just uses the filter function. Why should I make some static functions for the exact same purpose
+        /// Just uses the filter function. Sorry, not gonna make unneccessary functions. 
+        /// the 'where' function can take care of all the functionality without making 4 seperate functions.
         /// </summary>
         /// <param name="list"> the list </param>
         /// <param name="filter"> the filter function </param>
         /// <returns></returns>
-        public static void Filter(List<IOrderItem> list, Func<IOrderItem, bool> filter)
+        public static void Filter(ref List<IOrderItem> list, Func<IOrderItem, bool> filter)
         {
             list = list.Where(filter).ToList();
         }

@@ -15,10 +15,14 @@
     <div class="main-container">
         <div class="sidebar">
             <form class="sidebar">
-            <label class="filter-title"><strong>Filter</strong></label>
+            <label class="filter-title"><strong>Search</strong></label>
                 <div class="type-checkbox">
-                    <div><input type="checkbox" name="ItemType" value="Drinks" checked="@Model.ItemType.Contains("Drinks")"/><label>&nbsp; Drinks</label></div>
+                    <input type="text" placeholder="text" value="@Model.Text" name="text" />
+                </div>
+            <label class="filter-title"><strong>Type</strong></label>
+                <div class="type-checkbox">
                     <div><input type="checkbox" name="ItemType" value="Entrees" checked="@Model.ItemType.Contains("Entrees")"/><label>&nbsp; Entrees</label></div>
+                    <div><input type="checkbox" name="ItemType" value="Drinks" checked="@Model.ItemType.Contains("Drinks")"/><label>&nbsp; Drinks</label></div>
                     <div><input type="checkbox" name="ItemType" value="Sides" checked="@Model.ItemType.Contains("Sides")"/><label>&nbsp; Side</label></div>
                 </div>
                 <label class="filter-title"><strong>Calories</strong></label>
@@ -32,7 +36,7 @@
                     <input type="number" name="PriceMax" placeholder="max" min="0" step="0.25" value="@Model.PriceMax"/>
                 </div>
                 <br />
-                <input type="submit" value="Search"/>
+                <input class="search-button" type="submit" value="Search"/>
             </form>
         </div>
         <div class="item-container">
@@ -193,7 +197,7 @@
     }
 
     .number-filter > input {
-        width: 55px;
+        width: 75px;
     }
 
     .sidebar {
@@ -206,7 +210,8 @@
     .sidebar > form {
         border: solid 1px gray;
         margin: 10px;
-        padding: 5px;
+        padding: 15px;
+        max-height: 440px;
     }
 
     .type-checkbox {
@@ -218,6 +223,15 @@
 
     .filter-title {
         font-size: 15px;
-        border-bottom: solid 1px red;
+        margin-bottom: 10px;
+        margin-top:10px;
+        border-bottom: solid 1px cyan;
+    }
+
+    .search-button {
+        width: 100%;
+        color: whitesmoke;
+        text-decoration: double;
+        background: red;
     }
 </style>
