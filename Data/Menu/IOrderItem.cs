@@ -53,5 +53,10 @@ namespace BleakwindBuffet.Data.Menu
         /// Represents the calories
         /// </summary>
         uint Calories { get; }
+
+        /// <summary>
+        /// This is a description
+        /// </summary>
+        string Description { get; }
     }
 }

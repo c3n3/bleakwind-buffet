@@ -15,6 +15,11 @@ namespace BleakwindBuffet.Data.Entrees
     public class ThalmorTriple: Entree
     {
 		/// <summary>
+		/// Description
+		/// </summary>
+		public override string Description => "Think you are strong enough to take on the Thalmor? Inlcudes two 1/4lb patties with a 1/2lb patty inbetween with ketchup, mustard, pickle, cheese, tomato, lettuce, mayo, bacon, and an egg.";
+
+		/// <summary>
 		/// Property Changed event handler
 		/// </summary>
 		public override event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;

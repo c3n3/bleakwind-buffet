@@ -15,6 +15,11 @@ namespace BleakwindBuffet.Data.Sides
     /// </summary>
     public class MadOtarGrits: Side
     {
+		/// <summary>
+		/// Description
+		/// </summary>
+		public override string Description => "Cheesey Grits.";
+
         /// <summary>
         /// Property Changed event handler
         /// </summary>

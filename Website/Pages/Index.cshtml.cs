@@ -120,6 +120,9 @@ namespace Website.Pages
             for (int j = 0; j < items.Keys.Count; j++)
             {
                 var type = items.Keys.ToList()[j];
+
+                // Haha, thats funny code (also jank, but makes less code
+                var tx = !ItemType.Contains(type) ? "*#&^#$*(&^@#&*$^&*(@" : text;
                 for (int i = 0; i < items[type].Keys.Count; i++)
                 {
                     var itemName = items[type].Keys.ToList()[i];
@@ -127,7 +130,18 @@ namespace Website.Pages
                     if (PriceMax != null) items[type][itemName] = items[type][itemName].Where(x => x.Price <= PriceMax).ToList();
                     if (CalMax != null) items[type][itemName] = items[type][itemName].Where(x => x.Calories <= CalMax).ToList(); 
                     if (CalMin != null) items[type][itemName] = items[type][itemName].Where(x => x.Calories >= CalMin).ToList(); 
-                    if (text != null) items[type][itemName] = items[type][itemName].Where(x => x.Name.Contains(text, StringComparison.CurrentCultureIgnoreCase)).ToList(); 
+                    if (tx != null)
+                    {
+                        List<IOrderItem> result = new List<IOrderItem>();
+                        foreach (var t in tx.Split(' '))
+                        {
+                            result.AddRange(items[type][itemName].Where(
+                                x => x.Name.Contains(t, StringComparison.CurrentCultureIgnoreCase) 
+                                  || x.Description.Contains(t, StringComparison.CurrentCultureIgnoreCase)
+                                )); 
+                        }
+                        items[type][itemName] = result;
+                    }
                 }
             }
 

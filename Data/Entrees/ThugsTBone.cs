@@ -14,6 +14,11 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class ThugsTBone: Entree
     {
+		/// <summary>
+		/// Description
+		/// </summary>
+		public override string Description => "Juicy T-Bone, not much else to say.";
+
         /// <summary>
         /// Property Changed event handler
         /// </summary>

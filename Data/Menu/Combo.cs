@@ -241,5 +241,10 @@ namespace BleakwindBuffet.Data.Menu
         /// <param name="property"> This is the property </param>
         /// <returns> The value </returns>
         public object this[string property] { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        /// <summary>
+        /// Description
+        /// </summary>
+        public string Description => "Its a combo";
     }
 }

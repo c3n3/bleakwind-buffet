@@ -14,6 +14,11 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class PhillyPoacher: Entree
     {
+		/// <summary>
+		/// Description
+		/// </summary>
+		public override string Description => "Cheesesteak sandwich made from grilled sirloin, topped with onions on a fried roll.";
+
         /// <summary>
         /// Property Changed event handler
         /// </summary>

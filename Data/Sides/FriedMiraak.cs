@@ -15,6 +15,11 @@ namespace BleakwindBuffet.Data.Sides
     /// </summary>
     public class FriedMiraak: Side
     {
+		/// <summary>
+		/// Description
+		/// </summary>
+		public override string Description => "Perfectly prepared hash brown pancakes.";
+
         /// <summary>
         /// Property Changed event handler
         /// </summary>

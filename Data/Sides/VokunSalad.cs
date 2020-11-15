@@ -15,6 +15,11 @@ namespace BleakwindBuffet.Data.Sides
     /// </summary>
     public class VokunSalad: Side
     {
+		/// <summary>
+		/// Description
+		/// </summary>
+		public override string Description => "A seasonal fruit salad of mellons, berries, mango, grape, apple, and oranges.";
+
         /// <summary>
         /// Property Changed event handler
         /// </summary>

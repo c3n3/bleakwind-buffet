@@ -111,5 +111,10 @@ namespace BleakwindBuffet.Data.Sides
                 return a;
             }
         }
+
+        /// <summary>
+        /// Description
+        /// </summary>
+        public virtual string Description => "Side";
     }
 }

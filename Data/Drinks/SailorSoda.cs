@@ -17,6 +17,11 @@ namespace BleakwindBuffet.Data.Drinks
     public class SailorSoda : Drink
     {
         /// <summary>
+        /// This is the description
+        /// </summary>
+        public override string Description => "An old-fashioned jerked soda, carbonated water and flavored syrup poured over a bed of crushed ice.";
+
+        /// <summary>
         /// Property Changed event handler
         /// </summary>
         public override event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;

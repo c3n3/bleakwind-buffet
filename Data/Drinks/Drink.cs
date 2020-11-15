@@ -109,5 +109,10 @@ namespace BleakwindBuffet.Data.Drinks
                 return a;
             }
         }
+
+        /// <summary>
+        /// Description for drink
+        /// </summary>
+        public virtual string Description => "Drink";
     }
 }

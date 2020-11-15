@@ -14,6 +14,11 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class GardenOrcOmelette: Entree
     {
+		/// <summary>
+		/// Description
+		/// </summary>
+		public override string Description => "Vegetarian. Two egg omelette packed with a mix of broccoli, mushrooms, and tomatoes. Topped with cheddar cheese.";
+
         public override event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>

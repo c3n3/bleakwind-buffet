@@ -95,5 +95,10 @@ namespace BleakwindBuffet.Data.Entrees
         /// Default for classes is an empty dictionary.
         /// </summary>
         public virtual Dictionary<string, List<object>> EnumOptions => new Dictionary<string, List<object>>();
+
+        /// <summary>
+        /// Description
+        /// </summary>
+        public virtual string Description => "Entree";
     }
 }

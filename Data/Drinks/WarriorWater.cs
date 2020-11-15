@@ -16,6 +16,11 @@ namespace BleakwindBuffet.Data.Drinks
     public class WarriorWater: Drink
     {
         /// <summary>
+        /// Description
+        /// </summary>
+        public override string Description => "It’s water. Just water.";
+
+        /// <summary>
         /// Property Changed event handler
         /// </summary>
         public override event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;

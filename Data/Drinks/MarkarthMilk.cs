@@ -16,6 +16,11 @@ namespace BleakwindBuffet.Data.Drinks
     public class MarkarthMilk: Drink
     {
         /// <summary>
+        /// This is the description
+        /// </summary>
+        public override string Description => "Hormone-free organic 2% milk.";
+
+        /// <summary>
         /// Property Changed event handler
         /// </summary>
         public override event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;

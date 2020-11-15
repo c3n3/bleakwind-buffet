@@ -19,6 +19,15 @@ namespace BleakwindBuffet.DataTests.UnitTests.MenuTests
    public class MenuStaticTests
    {
         [Fact]
+        public void AllItemsHaveDescription()
+        {
+            foreach (var item in Menu.FullMenu())
+            {
+                Assert.NotEmpty(item.Description);
+            }
+        }
+
+        [Fact]
         public void DrinksContainOnlyDrinks()
         {
             Assert.All(Menu.Drinks(), item => {

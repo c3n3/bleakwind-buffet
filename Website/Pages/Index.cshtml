@@ -13,90 +13,105 @@
         You’ve had a hard adventure and earned your loot, so spend it with us!.
     </p>
     <div class="main-container">
-        <div class="sidebar">
             <form class="sidebar">
-            <label class="filter-title"><strong>Search</strong></label>
-                <div class="type-checkbox">
-                    <input type="text" placeholder="text" value="@Model.Text" name="text" />
+                <div class="search-setting">
+                    <label class="filter-title"><strong>Search</strong></label>
+                    <div class="type-checkbox">
+                        <input type="text" placeholder="text" value="@Model.Text" name="text" />
+                    </div>
                 </div>
-            <label class="filter-title"><strong>Type</strong></label>
-                <div class="type-checkbox">
-                    <div><input type="checkbox" name="ItemType" value="Entrees" checked="@Model.ItemType.Contains("Entrees")"/><label>&nbsp; Entrees</label></div>
-                    <div><input type="checkbox" name="ItemType" value="Drinks" checked="@Model.ItemType.Contains("Drinks")"/><label>&nbsp; Drinks</label></div>
-                    <div><input type="checkbox" name="ItemType" value="Sides" checked="@Model.ItemType.Contains("Sides")"/><label>&nbsp; Side</label></div>
+                <div class="search-setting">
+                    <label class="filter-title"><strong>Type</strong></label>
+                    <div class="type-checkbox">
+                        <div><input type="checkbox" name="ItemType" value="Entrees" checked="@Model.ItemType.Contains("Entrees")" /><label>&nbsp; Entrees</label></div>
+                        <div><input type="checkbox" name="ItemType" value="Drinks" checked="@Model.ItemType.Contains("Drinks")" /><label>&nbsp; Drinks</label></div>
+                        <div><input type="checkbox" name="ItemType" value="Sides" checked="@Model.ItemType.Contains("Sides")" /><label>&nbsp; Side</label></div>
+                    </div>
                 </div>
-                <label class="filter-title"><strong>Calories</strong></label>
-                <div class="number-filter">
-                    <input type="number" name="CalMin" placeholder="min" min="0" step="25" value="@Model.CalMin"/>
-                    <input type="number" name="CalMax" placeholder="max" min="0" step="25" value="@Model.CalMax"/>
+                <div class="search-setting">
+                    <label class="filter-title"><strong>Calories</strong></label>
+                    <div class="number-filter">
+                        <input type="number" name="CalMin" placeholder="min" min="0" step="25" value="@Model.CalMin" />
+                        <input type="number" name="CalMax" placeholder="max" min="0" step="25" value="@Model.CalMax" />
+                    </div>
                 </div>
-                <label class="filter-title"><strong>Price</strong></label>
-                <div class="number-filter">
-                    <input type="number" name="PriceMin" placeholder="min" min="0" step="0.25" value="@Model.PriceMin"/>
-                    <input type="number" name="PriceMax" placeholder="max" min="0" step="0.25" value="@Model.PriceMax"/>
+                <div class="search-setting">
+                    <label class="filter-title"><strong>Price</strong></label>
+                    <div class="number-filter">
+                        <input type="number" name="PriceMin" placeholder="min" min="0" step="0.25" value="@Model.PriceMin" />
+                        <input type="number" name="PriceMax" placeholder="max" min="0" step="0.25" value="@Model.PriceMax" />
+                    </div>
                 </div>
                 <br />
                 <input class="search-button" type="submit" value="Search"/>
             </form>
-        </div>
         <div class="item-container">
-            <div class="type-container">
-                <h2 class="item-title">Entrees</h2>
-                @if (Model.ItemType.Contains("Entrees") && Model.items["Entrees"].Values.Count != 0)
-                    @foreach (var kv in Model.items["Entrees"])
-                    {
-                        @if (kv.Value.Count != 0)
+            @if (Model.items["Entrees"].Any(x => x.Value.Count != 0))
+            { 
+                <div class="type-container">
+                    <h2 class="item-title">Entrees</h2>
+                        @foreach (var kv in Model.items["Entrees"])
                         {
-                            <div class="menu-item">
-                                <p class="item-name">@kv.Key</p>
-                                @foreach (BleakwindBuffet.Data.Entrees.Entree item in kv.Value)
-                                {
-                                    <div class="item-info">
-                                        <p>$@item.Price | @item.Calories cal</p>
-                                    </div>
-                                }
-                            </div>
-                        }
-                    }
-            </div>
-            <div class="type-container">
-                <h2 class="item-title">Drinks</h2>
-                @if (Model.ItemType.Contains("Drinks"))
-                @foreach (var kv in Model.items["Drinks"])
-                {
-                    @if (kv.Value.Count != 0)
-                    {
-                        <div class="menu-item">
-                            <p class="item-name">@kv.Key</p>
-                            @foreach (BleakwindBuffet.Data.Drinks.Drink item in kv.Value)
+                            @if (kv.Value.Count != 0)
                             {
-                                <div class="item-info">
-                                    <h4>@item.Size</h4><div> -> </div><p>$@item.Price | @item.Calories cal</p>
+                                <div class="menu-item">
+                                    <p class="item-name">@kv.Key</p>
+                                    @foreach (BleakwindBuffet.Data.Entrees.Entree item in kv.Value)
+                                    {
+                                        <div class="item-info">
+                                            <p>$@item.Price | @item.Calories cal</p>
+                                        </div>
+                                    }
+                                    <p class="item-info description">@kv.Value.First().Description</p>
                                 </div>
                             }
-                        </div>
-                     }
-                }
-            </div>
-            <div class="type-container">
-                <h2 class="item-title">Sides</h2>
-                @if (Model.ItemType.Contains("Sides") && Model.items["Sides"].Values.Count != 0)
-                    @foreach (var kv in Model.items["Sides"])
-                    {
-                        @if (kv.Value.Count != 0)
-                        {
-                            <div class="menu-item">
-                                <p class="item-name">@kv.Key</p>
-                                @foreach (BleakwindBuffet.Data.Sides.Side item in kv.Value)
-                                {
-                                    <div class="item-info">
-                                        <h4>@item.Size</h4><div> -> </div><p>$@item.Price | @item.Calories cal</p>
-                                    </div>
-                                }
-                            </div>
                         }
-                    }
-            </div>
+                </div>
+            }
+            @if (Model.items["Drinks"].Any(x => x.Value.Count != 0))
+            {
+                <div class="type-container">
+                    <h2 class="item-title">Drinks</h2>
+                        @foreach (var kv in Model.items["Drinks"])
+                        {
+                            @if (kv.Value.Count != 0)
+                            {
+                                <div class="menu-item">
+                                    <p class="item-name">@kv.Key</p>
+                                    @foreach (BleakwindBuffet.Data.Drinks.Drink item in kv.Value)
+                                    {
+                                        <div class="item-info">
+                                            <h4>@item.Size</h4><div> -> </div><p>$@item.Price | @item.Calories cal</p>
+                                        </div>
+                                    }
+                                    <p class="item-info description">@kv.Value.First().Description</p>
+                                </div>
+                            }
+                        }
+                </div>
+            }
+            @if (Model.items["Sides"].Any(x => x.Value.Count != 0))
+            {
+                <div class="type-container">
+                    <h2 class="item-title">Sides</h2>
+                        @foreach (var kv in Model.items["Sides"])
+                        {
+                            @if (kv.Value.Count != 0)
+                            {
+                                <div class="menu-item">
+                                    <p class="item-name">@kv.Key</p>
+                                    @foreach (BleakwindBuffet.Data.Sides.Side item in kv.Value)
+                                    {
+                                        <div class="item-info">
+                                            <h4>@item.Size</h4><div> -> </div><p>$@item.Price | @item.Calories cal</p>
+                                        </div>
+                                    }
+                                    <p class="item-info description">@kv.Value.First().Description</p>
+                                </div>
+                            }
+                        }
+                </div>
+            }
             <div class="type-container flavor-container">
                 <h2 class="type-title">Sailor Soda Flavors</h2>
                 @foreach (var flavor in Enum.GetValues(typeof(BleakwindBuffet.Data.Enums.SodaFlavor)))
@@ -112,7 +127,21 @@
         <p><strong>Combine any side, entree, and drink for a $1 discount!</strong></p>
     </div>
 </div>
+
 <style>
+
+    .search-setting {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+    }
+
+    .description {
+        border-top: solid gray 1px;
+        text-align: left;
+        margin-bottom: 0;
+    }
+
     .item-container {
         display: flex;
         flex-direction: row;
@@ -121,6 +150,22 @@
         padding: 10px 20px 0 20px;
     }
 
+    .item-info > * {
+        margin-bottom: 5px;
+    }
+
+    @@media (max-width: 490px){
+        .item-container {
+            flex-direction: column;
+        }
+
+        .main-container {
+            flex-direction: column !important;
+        }
+        .sidebar {
+            align-items: center !important;
+        }
+    }
     .type-container {
         padding: 10px;
         margin: 10px;
@@ -183,12 +228,14 @@
 
     .item-name {
         font-size: 16px;
+        margin-bottom: 5px;
     }
 
     .main-container {
         display: flex;
         flex-direction: row;
     }
+
 
     .number-filter {
         display: flex;
@@ -219,6 +266,7 @@
         align-items: flex-start;
         flex-direction: column;
         margin-left: 10px;
+        margin-right: 10px;
     }
 
     .filter-title {
